@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DM Cortex</title>
+    <script>
+      // GitHub Pages fallback for SPA routes.
+      // Redirect the requested path to the app entry point while preserving it.
+      const path = window.location.pathname;
+      const repo = '/DM-cortex/';
+      if (path.startsWith(repo) && path !== repo) {
+        const route = path.slice(repo.length);
+        window.location.replace(repo + '?p=' + encodeURIComponent('/' + route + window.location.search + window.location.hash));
+      } else {
+        window.location.replace(repo);
+      }
+    </script>
+  </head>
+  <body>
+    <p>Cargando DM Cortex…</p>
+  </body>
+</html>
