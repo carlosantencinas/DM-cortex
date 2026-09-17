@@ -3,6 +3,7 @@ import { useAuth } from './context/AuthContext';
 import Login from './components/Login.jsx';
 import DmDashboard from './components/DmDashboard.jsx';
 import CharacterSheet from './components/CharacterSheet.jsx';
+import CharacterManager from './components/CharacterManager.jsx';
 import CampaignLobby from './components/CampaignLobby.jsx';
 import NavBar from './components/NavBar.jsx';
 
@@ -21,9 +22,11 @@ export default function App() {
       <main className="app-main">
         <Routes>
           <Route path="/login" element={user ? <Navigate to="/" replace /> : <Login />} />
-          <Route path="/" element={<PrivateRoute><CampaignLobby /></PrivateRoute>} />
+          <Route path="/" element={<PrivateRoute><CharacterManager /></PrivateRoute>} />
+          <Route path="/personajes" element={<PrivateRoute><CharacterManager /></PrivateRoute>} />
+          <Route path="/personaje/:characterId" element={<PrivateRoute><CharacterSheet /></PrivateRoute>} />
+          <Route path="/personaje" element={<PrivateRoute><CharacterManager /></PrivateRoute>} />
           <Route path="/campana" element={<PrivateRoute><CampaignLobby /></PrivateRoute>} />
-          <Route path="/personaje" element={<PrivateRoute><CharacterSheet /></PrivateRoute>} />
           <Route path="/dm" element={<PrivateRoute><DmDashboard /></PrivateRoute>} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
