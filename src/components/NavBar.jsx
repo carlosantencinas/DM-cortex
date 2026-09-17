@@ -1,19 +1,23 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 export default function NavBar() {
   const { user, logout } = useAuth();
+  const location = useLocation();
+
+  if (!user) return null;
+
+  const active = path => location.pathname === path;
 
   return (
     <header className="navbar">
-      <Link to="/personaje" className="navbar-brand">🎲 Mesa de Juego</Link>
-      {user && (
-        <nav className="navbar-links">
-          <Link to="/personaje">Mi hoja</Link>
-          <Link to="/dm">Panel del DM</Link>
-          <button onClick={logout} className="link-button">Salir ({user.displayName})</button>
-        </nav>
-      )}
+      <Link to="/" className="navbar-brand"><span className="brand-mark">🎲</span>DM CORTEX</Link>
+      <nav className="navbar-links">
+        <Link className={active('/') || active('/campana') ? 'nav-active' : ''} to="/">Campaña</Link>
+        <Link className={active('/personaje') ? 'nav-active' : ''} to="/personaje">Mi hoja</Link>
+        <Link className={active('/dm') ? 'nav-active' : ''} to="/dm">Panel del DM</Link>
+        <button onClick={logout} className="link-button">Salir ({user.displayName || user.email})</button>
+      </nav>
     </header>
   );
 }
