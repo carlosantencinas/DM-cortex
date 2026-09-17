@@ -6,10 +6,11 @@ service cloud.firestore {
     function campaignDoc(campaignId) { return get(/databases/$(database)/documents/campaigns/$(campaignId)); }
     function isDm(campaignId) { return signedIn() && campaignDoc(campaignId).data.dmUid == request.auth.uid; }
     function isMember(campaignId) { return signedIn() && exists(/databases/$(database)/documents/campaigns/$(campaignId)/members/$(request.auth.uid)); }
+    function isCharacterOwner() { return signedIn() && resource.data.ownerUid == request.auth.uid; }
+    function canJoinCampaign(campaignId) { return signedIn() && isMember(campaignId); }
 
     match /users/{userId} {
-      allow read, create, update: if signedIn() && request.auth.uid == userId;
-      allow delete: if signedIn() && request.auth.uid == userId;
+      allow read, create, update, delete: if signedIn() && request.auth.uid == userId;
       match /characters/{characterId} {
         allow read, create, update, delete: if signedIn() && request.auth.uid == userId;
       }
@@ -46,10 +47,16 @@ service cloud.firestore {
           || (signedIn() && userId == request.auth.uid && resource.data.role == 'player');
       }
 
-      match /characters/{charUid} {
-        allow read: if isDm(campaignId) || (isMember(campaignId) && request.auth.uid == charUid);
-        allow create, update: if isMember(campaignId) && request.auth.uid == charUid;
-        allow delete: if isDm(campaignId) || (isMember(campaignId) && request.auth.uid == charUid);
+      match /characters/{characterId} {
+        allow read: if isDm(campaignId) || (isMember(campaignId) && resource.data.ownerUid == request.auth.uid);
+        allow create: if isMember(campaignId)
+          && request.resource.data.ownerUid == request.auth.uid
+          && request.resource.data.campaignId == campaignId;
+        allow update: if isMember(campaignId)
+          && resource.data.ownerUid == request.auth.uid
+          && request.resource.data.ownerUid == request.auth.uid
+          && request.resource.data.campaignId == campaignId;
+        allow delete: if isDm(campaignId) || (isMember(campaignId) && resource.data.ownerUid == request.auth.uid);
       }
     }
   }
