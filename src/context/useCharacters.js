@@ -1,16 +1,23 @@
 import { useCallback, useEffect, useState } from 'react';
-import {
-  collection,
-  deleteDoc,
-  doc,
-  onSnapshot,
-  serverTimestamp,
-  setDoc,
-} from 'firebase/firestore';
+import { collection, deleteDoc, doc, onSnapshot, serverTimestamp, setDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 import { useAuth } from './AuthContext';
 
 const ACTIVE_KEY = 'dnd-cortex:activeCharacterId';
+
+function blankCharacter(user, seed = {}) {
+  return {
+    name: 'Nuevo personaje', player: user.displayName || '', class: '', subclass: '', level: 1,
+    race: '', background: '', alignment: '', size: 'Mediano', xp: 0, proficiencyBonus: 2,
+    speed: 9, ac: 10, initiative: 0, passivePerception: 10,
+    stats: { for: 10, des: 10, con: 10, int: 10, sab: 10, car: 10 },
+    savingThrows: {}, skills: {},
+    hp: { actual: 10, max: 10, temp: 0 }, hitDice: '1d10',
+    spells: [], inventory: '', attacks: [], features: '', personality: '', ideals: '', bonds: '', flaws: '',
+    languages: 'Común', proficiencies: '', notes: '', campaignId: null,
+    ownerUid: user.uid, createdAt: serverTimestamp(), updatedAt: serverTimestamp(), ...seed,
+  };
+}
 
 export function useCharacters() {
   const { user } = useAuth();
@@ -18,36 +25,17 @@ export function useCharacters() {
   const [activeCharacterId, setActiveCharacterId] = useState(() => localStorage.getItem(ACTIVE_KEY));
 
   useEffect(() => {
-    if (!user) {
-      setCharacters([]);
-      return undefined;
-    }
-
-    const ref = collection(db, 'users', user.uid, 'characters');
-    return onSnapshot(ref, snapshot => {
-      const items = snapshot.docs
-        .map(item => ({ id: item.id, ...item.data() }))
-        .sort((a, b) => (a.name || '').localeCompare(b.name || '', 'es'));
-      setCharacters(items);
-    });
+    if (!user) { setCharacters([]); return undefined; }
+    return onSnapshot(collection(db, 'users', user.uid, 'characters'), snapshot => {
+      setCharacters(snapshot.docs.map(item => ({ id: item.id, ...item.data() }))
+        .sort((a, b) => (a.name || '').localeCompare(b.name || '', 'es')));
+    }, () => setCharacters([]));
   }, [user]);
 
   const createCharacter = useCallback(async (seed = {}) => {
     if (!user) throw new Error('Debes iniciar sesión para crear un personaje.');
     const ref = doc(collection(db, 'users', user.uid, 'characters'));
-    const character = {
-      name: seed.name || 'Nuevo personaje',
-      class: seed.class || '',
-      level: Number(seed.level || 1),
-      race: seed.race || '',
-      background: seed.background || '',
-      campaignId: seed.campaignId || null,
-      ownerUid: user.uid,
-      createdAt: serverTimestamp(),
-      updatedAt: serverTimestamp(),
-      ...seed,
-    };
-    await setDoc(ref, character);
+    await setDoc(ref, blankCharacter(user, seed));
     localStorage.setItem(ACTIVE_KEY, ref.id);
     setActiveCharacterId(ref.id);
     return ref.id;
@@ -55,49 +43,25 @@ export function useCharacters() {
 
   const updateCharacter = useCallback(async (characterId, data) => {
     if (!user || !characterId) return;
-    await setDoc(doc(db, 'users', user.uid, 'characters', characterId), {
-      ...data,
-      ownerUid: user.uid,
-      updatedAt: serverTimestamp(),
-    }, { merge: true });
+    await setDoc(doc(db, 'users', user.uid, 'characters', characterId), { ...data, ownerUid: user.uid, updatedAt: serverTimestamp() }, { merge: true });
   }, [user]);
 
   const deleteCharacter = useCallback(async characterId => {
     if (!user || !characterId) return;
     await deleteDoc(doc(db, 'users', user.uid, 'characters', characterId));
-    if (activeCharacterId === characterId) {
-      localStorage.removeItem(ACTIVE_KEY);
-      setActiveCharacterId(null);
-    }
+    if (activeCharacterId === characterId) { localStorage.removeItem(ACTIVE_KEY); setActiveCharacterId(null); }
   }, [user, activeCharacterId]);
 
   const duplicateCharacter = useCallback(async character => {
-    const copy = { ...character };
-    delete copy.id;
-    delete copy.createdAt;
-    delete copy.updatedAt;
+    const copy = { ...character }; delete copy.id; delete copy.createdAt; delete copy.updatedAt;
     copy.name = `${character.name || 'Personaje'} — copia`;
     return createCharacter(copy);
   }, [createCharacter]);
 
   const selectCharacter = useCallback(characterId => {
-    if (!characterId) {
-      localStorage.removeItem(ACTIVE_KEY);
-      setActiveCharacterId(null);
-      return;
-    }
-    localStorage.setItem(ACTIVE_KEY, characterId);
-    setActiveCharacterId(characterId);
+    if (!characterId) { localStorage.removeItem(ACTIVE_KEY); setActiveCharacterId(null); return; }
+    localStorage.setItem(ACTIVE_KEY, characterId); setActiveCharacterId(characterId);
   }, []);
 
-  return {
-    characters,
-    activeCharacterId,
-    activeCharacter: characters.find(character => character.id === activeCharacterId) || null,
-    createCharacter,
-    updateCharacter,
-    deleteCharacter,
-    duplicateCharacter,
-    selectCharacter,
-  };
+  return { characters, activeCharacterId, activeCharacter: characters.find(c => c.id === activeCharacterId) || null, createCharacter, updateCharacter, deleteCharacter, duplicateCharacter, selectCharacter };
 }
