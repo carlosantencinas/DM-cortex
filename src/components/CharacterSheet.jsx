@@ -1,117 +1,45 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { doc, onSnapshot, setDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../firebase';
 import { useAuth } from '../context/AuthContext';
 import { useCampaign } from '../context/useCampaign';
 import SpellPicker from './SpellPicker.jsx';
 
-const BLANK_CHARACTER = {
-  name: '', class: '', level: 1, race: '',
-  stats: { for: 10, des: 10, con: 10, int: 10, sab: 10, car: 10 },
-  hp: { actual: 10, max: 10 },
-  spells: [], // array de nombres/índices de hechizo elegidos
-  inventory: '',
-};
+const STATS = [['for','Fuerza'],['des','Destreza'],['con','Constitución'],['int','Inteligencia'],['sab','Sabiduría'],['car','Carisma']];
+const SKILLS = ['Acrobacias','Arcanos','Atletismo','Engaño','Historia','Interpretación','Intimidación','Investigación','Juego de Manos','Medicina','Naturaleza','Percepción','Perspicacia','Persuasión','Religión','Supervivencia','Trato con Animales','Sigilo'];
+const SKILL_STAT = ['des','int','for','car','int','car','car','int','des','sab','int','sab','sab','car','int','sab','sab','des'];
+const BLANK = {name:'',player:'',class:'',level:1,race:'',background:'',alignment:'',xp:0,proficiencyBonus:2,speed:9,ac:10,initiative:0,passivePerception:10,hitDice:'1d8',stats:{for:10,des:10,con:10,int:10,sab:10,car:10},savingThrows:{},skills:{},hp:{actual:10,max:10,temp:0},spells:[],inventory:'',attacks:[],features:'',personality:'',ideals:'',bonds:'',flaws:'',languages:'',proficiencies:'',notes:''};
+const mod = n => Math.floor((Number(n || 10)-10)/2);
+const signed = n => `${n >= 0 ? '+' : ''}${n}`;
 
-export default function CharacterSheet() {
-  const { user } = useAuth();
-  const { campaignId, campaign, createCampaign, joinCampaignByCode } = useCampaign();
-  const [character, setCharacter] = useState(BLANK_CHARACTER);
-  const [joinCode, setJoinCode] = useState('');
-  const [newCampaignName, setNewCampaignName] = useState('');
-  const [status, setStatus] = useState('');
-
-  useEffect(() => {
-    if (!campaignId || !user) return;
-    const ref = doc(db, 'campaigns', campaignId, 'characters', user.uid);
-    const unsub = onSnapshot(ref, (snap) => {
-      if (snap.exists()) setCharacter({ ...BLANK_CHARACTER, ...snap.data() });
-    });
-    return unsub;
-  }, [campaignId, user]);
-
-  async function save(next) {
-    setCharacter(next);
-    if (!campaignId || !user) return;
-    const ref = doc(db, 'campaigns', campaignId, 'characters', user.uid);
-    await setDoc(ref, { ...next, ownerUid: user.uid, updatedAt: serverTimestamp() }, { merge: true });
-  }
-
-  if (!campaignId) {
-    return (
-      <div className="onboarding">
-        <h2>Unite a una campaña</h2>
-        <p>Pedile a tu DM el código de invitación, o creá una campaña nueva si vos sos el DM.</p>
-        <div className="onboarding-row">
-          <input placeholder="Código de invitación" value={joinCode} onChange={(e) => setJoinCode(e.target.value)} />
-          <button className="btn-primary" onClick={async () => {
-            try { await joinCampaignByCode(joinCode); }
-            catch (e) { setStatus(e.message); }
-          }}>Unirme</button>
-        </div>
-        <hr />
-        <div className="onboarding-row">
-          <input placeholder="Nombre de campaña nueva" value={newCampaignName} onChange={(e) => setNewCampaignName(e.target.value)} />
-          <button className="btn-secondary" onClick={() => createCampaign(newCampaignName)}>Crear campaña (soy el DM)</button>
-        </div>
-        {status && <p className="error">{status}</p>}
-      </div>
-    );
-  }
-
-  return (
-    <div className="character-sheet">
-      {campaign && (
-        <p className="campaign-badge">
-          Campaña: <strong>{campaign.name}</strong> · Código para invitar: <code>{campaign.inviteCode}</code>
-        </p>
-      )}
-
-      <section className="sheet-header">
-        <input placeholder="Nombre del personaje" value={character.name}
-          onChange={(e) => save({ ...character, name: e.target.value })} />
-        <input placeholder="Clase" value={character.class}
-          onChange={(e) => save({ ...character, class: e.target.value })} />
-        <input placeholder="Raza / Especie" value={character.race}
-          onChange={(e) => save({ ...character, race: e.target.value })} />
-        <input type="number" min="1" max="20" value={character.level}
-          onChange={(e) => save({ ...character, level: Number(e.target.value) })} />
-      </section>
-
-      <section className="sheet-stats">
-        {Object.entries(character.stats).map(([key, value]) => (
-          <label key={key} className="stat-box">
-            <span>{key.toUpperCase()}</span>
-            <input type="number" value={value}
-              onChange={(e) => save({ ...character, stats: { ...character.stats, [key]: Number(e.target.value) } })} />
-          </label>
-        ))}
-      </section>
-
-      <section className="sheet-hp">
-        <label>PV actuales
-          <input type="number" value={character.hp.actual}
-            onChange={(e) => save({ ...character, hp: { ...character.hp, actual: Number(e.target.value) } })} />
-        </label>
-        <label>PV máximos
-          <input type="number" value={character.hp.max}
-            onChange={(e) => save({ ...character, hp: { ...character.hp, max: Number(e.target.value) } })} />
-        </label>
-      </section>
-
-      <section className="sheet-spells">
-        <h3>Hechizos</h3>
-        <SpellPicker
-          selected={character.spells}
-          onChange={(spells) => save({ ...character, spells })}
-        />
-      </section>
-
-      <section className="sheet-inventory">
-        <h3>Inventario</h3>
-        <textarea value={character.inventory} rows={6}
-          onChange={(e) => save({ ...character, inventory: e.target.value })} />
-      </section>
-    </div>
-  );
+export default function CharacterSheet(){
+  const {user}=useAuth(); const {campaignId,campaign,createCampaign,joinCampaignByCode}=useCampaign();
+  const [character,setCharacter]=useState(BLANK),[joinCode,setJoinCode]=useState(''),[newCampaignName,setNewCampaignName]=useState(''),[status,setStatus]=useState('');
+  useEffect(()=>{if(!campaignId||!user)return;const ref=doc(db,'campaigns',campaignId,'characters',user.uid);return onSnapshot(ref,s=>{if(s.exists()){const d=s.data();setCharacter({...BLANK,...d,stats:{...BLANK.stats,...d.stats},hp:{...BLANK.hp,...d.hp}})}})},[campaignId,user]);
+  async function save(next){setCharacter(next);if(!campaignId||!user)return;await setDoc(doc(db,'campaigns',campaignId,'characters',user.uid),{...next,ownerUid:user.uid,updatedAt:serverTimestamp()},{merge:true});}
+  const update=(key,value)=>save({...character,[key]:value});
+  const stats=useMemo(()=>STATS.map(([k,l])=>({k,l,v:character.stats[k],m:mod(character.stats[k])})),[character.stats]);
+  const hpPct=Math.max(0,Math.min(100,(character.hp.actual/Math.max(1,character.hp.max))*100));
+  if(!campaignId)return <div className="onboarding"><div className="eyebrow">DM CORTEX</div><h2>Entra en tu aventura</h2><p className="muted">Únete con el código de tu DM o crea una campaña propia.</p><div className="onboarding-row"><input placeholder="Código de invitación" value={joinCode} onChange={e=>setJoinCode(e.target.value.toUpperCase())}/><button className="btn-primary" onClick={async()=>{try{await joinCampaignByCode(joinCode)}catch(e){setStatus(e.message)}}}>Unirme</button></div><hr/><div className="onboarding-row"><input placeholder="Nombre de campaña nueva" value={newCampaignName} onChange={e=>setNewCampaignName(e.target.value)}/><button className="btn-secondary" onClick={()=>createCampaign(newCampaignName)}>Crear campaña</button></div>{status&&<p className="error">{status}</p>}</div>;
+  return <div className="character-sheet">
+    {campaign&&<div className="campaign-badge"><span>Campaña <strong>{campaign.name}</strong></span><span>Código <code>{campaign.inviteCode}</code></span></div>}
+    <div className="sheet-hero"><div className="hero-fields">
+      <label className="field"><span>Nombre</span><input className="hero-name" value={character.name} onChange={e=>update('name',e.target.value)}/></label>
+      <label className="field"><span>Clase</span><input value={character.class} onChange={e=>update('class',e.target.value)}/></label>
+      <label className="field"><span>Nivel</span><input type="number" min="1" max="20" value={character.level} onChange={e=>update('level',Number(e.target.value))}/></label>
+      <label className="field"><span>Especie</span><input value={character.race} onChange={e=>update('race',e.target.value)}/></label>
+      <label className="field"><span>Trasfondo</span><input value={character.background} onChange={e=>update('background',e.target.value)}/></label>
+    </div></div>
+    <section className="section"><div className="section-title"><h3>Identidad</h3></div><div className="grid grid-4">
+      <label className="field"><span>Jugador</span><input value={character.player} onChange={e=>update('player',e.target.value)}/></label><label className="field"><span>Alineamiento</span><input value={character.alignment} onChange={e=>update('alignment',e.target.value)}/></label><label className="field"><span>Experiencia</span><input type="number" value={character.xp} onChange={e=>update('xp',Number(e.target.value))}/></label><label className="field"><span>Competencia</span><input type="number" value={character.proficiencyBonus} onChange={e=>update('proficiencyBonus',Number(e.target.value))}/></label>
+    </div></section>
+    <section className="section"><div className="section-title"><h3>Características</h3><span className="muted">Modificadores automáticos</span></div><div className="stat-grid">{stats.map(s=><div className="stat-card" key={s.k}><div className="stat-label">{s.l}</div><input type="number" value={s.v} onChange={e=>save({...character,stats:{...character.stats,[s.k]:Number(e.target.value)}})}/><div className="modifier">{signed(s.m)}</div></div>)}</div></section>
+    <section className="section"><div className="section-title"><h3>Combate</h3></div><div className="combat-grid">{[['ac','CA'],['initiative','Iniciativa'],['speed','Velocidad'],['passivePerception','Percepción pasiva'],['hitDice','Dados de golpe']].map(([k,l])=><label className="combat-box" key={k}><span className="mini-label">{l}</span><input className="combat-value" value={character[k]} onChange={e=>update(k,k==='hitDice'?e.target.value:Number(e.target.value))}/></label>)}</div><div className="hp-row" style={{marginTop:'.8rem'}}><label className="field"><span>PV actuales</span><input type="number" value={character.hp.actual} onChange={e=>save({...character,hp:{...character.hp,actual:Number(e.target.value)}})}/><div className="hp-bar"><div className="hp-fill" style={{width:`${hpPct}%`}}/></div></label><label className="field"><span>PV máximos</span><input type="number" value={character.hp.max} onChange={e=>save({...character,hp:{...character.hp,max:Number(e.target.value)}})}/></label><label className="field"><span>PV temporales</span><input type="number" value={character.hp.temp} onChange={e=>save({...character,hp:{...character.hp,temp:Number(e.target.value)}})}/></label></div></section>
+    <section className="section"><div className="section-title"><h3>Salvaciones</h3></div><div className="grid grid-3">{stats.map(s=><label className="field" key={s.k}><span>{s.l} · {signed(s.m+(character.savingThrows?.[s.k]?character.proficiencyBonus:0))}</span><input type="checkbox" checked={!!character.savingThrows?.[s.k]} onChange={e=>save({...character,savingThrows:{...character.savingThrows,[s.k]:e.target.checked}})}/></label>)}</div></section>
+    <section className="section"><div className="section-title"><h3>Habilidades</h3></div><div className="grid grid-3">{SKILLS.map((skill,i)=>{const k=SKILL_STAT[i];const value=mod(character.stats[k])+(character.skills?.[skill]?character.proficiencyBonus:0);return <label className="field" key={skill}><span>{skill} · {signed(value)}</span><input type="checkbox" checked={!!character.skills?.[skill]} onChange={e=>save({...character,skills:{...character.skills,[skill]:e.target.checked}})}/></label>})}</div></section>
+    <section className="section"><div className="section-title"><h3>Hechizos</h3></div><SpellPicker selected={character.spells} onChange={spells=>update('spells',spells)}/></section>
+    <section className="section"><div className="section-title"><h3>Ataques y acciones</h3><button className="btn-secondary" onClick={()=>update('attacks',[...character.attacks,{name:'',bonus:'',damage:'',notes:''}])}>+ Añadir</button></div>{character.attacks.map((a,i)=><div className="attack-row" key={i}><input placeholder="Arma / acción" value={a.name} onChange={e=>{const x=[...character.attacks];x[i]={...a,name:e.target.value};update('attacks',x)}}/><input placeholder="Bonif." value={a.bonus} onChange={e=>{const x=[...character.attacks];x[i]={...a,bonus:e.target.value};update('attacks',x)}}/><input placeholder="Daño" value={a.damage} onChange={e=>{const x=[...character.attacks];x[i]={...a,damage:e.target.value};update('attacks',x)}}/><input placeholder="Notas" value={a.notes} onChange={e=>{const x=[...character.attacks];x[i]={...a,notes:e.target.value};update('attacks',x)}}/></div>)}</section>
+    <section className="section"><div className="section-title"><h3>Rasgos, personalidad y equipo</h3></div><div className="grid grid-2">{[['features','Rasgos y características'],['inventory','Equipo e inventario'],['personality','Personalidad'],['ideals','Ideales'],['bonds','Vínculos'],['flaws','Defectos'],['languages','Idiomas'],['proficiencies','Competencias']].map(([k,l])=><label className="field" key={k}><span>{l}</span><textarea rows={k==='inventory'||k==='features'?5:3} value={character[k]} onChange={e=>update(k,e.target.value)}/></label>)}</div></section>
+    <section className="section"><div className="section-title"><h3>Notas de aventura</h3></div><textarea rows={7} value={character.notes} onChange={e=>update('notes',e.target.value)} placeholder="Objetivos, pistas, tesoros, historia…"/></section>
+  </div>;
 }
