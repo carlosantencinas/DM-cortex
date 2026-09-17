@@ -6,5 +6,5 @@ import react from '@vitejs/plugin-react';
 // así que Vite necesita saber ese "base path" para que los assets carguen bien.
 export default defineConfig({
   plugins: [react()],
-  base: '/nombre-del-repo/',
+  base: '/DM-cortex/',
 });
