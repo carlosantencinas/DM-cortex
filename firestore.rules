@@ -4,10 +4,10 @@ service cloud.firestore {
   match /databases/{database}/documents {
     function signedIn() { return request.auth != null; }
     function campaignDoc(campaignId) { return get(/databases/$(database)/documents/campaigns/$(campaignId)); }
+    function campaignAfter(campaignId) { return getAfter(/databases/$(database)/documents/campaigns/$(campaignId)); }
     function isDm(campaignId) { return signedIn() && campaignDoc(campaignId).data.dmUid == request.auth.uid; }
+    function isDmAfter(campaignId) { return signedIn() && campaignAfter(campaignId).data.dmUid == request.auth.uid; }
     function isMember(campaignId) { return signedIn() && exists(/databases/$(database)/documents/campaigns/$(campaignId)/members/$(request.auth.uid)); }
-    function isCharacterOwner() { return signedIn() && resource.data.ownerUid == request.auth.uid; }
-    function canJoinCampaign(campaignId) { return signedIn() && isMember(campaignId); }
 
     match /users/{userId} {
       allow read, create, update, delete: if signedIn() && request.auth.uid == userId;
@@ -20,7 +20,7 @@ service cloud.firestore {
       allow read: if signedIn();
       allow create: if signedIn()
         && request.resource.data.status == 'active'
-        && campaignDoc(request.resource.data.campaignId).data.dmUid == request.auth.uid;
+        && isDmAfter(request.resource.data.campaignId);
       allow update, delete: if signedIn() && isDm(resource.data.campaignId);
     }
 
@@ -34,7 +34,7 @@ service cloud.firestore {
 
       match /members/{userId} {
         allow read: if isDm(campaignId) || (isMember(campaignId) && userId == request.auth.uid);
-        allow create: if isDm(campaignId)
+        allow create: if isDmAfter(campaignId)
           || (signedIn()
             && userId == request.auth.uid
             && request.resource.data.role == 'player'
