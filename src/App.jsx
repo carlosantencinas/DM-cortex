@@ -4,6 +4,7 @@ import Login from './components/Login.jsx';
 import DmDashboard from './components/DmDashboard.jsx';
 import CharacterSheet from './components/CharacterSheet.jsx';
 import CharacterManager from './components/CharacterManager.jsx';
+import CharacterBuilder from './components/CharacterBuilder.jsx';
 import CampaignLobby from './components/CampaignLobby.jsx';
 import NavBar from './components/NavBar.jsx';
 
@@ -15,22 +16,20 @@ function PrivateRoute({ children }) {
 
 export default function App() {
   const { user } = useAuth();
-
-  return (
-    <>
-      {user && <NavBar />}
-      <main className="app-main">
-        <Routes>
-          <Route path="/login" element={user ? <Navigate to="/" replace /> : <Login />} />
-          <Route path="/" element={<PrivateRoute><CharacterManager /></PrivateRoute>} />
-          <Route path="/personajes" element={<PrivateRoute><CharacterManager /></PrivateRoute>} />
-          <Route path="/personaje/:characterId" element={<PrivateRoute><CharacterSheet /></PrivateRoute>} />
-          <Route path="/personaje" element={<PrivateRoute><CharacterManager /></PrivateRoute>} />
-          <Route path="/campana" element={<PrivateRoute><CampaignLobby /></PrivateRoute>} />
-          <Route path="/dm" element={<PrivateRoute><DmDashboard /></PrivateRoute>} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </main>
-    </>
-  );
+  return <>
+    {user && <NavBar />}
+    <main className="app-main">
+      <Routes>
+        <Route path="/login" element={user ? <Navigate to="/" replace /> : <Login />} />
+        <Route path="/" element={<PrivateRoute><CharacterManager /></PrivateRoute>} />
+        <Route path="/personajes" element={<PrivateRoute><CharacterManager /></PrivateRoute>} />
+        <Route path="/personajes/nuevo" element={<PrivateRoute><CharacterBuilder /></PrivateRoute>} />
+        <Route path="/personaje/:characterId" element={<PrivateRoute><CharacterSheet /></PrivateRoute>} />
+        <Route path="/personaje" element={<PrivateRoute><CharacterManager /></PrivateRoute>} />
+        <Route path="/campana" element={<PrivateRoute><CampaignLobby /></PrivateRoute>} />
+        <Route path="/dm" element={<PrivateRoute><DmDashboard /></PrivateRoute>} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </main>
+  </>;
 }
