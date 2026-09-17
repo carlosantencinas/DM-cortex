@@ -2,36 +2,24 @@ rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function campaignDoc(campaignId) { return get(/databases/$(database)/documents/campaigns/$(campaignId)); }
+    function isDm(campaignId) { return signedIn() && campaignDoc(campaignId).data.dmUid == request.auth.uid; }
+    function isMember(campaignId) { return signedIn() && exists(/databases/$(database)/documents/campaigns/$(campaignId)/members/$(request.auth.uid)); }
 
-    function signedIn() {
-      return request.auth != null;
-    }
-
-    function campaignDoc(campaignId) {
-      return get(/databases/$(database)/documents/campaigns/$(campaignId));
-    }
-
-    function campaignAfter(campaignId) {
-      return getAfter(/databases/$(database)/documents/campaigns/$(campaignId));
-    }
-
-    function isDm(campaignId) {
-      return signedIn() && campaignDoc(campaignId).data.dmUid == request.auth.uid;
-    }
-
-    function isDmAfter(campaignId) {
-      return signedIn() && campaignAfter(campaignId).data.dmUid == request.auth.uid;
-    }
-
-    function isMember(campaignId) {
-      return signedIn() && exists(/databases/$(database)/documents/campaigns/$(campaignId)/members/$(request.auth.uid));
+    match /users/{userId} {
+      allow read, create, update: if signedIn() && request.auth.uid == userId;
+      allow delete: if signedIn() && request.auth.uid == userId;
+      match /characters/{characterId} {
+        allow read, create, update, delete: if signedIn() && request.auth.uid == userId;
+      }
     }
 
     match /campaignInvites/{code} {
       allow read: if signedIn();
       allow create: if signedIn()
         && request.resource.data.status == 'active'
-        && isDmAfter(request.resource.data.campaignId);
+        && campaignDoc(request.resource.data.campaignId).data.dmUid == request.auth.uid;
       allow update, delete: if signedIn() && isDm(resource.data.campaignId);
     }
 
@@ -39,28 +27,21 @@ service cloud.firestore {
       allow create: if signedIn()
         && request.resource.data.dmUid == request.auth.uid
         && request.resource.data.status == 'active';
-
       allow read: if isDm(campaignId) || isMember(campaignId);
-
       allow update, delete: if isDm(campaignId)
         && request.resource.data.dmUid == resource.data.dmUid;
 
       match /members/{userId} {
-        allow read: if isDm(campaignId) || isMember(campaignId);
-
-        allow create: if isDmAfter(campaignId)
-          || (
-            signedIn()
+        allow read: if isDm(campaignId) || (isMember(campaignId) && userId == request.auth.uid);
+        allow create: if isDm(campaignId)
+          || (signedIn()
             && userId == request.auth.uid
             && request.resource.data.role == 'player'
             && exists(/databases/$(database)/documents/campaignInvites/$(request.resource.data.inviteCodeUsed))
             && get(/databases/$(database)/documents/campaignInvites/$(request.resource.data.inviteCodeUsed)).data.campaignId == campaignId
-            && get(/databases/$(database)/documents/campaignInvites/$(request.resource.data.inviteCodeUsed)).data.status == 'active'
-          );
-
+            && get(/databases/$(database)/documents/campaignInvites/$(request.resource.data.inviteCodeUsed)).data.status == 'active');
         allow update: if isDm(campaignId)
           || (signedIn() && userId == request.auth.uid && resource.data.role == request.resource.data.role);
-
         allow delete: if isDm(campaignId)
           || (signedIn() && userId == request.auth.uid && resource.data.role == 'player');
       }
