@@ -11,8 +11,16 @@ service cloud.firestore {
       return get(/databases/$(database)/documents/campaigns/$(campaignId));
     }
 
+    function campaignAfter(campaignId) {
+      return getAfter(/databases/$(database)/documents/campaigns/$(campaignId));
+    }
+
     function isDm(campaignId) {
       return signedIn() && campaignDoc(campaignId).data.dmUid == request.auth.uid;
+    }
+
+    function isDmAfter(campaignId) {
+      return signedIn() && campaignAfter(campaignId).data.dmUid == request.auth.uid;
     }
 
     function isMember(campaignId) {
@@ -23,7 +31,7 @@ service cloud.firestore {
       allow read: if signedIn();
       allow create: if signedIn()
         && request.resource.data.status == 'active'
-        && isDm(request.resource.data.campaignId);
+        && isDmAfter(request.resource.data.campaignId);
       allow update, delete: if signedIn() && isDm(resource.data.campaignId);
     }
 
@@ -38,11 +46,9 @@ service cloud.firestore {
         && request.resource.data.dmUid == resource.data.dmUid;
 
       match /members/{userId} {
-        // Campaign members can see the party roster. The member document
-        // contains display information only, not credentials or secrets.
         allow read: if isDm(campaignId) || isMember(campaignId);
 
-        allow create: if isDm(campaignId)
+        allow create: if isDmAfter(campaignId)
           || (
             signedIn()
             && userId == request.auth.uid
