@@ -21,16 +21,21 @@ const mod = n => Math.floor((Number(n || 10)-10)/2);
 const signed = n => `${n >= 0 ? '+' : ''}${n}`;
 
 function ChoiceField({ label, value, options, onChange, customPlaceholder = 'Escribe una opción personalizada…' }) {
-  const known = options.includes(value);
-  const selectValue = known ? value : (value ? '__custom__' : '');
+  const normalized = options.map(option => typeof option === 'string' ? { value: option, label: option } : option);
+  const known = normalized.some(option => option.value === value);
+  const [customMode,setCustomMode] = useState(!known && !!value);
+  const selectValue = customMode ? '__custom__' : (known ? value : '');
   return <label className="field choice-field">
     <span>{label}</span>
-    <select value={selectValue} onChange={e => onChange(e.target.value === '__custom__' ? '' : e.target.value)}>
+    <select value={selectValue} onChange={e=>{
+      if(e.target.value==='__custom__'){setCustomMode(true);return;}
+      setCustomMode(false);onChange(e.target.value);
+    }}>
       <option value="">Seleccionar…</option>
-      {options.map(option => <option key={option} value={option}>{option}</option>)}
+      {normalized.map(option=><option key={option.value} value={option.value}>{option.label}</option>)}
       <option value="__custom__">Personalizado…</option>
     </select>
-    {!known && value && <input className="custom-choice" value={value} placeholder={customPlaceholder} onChange={e => onChange(e.target.value)} />}
+    {customMode&&<input className="custom-choice" value={value||''} placeholder={customPlaceholder} onChange={e=>onChange(e.target.value)} />}
   </label>;
 }
 
@@ -67,7 +72,6 @@ export default function CharacterSheet(){
 
   return <div className="character-sheet">
     {campaign&&<div className="campaign-badge"><span>Campaña <strong>{campaign.name}</strong></span><span>Código <code>{campaign.inviteCode}</code></span></div>}
-
     <div className="sheet-hero"><div className="hero-fields">
       <label className="field"><span>Nombre del personaje</span><input className="hero-name" value={character.name} onChange={e=>update('name',e.target.value)} /></label>
       <ChoiceField label="Clase" value={character.class} options={CLASS_OPTIONS} onChange={v=>update('class',v)} />
@@ -77,9 +81,9 @@ export default function CharacterSheet(){
     </div></div>
 
     <section className="section"><div className="section-title"><div><h3>Origen y creación</h3><span className="muted">Elecciones rápidas al estilo de un constructor de personajes</span></div></div><div className="grid grid-4">
-      <ChoiceField label="Subclase" value={character.subclass} options={['Sin subclase','Personalizada']} onChange={v=>update('subclass',v)} />
+      <ChoiceField label="Subclase" value={character.subclass} options={['Sin subclase']} onChange={v=>update('subclass',v)} />
       <ChoiceField label="Tamaño" value={character.size} options={SIZE_OPTIONS} onChange={v=>update('size',v)} />
-      <ChoiceField label="Método de características" value={character.abilityGeneration} options={ABILITY_GENERATION_OPTIONS.map(x=>x.label)} onChange={v=>update('abilityGeneration',v)} />
+      <ChoiceField label="Método de características" value={character.abilityGeneration} options={ABILITY_GENERATION_OPTIONS} onChange={v=>update('abilityGeneration',v)} />
       <ChoiceField label="Alineamiento" value={character.alignment} options={ALIGNMENT_OPTIONS} onChange={v=>update('alignment',v)} />
     </div></section>
 
