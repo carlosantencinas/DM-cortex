@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Fire Bolt",
+    "level": 0,
+    "school": "Evocation",
+    "description": "You hurl a mote of fire at a creature or object within range. Make a ranged spell attack against the target. On a hit, the target takes 2d10 fire damage.",
+    "source": "SRD 5.2.1"
+  },
+  {
+    "name": "Magic Missile",
+    "level": 1,
+    "school": "Evocation",
+    "description": "You create three glowing darts of magical force. Each dart hits a creature of your choice that you can see within range, dealing 1d4 + 1 force damage.",
+    "source": "SRD 5.2.1"
+  },
+  {
+    "name": "Fireball",
+    "level": 3,
+    "school": "Evocation",
+    "description": "A bright streak flashes to a point you choose within range and blossoms into a fiery explosion. Each creature in a 20-foot radius sphere must make a Dexterity saving throw, taking 8d6 fire damage on a failed save.",
+    "source": "SRD 5.2.1"
+  }
+]

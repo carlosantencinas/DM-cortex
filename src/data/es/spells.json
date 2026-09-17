@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Rayo de Fuego",
+    "nameOriginal": "Fire Bolt",
+    "level": 0,
+    "school": "Evocación",
+    "description": "Arrojas una mota de fuego contra una criatura u objeto dentro del alcance. Realizas un ataque de conjuro a distancia contra el objetivo. Si impactas, el objetivo recibe 2d10 de daño por fuego.",
+    "source": "SRD 5.2.1 (CC-BY-4.0) — traducción automática"
+  },
+  {
+    "name": "Proyectil Mágico",
+    "nameOriginal": "Magic Missile",
+    "level": 1,
+    "school": "Evocación",
+    "description": "Creas tres dardos brillantes de fuerza mágica. Cada dardo impacta a una criatura de tu elección que puedas ver dentro del alcance, causando 1d4 + 1 de daño por fuerza.",
+    "source": "SRD 5.2.1 (CC-BY-4.0) — traducción automática"
+  },
+  {
+    "name": "Bola de Fuego",
+    "nameOriginal": "Fireball",
+    "level": 3,
+    "school": "Evocación",
+    "description": "Un destello brillante llega hasta un punto que elijas dentro del alcance y estalla en una explosión ardiente. Cada criatura dentro de un radio de 20 pies debe hacer una tirada de salvación de Destreza, recibiendo 8d6 de daño por fuego si falla.",
+    "source": "SRD 5.2.1 (CC-BY-4.0) — traducción automática"
+  }
+]
