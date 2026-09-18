@@ -1,0 +1,1957 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = {"darkMode":"class","theme":{"extend":{"colors":{"surface-container":"#171f33","on-secondary-fixed-variant":"#653e00","error":"#ffb4ab","on-primary-fixed-variant":"#930013","on-tertiary-fixed-variant":"#444749","surface":"#0b1326","surface-dim":"#0b1326","on-surface":"#dae2fd","on-surface-variant":"#e4beba","on-background":"#dae2fd","surface-variant":"#2d3449","surface-tint":"#ffb3ad","on-tertiary-container":"#272a2c","on-primary-fixed":"#410004","on-tertiary-fixed":"#191c1e","secondary-fixed":"#ffddb8","on-primary-container":"#5c0008","primary-container":"#ff5451","on-tertiary":"#2d3133","outline":"#ab8986","outline-variant":"#5b403e","surface-bright":"#31394d","surface-container-high":"#222a3d","surface-container-lowest":"#060e20","primary-fixed":"#ffdad7","tertiary-fixed":"#e0e3e5","tertiary":"#c4c7c9","on-error-container":"#ffdad6","secondary-container":"#ee9800","on-primary":"#68000a","background":"#0b1326","primary":"#ffb3ad","tertiary-container":"#8e9193","tertiary-fixed-dim":"#c4c7c9","inverse-on-surface":"#283044","inverse-surface":"#dae2fd","error-container":"#93000a","surface-container-low":"#131b2e","primary-fixed-dim":"#ffb3ad","surface-container-highest":"#2d3449","on-secondary":"#472a00","secondary":"#ffb95f","secondary-fixed-dim":"#ffb95f","inverse-primary":"#b91a24","on-secondary-container":"#5b3800","on-secondary-fixed":"#2a1700","on-error":"#690005"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-md":"1rem","gutter":"1rem","space-sm":"0.5rem","space-lg":"1.5rem","space-xs":"0.25rem","margin-md":"1.5rem","space-xl":"2rem","margin-lg":"2.5rem","margin":"1rem","gutter-lg":"1.5rem"},"fontFamily":{"title-sm":["Inter"],"headline-lg":["Epilogue"],"headline-md":["Epilogue"],"body-sm":["Inter"],"label-md":["JetBrains Mono"],"body-md":["Inter"],"headline-xl-mobile":["Epilogue"],"stat-display":["JetBrains Mono"],"headline-sm":["Epilogue"],"label-lg":["JetBrains Mono"],"headline-xl":["Epilogue"],"title-md":["Inter"],"label-sm":["JetBrains Mono"],"body-lg":["Inter"],"headline-lg-mobile":["Epilogue"]},"fontSize":{"title-sm":["14px",{"lineHeight":"20px","fontWeight":"600"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.01em","fontWeight":"700"}],"headline-md":["22px",{"lineHeight":"28px","fontWeight":"700"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.05em","fontWeight":"500"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"headline-xl-mobile":["30px",{"lineHeight":"38px","letterSpacing":"-0.02em","fontWeight":"800"}],"stat-display":["28px",{"lineHeight":"32px","letterSpacing":"-0.03em","fontWeight":"700"}],"headline-sm":["18px",{"lineHeight":"24px","fontWeight":"600"}],"label-lg":["14px",{"lineHeight":"18px","letterSpacing":"0.04em","fontWeight":"600"}],"headline-xl":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"800"}],"title-md":["16px",{"lineHeight":"22px","fontWeight":"600"}],"label-sm":["10px",{"lineHeight":"14px","letterSpacing":"0.06em","fontWeight":"500"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"headline-lg-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"700"}]}}}}</script></head><body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 inset-x-0 z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_4px_20px_rgba(0,0,0,0.5)]"><div class="h-16 w-full px-gutter-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><img alt="D20 Emblem Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UrsTNb03jsuZBI7G_QbNsgnP88psEO1Yqws1uzKRTfqrYyHW0rXDziHZvz7XVk-tZgVAkHbWYFf2EvxesbAZA5gKlSp67vANg73a7s91ojyFbckeO34Nmx1PynR-TboKLhLi8_ig7x1SK9n4oMAIXRykohuLWRvwOjDy-OfSdcj6YjIoWsJs0QTrEdwgjlUanSi-EVqmlpBjQb6lJjNjvc7Fcdl-50-HyMuQMsh1E6jwT4IQ43giVWmUE"/><span class="font-headline-sm text-headline-sm text-primary tracking-wide hidden sm:inline">D&amp;D 5e Companion</span></div><div class="hidden xl:flex items-center px-space-sm py-space-xs rounded bg-surface-container-high text-secondary font-label-sm text-label-sm uppercase tracking-wider"><span class="material-symbols-outlined text-[14px] mr-1">shield</span>Campaña: Maldición de Strahd</div><nav class="hidden lg:flex items-center gap-space-md ml-space-sm" data-active-classes="text-primary font-bold"><a class="font-title-sm text-title-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="personajes" href="#">Personajes</a><a class="font-title-sm text-title-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="hechizos" href="#">Hechizos</a><a class="font-title-sm text-title-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="monstruos" href="#">Monstruos</a><a class="font-title-sm text-title-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="reglas" href="#">Reglas</a></nav></div><div class="flex items-center gap-space-sm"><div class="hidden md:flex items-center bg-surface-container-low px-space-sm py-space-xs rounded-lg shadow-inner"><span class="material-symbols-outlined text-on-surface-variant text-[18px] mr-2">search</span><span class="font-body-sm text-body-sm text-on-surface-variant mr-space-md">Buscar conjuro, regla o objeto...</span><kbd class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container text-tertiary shadow-sm">Ctrl+K</kbd></div><button class="flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg bg-surface-container-high hover:bg-surface-bright text-secondary hover:text-on-surface transition-colors shadow-[0_0_12px_rgba(238,152,0,0.2)] active:scale-95" onclick="openDiceTray('Tirada de Dado d20', 8, 'Espada Larga +1')" type="button"><span class="material-symbols-outlined text-[20px] text-secondary animate-pulse">casino</span><span class="font-label-md text-label-md hidden sm:inline">Tirar Dado (d20)</span></button><div class="flex items-center gap-space-sm pl-space-xs"><div class="hidden md:flex flex-col text-right"><span class="font-title-sm text-title-sm text-on-surface leading-tight">Lord Roland</span><span class="font-label-sm text-label-sm text-secondary leading-none">Nivel 5</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header><div class="fixed top-16 inset-x-0 z-40 bg-surface-container-low/95 backdrop-blur-md shadow-[0_8px_24px_rgba(0,0,0,0.6)]"><div class="w-full px-gutter-lg py-space-sm flex flex-wrap items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><div class="flex flex-col"><div class="flex items-center gap-space-sm"><span class="font-headline-sm text-headline-sm text-on-surface font-bold">Lord Roland</span><span class="px-2 py-0.5 rounded bg-surface-container-highest text-tertiary font-label-sm text-label-sm uppercase tracking-wider">Niv. 5</span></div><span class="font-body-sm text-body-sm text-on-surface-variant">Humano · Paladín (Voto de Devoción)</span></div><div class="hidden sm:flex items-center gap-space-sm pl-space-md"><div class="flex flex-col"><div class="flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant mb-1"><span>PG</span><span class="text-on-surface font-bold">48 / 48</span></div><div class="w-36 h-2 rounded-full bg-surface-container-highest overflow-hidden"><div class="h-full bg-primary-container w-full rounded-full shadow-[0_0_8px_rgba(255,84,81,0.6)]"></div></div></div></div></div><div class="flex items-center gap-space-sm flex-wrap"><div class="flex items-center gap-space-xs"><div class="flex flex-col items-center px-space-sm py-0.5 rounded bg-surface-container-high"><span class="font-label-sm text-label-sm text-tertiary uppercase">CA</span><span class="font-stat-display text-stat-display text-on-surface leading-none">18</span></div><div class="flex flex-col items-center px-space-sm py-0.5 rounded bg-surface-container-high"><span class="font-label-sm text-label-sm text-tertiary uppercase">Inic</span><span class="font-stat-display text-stat-display text-secondary leading-none">+1</span></div><div class="flex flex-col items-center px-space-sm py-0.5 rounded bg-surface-container-high"><span class="font-label-sm text-label-sm text-tertiary uppercase">Vel</span><span class="font-label-lg text-label-lg text-on-surface leading-normal">30ft</span></div></div><div class="flex items-center gap-space-xs pl-space-xs"><button class="px-space-sm py-space-xs rounded bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-sm text-label-sm transition-colors" type="button">Descanso Corto</button><button class="px-space-sm py-space-xs rounded bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-sm text-label-sm transition-colors" type="button">Descanso Largo</button></div></div></div><div class="w-full px-gutter-lg overflow-x-auto"><nav class="flex items-center gap-space-xs pt-1" data-active-classes="text-primary bg-surface-container-high rounded-t-lg shadow-sm font-bold"><a aria-current="page" class="px-space-md py-space-sm whitespace-nowrap transition-colors text-primary bg-surface-container-high rounded-t-lg shadow-sm font-bold" data-path="general-y-combate" href="#">General y Combate</a><a class="px-space-md py-space-sm font-title-sm text-title-sm text-on-surface-variant hover:text-on-surface whitespace-nowrap transition-colors" data-path="hechizos-y-magia" href="#">Hechizos y Magia</a><a class="px-space-md py-space-sm font-title-sm text-title-sm text-on-surface-variant hover:text-on-surface whitespace-nowrap transition-colors" data-path="inventario-y-equipo" href="#">Inventario y Equipo</a><a class="px-space-md py-space-sm font-title-sm text-title-sm text-on-surface-variant hover:text-on-surface whitespace-nowrap transition-colors" data-path="rasgos-y-trasfondo" href="#">Rasgos y Trasfondo</a><a class="px-space-md py-space-sm font-title-sm text-title-sm text-on-surface-variant hover:text-on-surface whitespace-nowrap transition-colors" data-path="bitacora-y-notas" href="#">Bitácora y Notas</a></nav></div></div><main class="w-full pt-44 bg-surface min-h-screen px-gutter-lg pb-space-xl"><div class="flex flex-col w-full">
+<!-- Interactive Audio & Dice Feedback Toast Container -->
+<div class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 pointer-events-none transition-all duration-300 flex items-center gap-space-sm px-space-md py-space-sm rounded-xl bg-surface-container-highest text-on-surface shadow-2xl border border-secondary/30" id="dice-toast">
+<span class="material-symbols-outlined text-secondary animate-spin">casino</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary uppercase font-bold tracking-wider" id="toast-title">Tirada Registrada</span>
+<span class="font-title-sm text-title-sm text-on-surface" id="toast-msg">d20: 20 + 8 = 28</span>
+</div>
+</div>
+<!-- ==========================================
+     VIRTUAL TABLETOP 3D DICE ROLLER OVERLAY TRAY
+     ========================================== -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-background/80 backdrop-blur-md transition-all duration-300 opacity-0 pointer-events-none" id="dice-tray-modal">
+<!-- Outer Brass Trimmed Velvet Tray -->
+<div class="relative w-full max-w-2xl rounded-2xl bg-gradient-to-b from-[#1c1822] to-[#0d121f] border-2 border-secondary/50 shadow-[0_16px_50px_rgba(0,0,0,0.85),0_0_30px_rgba(238,152,0,0.2)] p-1 overflow-hidden transition-transform duration-300 scale-95" id="dice-tray-card">
+<!-- Ornate Brass Corner Accents -->
+<div class="absolute top-2 left-2 w-4 h-4 border-t-2 border-l-2 border-secondary pointer-events-none"></div>
+<div class="absolute top-2 right-2 w-4 h-4 border-t-2 border-r-2 border-secondary pointer-events-none"></div>
+<div class="absolute bottom-2 left-2 w-4 h-4 border-b-2 border-l-2 border-secondary pointer-events-none"></div>
+<div class="absolute bottom-2 right-2 w-4 h-4 border-b-2 border-r-2 border-secondary pointer-events-none"></div>
+<!-- Inner Velvet Mat Container -->
+<div class="relative rounded-xl bg-[#0e1627] border border-surface-container-high/60 p-space-md sm:p-space-lg flex flex-col gap-space-md shadow-inner">
+<!-- Tray Header Bar -->
+<div class="flex items-center justify-between border-b border-surface-container-highest/80 pb-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary shadow-[0_0_10px_rgba(255,185,95,0.3)]">
+<span class="material-symbols-outlined text-[20px]">casino</span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-extrabold flex items-center gap-2">
+              Lanzador de Dados 3D
+              <span class="text-secondary text-[11px] px-2 py-0.5 rounded-full bg-secondary/10 border border-secondary/20 font-label-sm uppercase tracking-widest font-bold">VTT 3D Poliédrico</span>
+</span>
+<p class="font-body-sm text-body-sm text-tertiary" id="tray-context-subtitle">Ataque con Espada Larga +1 · Lord Roland</p>
+</div>
+</div>
+<div class="flex items-center gap-1.5">
+<button class="w-8 h-8 rounded-lg bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-tertiary hover:text-on-surface transition-colors" onclick="minimizeDiceTray()" title="Minimizar" type="button">
+<span class="material-symbols-outlined text-[18px]">minimize</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-tertiary hover:text-error transition-colors" onclick="closeDiceTray()" title="Cerrar bandeja" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+<!-- POLYHEDRAL DICE SELECTOR BAR (d4, d6, d8, d12, d20) -->
+<div class="flex items-center justify-between p-2 rounded-xl bg-surface-container-lowest/90 border border-secondary/30 shadow-inner">
+<div class="flex items-center gap-1 text-tertiary font-label-sm text-label-sm uppercase tracking-wider pl-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">category</span>
+<span class="hidden sm:inline">Tipo de Dado:</span>
+</div>
+<div class="flex items-center gap-1 sm:gap-2 flex-wrap" id="dice-type-selector-bar">
+<!-- d4 -->
+<button class="poly-dice-btn flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-tertiary hover:text-on-surface transition-all text-label-sm font-label-sm font-bold border border-transparent" data-dice="d4" onclick="selectPolyhedralDie('d4')" type="button">
+<svg class="w-3.5 h-3.5 stroke-current fill-none stroke-2" viewbox="0 0 24 24"><polygon points="12 3 2 21 22 21"></polygon></svg>
+<span>d4</span>
+</button>
+<!-- d6 -->
+<button class="poly-dice-btn flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-tertiary hover:text-on-surface transition-all text-label-sm font-label-sm font-bold border border-transparent" data-dice="d6" onclick="selectPolyhedralDie('d6')" type="button">
+<svg class="w-3.5 h-3.5 stroke-current fill-none stroke-2" viewbox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="3"></rect></svg>
+<span>d6</span>
+</button>
+<!-- d8 -->
+<button class="poly-dice-btn flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-tertiary hover:text-on-surface transition-all text-label-sm font-label-sm font-bold border border-transparent" data-dice="d8" onclick="selectPolyhedralDie('d8')" type="button">
+<svg class="w-3.5 h-3.5 stroke-current fill-none stroke-2" viewbox="0 0 24 24"><polygon points="12 2 22 12 12 22 2 12"></polygon></svg>
+<span>d8</span>
+</button>
+<!-- d12 -->
+<button class="poly-dice-btn flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-tertiary hover:text-on-surface transition-all text-label-sm font-label-sm font-bold border border-transparent" data-dice="d12" onclick="selectPolyhedralDie('d12')" type="button">
+<svg class="w-3.5 h-3.5 stroke-current fill-none stroke-2" viewbox="0 0 24 24"><polygon points="12 2 21 8.5 17.5 19 6.5 19 3 8.5"></polygon></svg>
+<span>d12</span>
+</button>
+<!-- d20 (active default) -->
+<button class="poly-dice-btn active-dice flex items-center gap-1 px-3 py-1.5 rounded-lg bg-primary-container text-on-primary shadow-md border border-primary text-label-sm font-label-sm font-bold transition-all" data-dice="d20" onclick="selectPolyhedralDie('d20')" type="button">
+<svg class="w-3.5 h-3.5 stroke-current fill-none stroke-2" viewbox="0 0 24 24"><polygon points="12 2 20 7 20 17 12 22 4 17 4 7"></polygon><line x1="12" x2="12" y1="22" y2="12"></line><polyline points="20 7 12 12 4 7"></polyline></svg>
+<span>d20 (Heroico)</span>
+</button>
+</div>
+</div>
+<!-- 3D Dice Simulation Felt Tray Viewport -->
+<div class="relative w-full rounded-xl bg-gradient-to-b from-[#080d19] to-[#040810] border border-secondary/20 shadow-inner flex flex-col items-center justify-center overflow-hidden min-h-[300px] md:min-h-[320px] group">
+<!-- Velvet Surface Ambient Glows -->
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,84,81,0.08)_0%,_transparent_70%)] pointer-events-none"></div>
+<div class="absolute bottom-2 left-4 text-tertiary/60 font-label-sm text-label-sm tracking-wider uppercase pointer-events-none flex items-center gap-1 z-10">
+<span class="material-symbols-outlined text-[14px] text-secondary">touch_app</span> Clic en el tapete para rodar con física
+</div>
+<div class="absolute top-2 right-4 text-secondary/80 font-label-sm text-label-sm tracking-wider uppercase pointer-events-none flex items-center gap-1 z-10 bg-surface-container-lowest/70 px-2 py-0.5 rounded border border-secondary/20">
+<span class="w-2 h-2 rounded-full bg-secondary animate-ping mr-1"></span> Números de Alto Contraste y Arista Dorada
+</div>
+<!-- ThreeJS Scene Insertion (Componente 3D ANIMATION_13) -->
+<!-- STITCH_THREEJS_START:ANIMATION_13 class="w-full h-80 bg-transparent" -->
+<div class="w-full h-80 bg-transparent" style="display:block;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_13" style="width:100%;height:100%"></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_13');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  // Polyhedral 3D Dice Roller Scene supporting d4, d6, d8, d12, and d20
+// with high-clarity numbers, bold contrast typography, and instant dice selection
+(function() {
+  const width = container.clientWidth || window.innerWidth;
+  const height = container.clientHeight || window.innerHeight;
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 100);
+  camera.position.set(0, 3.2, 7.8);
+  camera.lookAt(0, 0, 0);
+
+  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+  renderer.setSize(width, height);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  container.appendChild(renderer.domElement);
+
+  // Iluminación táctica y mágica (luz clara sobre la cara superior para máxima legibilidad)
+  const ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
+  scene.add(ambientLight);
+
+  const topDirectLight = new THREE.DirectionalLight(0xffffff, 2.2);
+  topDirectLight.position.set(0, 10, 8);
+  topDirectLight.castShadow = true;
+  scene.add(topDirectLight);
+
+  const goldAccentLight = new THREE.PointLight(0xfbbf24, 3.2, 20);
+  goldAccentLight.position.set(4, 5, 3);
+  scene.add(goldAccentLight);
+
+  const crimsonAccentLight = new THREE.PointLight(0xef4444, 2.8, 16);
+  crimsonAccentLight.position.set(-4, -1, 4);
+  scene.add(crimsonAccentLight);
+
+  // Grupo principal para el dado actual
+  const diceRoot = new THREE.Group();
+  scene.add(diceRoot);
+
+  // Anillo mágico rúnico en la base
+  const ringGeo = new THREE.RingGeometry(2.3, 2.5, 36);
+  const ringMat = new THREE.MeshBasicMaterial({
+    color: 0xf59e0b,
+    side: THREE.DoubleSide,
+    transparent: true,
+    opacity: 0.55
+  });
+  const ringMesh = new THREE.Mesh(ringGeo, ringMat);
+  ringMesh.rotation.x = -Math.PI / 2;
+  ringMesh.position.y = -1.65;
+  scene.add(ringMesh);
+
+  // Partículas mágicas doradas en suspensión
+  const sparkCount = 50;
+  const sparkGeo = new THREE.BufferGeometry();
+  const sparkPositions = new Float32Array(sparkCount * 3);
+  const sparkVel = [];
+  for (let i = 0; i < sparkCount; i++) {
+    sparkPositions[i * 3] = (Math.random() - 0.5) * 8;
+    sparkPositions[i * 3 + 1] = (Math.random() - 0.5) * 6;
+    sparkPositions[i * 3 + 2] = (Math.random() - 0.5) * 6;
+    sparkVel.push({
+      x: (Math.random() - 0.5) * 0.015,
+      y: Math.random() * 0.02 + 0.01,
+      z: (Math.random() - 0.5) * 0.015
+    });
+  }
+  sparkGeo.setAttribute('position', new THREE.BufferAttribute(sparkPositions, 3));
+  const sparkMat = new THREE.PointsMaterial({
+    color: 0xfde047,
+    size: 0.09,
+    transparent: true,
+    opacity: 0.85,
+    blending: THREE.AdditiveBlending
+  });
+  const sparkSystem = new THREE.Points(sparkGeo, sparkMat);
+  scene.add(sparkSystem);
+
+  // Función para crear texturas ultra legibles y nítidas para los números
+  function createNumberTexture(number, isHighlight, shapeType) {
+    const canvas = document.createElement('canvas');
+    canvas.width = 512;
+    canvas.height = 512;
+    const ctx = canvas.getContext('2d');
+
+    ctx.clearRect(0, 0, 512, 512);
+
+    // Fondo según si es la cara ganadora resaltada
+    const grad = ctx.createRadialGradient(256, 256, 40, 256, 256, 250);
+    if (isHighlight) {
+      grad.addColorStop(0, '#991b1b');
+      grad.addColorStop(0.7, '#7f1d1d');
+      grad.addColorStop(1, '#450a0a');
+    } else {
+      grad.addColorStop(0, '#1e1b4b');
+      grad.addColorStop(0.65, '#0f172a');
+      grad.addColorStop(1, '#020617');
+    }
+    ctx.fillStyle = grad;
+    ctx.beginPath();
+    ctx.arc(256, 256, 230, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Marco exterior con bisel dorado brillante
+    ctx.strokeStyle = isHighlight ? '#fef08a' : '#f59e0b';
+    ctx.lineWidth = isHighlight ? 16 : 10;
+    ctx.stroke();
+
+    // Aro interior de precisión
+    ctx.strokeStyle = isHighlight ? '#fbbf24' : '#ef4444';
+    ctx.lineWidth = 4;
+    ctx.beginPath();
+    ctx.arc(256, 256, 210, 0, Math.PI * 2);
+    ctx.stroke();
+
+    // Tipografía de impacto directo muy legible (sin confusiones de triángulos intrusivos)
+    const str = number.toString();
+    const fontSize = str.length > 2 ? 180 : (str.length === 2 ? 220 : 250);
+    ctx.font = '900 ' + fontSize + 'px "Cinzel", "Epilogue", "Georgia", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+
+    // Sombra proyectada del número para contraste óptimo
+    ctx.shadowColor = isHighlight ? 'rgba(254, 240, 138, 0.9)' : 'rgba(0, 0, 0, 0.95)';
+    ctx.shadowBlur = isHighlight ? 35 : 18;
+    ctx.shadowOffsetX = 0;
+    ctx.shadowOffsetY = isHighlight ? 0 : 6;
+
+    // Relleno del número
+    ctx.fillStyle = isHighlight ? '#ffffff' : '#fbbf24';
+    ctx.fillText(str, 256, 256);
+
+    // Contorno dorado para remarcar el dígito
+    ctx.shadowBlur = 0;
+    ctx.shadowOffsetY = 0;
+    ctx.strokeStyle = isHighlight ? '#f59e0b' : '#78350f';
+    ctx.lineWidth = 6;
+    ctx.strokeText(str, 256, 256);
+
+    // Punto inferior de distinción para números reversibles (6 y 9)
+    if (number === 6 || number === 9) {
+      ctx.fillStyle = isHighlight ? '#ffffff' : '#fbbf24';
+      ctx.beginPath();
+      ctx.arc(256, 385, 12, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    const texture = new THREE.CanvasTexture(canvas);
+    texture.needsUpdate = true;
+    return texture;
+  }
+
+  // Material de cuerpo del dado sólido (Obsidiana carmesí brillante con facetas limpias)
+  const baseDieMaterial = new THREE.MeshStandardMaterial({
+    color: 0x6b1124,
+    roughness: 0.18,
+    metalness: 0.42,
+    emissive: 0x220409,
+    emissiveIntensity: 0.35,
+    flatShading: true
+  });
+
+  // Estado del dado actual
+  let currentDiceType = 'd20';
+  let activeMesh = null;
+  let activeWire = null;
+  let faceMeshes = [];
+  let isRolling = true;
+  let rollTimer = 0;
+  let currentRotVel = new THREE.Vector3(16, 24, 14);
+  let rollResult = 20;
+
+  // Constructor de dados según tipo (d4, d6, d8, d12, d20)
+  function buildDice(type) {
+    currentDiceType = type;
+
+    // Limpiar elementos previos
+    while(diceRoot.children.length > 0) {
+      const obj = diceRoot.children[0];
+      if (obj.geometry) obj.geometry.dispose();
+      if (obj.material) {
+        if (Array.isArray(obj.material)) obj.material.forEach(m => m.dispose());
+        else obj.material.dispose();
+      }
+      diceRoot.remove(obj);
+    }
+    faceMeshes = [];
+
+    let geo, radius = 1.75;
+    let numbers = [];
+
+    if (type === 'd4') {
+      geo = new THREE.TetrahedronGeometry(1.9, 0);
+      numbers = [4, 1, 2, 3];
+    } else if (type === 'd6') {
+      geo = new THREE.BoxGeometry(2.3, 2.3, 2.3);
+      numbers = [1, 6, 2, 5, 3, 4];
+    } else if (type === 'd8') {
+      geo = new THREE.OctahedronGeometry(1.95, 0);
+      numbers = [8, 1, 7, 2, 6, 3, 5, 4];
+    } else if (type === 'd12') {
+      geo = new THREE.DodecahedronGeometry(1.85, 0);
+      numbers = [12, 1, 11, 2, 10, 3, 9, 4, 8, 5, 7, 6];
+    } else { // d20
+      geo = new THREE.IcosahedronGeometry(1.8, 0);
+      numbers = [20, 2, 14, 8, 10, 12, 4, 18, 6, 16, 1, 19, 7, 13, 11, 9, 17, 3, 15, 5];
+    }
+
+    activeMesh = new THREE.Mesh(geo, baseDieMaterial);
+    activeMesh.castShadow = true;
+    activeMesh.receiveShadow = true;
+    diceRoot.add(activeMesh);
+
+    // Aristas de oro pulido para definir la silueta geométrica exacta
+    const wireGeo = new THREE.WireframeGeometry(geo);
+    const wireMat = new THREE.LineBasicMaterial({
+      color: 0xfbbf24,
+      linewidth: 2.5,
+      transparent: true,
+      opacity: 0.95
+    });
+    activeWire = new THREE.LineSegments(wireGeo, wireMat);
+    diceRoot.add(activeWire);
+
+    // Calcular las normales y planos de número para cada cara
+    if (type === 'd6') {
+      // Para cubos usamos las 6 caras ortogonales directas
+      const directions = [
+        { normal: new THREE.Vector3(0, 0, 1), pos: new THREE.Vector3(0, 0, 1.16), rot: new THREE.Euler(0, 0, 0) },
+        { normal: new THREE.Vector3(0, 0, -1), pos: new THREE.Vector3(0, 0, -1.16), rot: new THREE.Euler(0, Math.PI, 0) },
+        { normal: new THREE.Vector3(0, 1, 0), pos: new THREE.Vector3(0, 1.16, 0), rot: new THREE.Euler(-Math.PI/2, 0, 0) },
+        { normal: new THREE.Vector3(0, -1, 0), pos: new THREE.Vector3(0, -1.16, 0), rot: new THREE.Euler(Math.PI/2, 0, 0) },
+        { normal: new THREE.Vector3(1, 0, 0), pos: new THREE.Vector3(1.16, 0, 0), rot: new THREE.Euler(0, Math.PI/2, 0) },
+        { normal: new THREE.Vector3(-1, 0, 0), pos: new THREE.Vector3(-1.16, 0, 0), rot: new THREE.Euler(0, -Math.PI/2, 0) }
+      ];
+
+      directions.forEach((dir, i) => {
+        const num = numbers[i];
+        const tex = createNumberTexture(num, false, 'd6');
+        const planeGeo = new THREE.PlaneGeometry(1.6, 1.6);
+        const planeMat = new THREE.MeshBasicMaterial({
+          map: tex,
+          transparent: true,
+          opacity: 0.98,
+          depthWrite: false
+        });
+        const pMesh = new THREE.Mesh(planeGeo, planeMat);
+        pMesh.position.copy(dir.pos);
+        pMesh.rotation.copy(dir.rot);
+        pMesh.userData = { number: num, normal: dir.normal, originalTex: tex, material: planeMat };
+        faceMeshes.push(pMesh);
+        diceRoot.add(pMesh);
+      });
+    } else {
+      // Para poliedros regulares (d4, d8, d12, d20)
+      const posAttr = geo.getAttribute('position');
+      const vertexCount = posAttr.count;
+      const faceCount = vertexCount / 3;
+
+      // Deduplicar normales de caras si la geometría repite triángulos (ej. dodecaedro)
+      const distinctFaces = [];
+      for (let i = 0; i < faceCount; i++) {
+        const pA = new THREE.Vector3().fromBufferAttribute(posAttr, i * 3);
+        const pB = new THREE.Vector3().fromBufferAttribute(posAttr, i * 3 + 1);
+        const pC = new THREE.Vector3().fromBufferAttribute(posAttr, i * 3 + 2);
+        const center = new THREE.Vector3().add(pA).add(pB).add(pC).divideScalar(3);
+        const normal = new THREE.Vector3().crossVectors(
+          new THREE.Vector3().subVectors(pB, pA),
+          new THREE.Vector3().subVectors(pC, pA)
+        ).normalize();
+
+        // Comprobar si ya existe una normal casi idéntica
+        const exists = distinctFaces.some(f => f.normal.dot(normal) > 0.96);
+        if (!exists) {
+          distinctFaces.push({ center, normal, pA, pB, pC });
+        }
+      }
+
+      const planeScale = type === 'd4' ? 1.4 : (type === 'd8' ? 1.25 : (type === 'd12' ? 1.15 : 0.98));
+
+      distinctFaces.forEach((f, i) => {
+        const num = numbers[i % numbers.length];
+        const tex = createNumberTexture(num, false, type);
+        const planeGeo = new THREE.PlaneGeometry(planeScale, planeScale);
+        const planeMat = new THREE.MeshBasicMaterial({
+          map: tex,
+          transparent: true,
+          opacity: 0.98,
+          depthWrite: false,
+          polygonOffset: true,
+          polygonOffsetFactor: -1
+        });
+        const pMesh = new THREE.Mesh(planeGeo, planeMat);
+        pMesh.position.copy(f.center.clone().add(f.normal.clone().multiplyScalar(0.02)));
+
+        // Orientar cara perpendicular a la normal
+        const upVec = new THREE.Vector3().subVectors(f.pA, f.center).normalize();
+        const matrix = new THREE.Matrix4();
+        const zAxis = f.normal.clone();
+        const yAxis = upVec.clone();
+        const xAxis = new THREE.Vector3().crossVectors(yAxis, zAxis).normalize();
+        yAxis.crossVectors(zAxis, xAxis).normalize();
+        matrix.makeBasis(xAxis, yAxis, zAxis);
+        pMesh.rotation.setFromRotationMatrix(matrix);
+
+        pMesh.userData = { number: num, normal: f.normal, originalTex: tex, material: planeMat };
+        faceMeshes.push(pMesh);
+        diceRoot.add(pMesh);
+      });
+    }
+  }
+
+  // Orientar el dado hacia la cámara para mostrar con perfecta claridad la cara ganadora
+  function orientToFace(targetNum) {
+    const targetMesh = faceMeshes.find(m => m.userData.number === targetNum);
+    if (!targetMesh) return;
+
+    const normal = targetMesh.userData.normal.clone();
+    // Apuntar cara directamente hacia el espectador (Z con suave inclinación)
+    const forwardCam = new THREE.Vector3(0, 0.35, 1).normalize();
+    const q = new THREE.Quaternion().setFromUnitVectors(normal, forwardCam);
+    diceRoot.quaternion.copy(q);
+
+    // Resaltar la cara con textura de resplandor dorado / carmesí puro
+    faceMeshes.forEach(m => {
+      if (m.userData.number === targetNum) {
+        m.material.map = createNumberTexture(targetNum, true, currentDiceType);
+        m.material.map.needsUpdate = true;
+        m.scale.set(1.15, 1.15, 1.15);
+      } else {
+        m.material.map = m.userData.originalTex;
+        m.scale.set(1, 1, 1);
+      }
+    });
+
+    // Notificar al DOM exterior si existe listener
+    if (window.onStitchDiceRollComplete) {
+      window.onStitchDiceRollComplete(targetNum, currentDiceType);
+    }
+  }
+
+  // Ejecutar lanzamiento con física de giro y rebote
+  function roll(targetValue) {
+    isRolling = true;
+    rollTimer = 0;
+    
+    // Obtener valor según el dado
+    let max = 20;
+    if (currentDiceType === 'd4') max = 4;
+    else if (currentDiceType === 'd6') max = 6;
+    else if (currentDiceType === 'd8') max = 8;
+    else if (currentDiceType === 'd12') max = 12;
+
+    rollResult = targetValue !== undefined ? targetValue : (Math.floor(Math.random() * max) + 1);
+
+    diceRoot.position.set((Math.random() - 0.5) * 2.8, 5.0 + Math.random() * 1.5, -1);
+    currentRotVel.set(
+      (Math.random() + 0.6) * 26,
+      (Math.random() + 0.6) * 30,
+      (Math.random() + 0.6) * 24
+    );
+    ringMesh.scale.set(0.4, 0.4, 0.4);
+    ringMat.opacity = 0.15;
+  }
+
+  // Construir d20 inicial
+  buildDice('d20');
+  roll(20);
+
+  // Exponer API global para interactuar desde la UI HTML (botones d4, d6, d8, d12, d20)
+  window.stitchSelectDice = function(diceType, forceRollVal) {
+    buildDice(diceType);
+    roll(forceRollVal);
+  };
+
+  window.stitchRollCurrentDice = function(forceVal) {
+    roll(forceVal);
+  };
+
+  // Clic en el área de dados para relanzar
+  container.style.cursor = 'pointer';
+  container.addEventListener('click', () => {
+    roll();
+  });
+
+  // Bucle de renderizado y animación
+  let clock = new THREE.Clock();
+  let animId;
+
+  function animate() {
+    animId = requestAnimationFrame(animate);
+    const delta = clock.getDelta();
+    const time = clock.getElapsedTime();
+
+    if (isRolling) {
+      rollTimer += delta * 1.65;
+
+      const bounceY = Math.max(0, (1 - Math.min(rollTimer, 1)) * 4.4 * Math.abs(Math.cos(rollTimer * 4.8)));
+      diceRoot.position.y = bounceY;
+      diceRoot.position.x = THREE.MathUtils.lerp(diceRoot.position.x, 0, delta * 3.8);
+      diceRoot.position.z = THREE.MathUtils.lerp(diceRoot.position.z, 0, delta * 3.8);
+
+      diceRoot.rotation.x += currentRotVel.x * delta;
+      diceRoot.rotation.y += currentRotVel.y * delta;
+      diceRoot.rotation.z += currentRotVel.z * delta;
+
+      currentRotVel.multiplyScalar(0.95);
+
+      if (rollTimer >= 1.45) {
+        isRolling = false;
+        diceRoot.position.set(0, 0, 0);
+        orientToFace(rollResult);
+        goldAccentLight.intensity = 4.8;
+      }
+    } else {
+      // Reposo flotante sutil
+      diceRoot.position.y = Math.sin(time * 2.2) * 0.08;
+      ringMesh.rotation.z += delta * 0.22;
+      ringMesh.scale.lerp(new THREE.Vector3(1, 1, 1), delta * 4);
+      ringMat.opacity = 0.45 + Math.sin(time * 3) * 0.15;
+      goldAccentLight.intensity = THREE.MathUtils.lerp(goldAccentLight.intensity, 3.2, delta * 2.5);
+    }
+
+    // Partículas
+    const pos = sparkGeo.attributes.position;
+    for (let i = 0; i < sparkCount; i++) {
+      let py = pos.getY(i) + sparkVel[i].y;
+      if (py > 3.8) py = -2.2;
+      pos.setY(i, py);
+      pos.setX(i, pos.getX(i) + Math.sin(time * 2 + i) * 0.006);
+    }
+    sparkGeo.attributes.position.needsUpdate = true;
+
+    renderer.render(scene, camera);
+  }
+
+  animate();
+
+  const onResize = () => {
+    const w = container.clientWidth || window.innerWidth;
+    const h = container.clientHeight || window.innerHeight;
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+    renderer.setSize(w, h);
+  };
+  window.addEventListener('resize', onResize);
+
+  container._cleanup = () => {
+    cancelAnimationFrame(animId);
+    window.removeEventListener('resize', onResize);
+    delete window.stitchSelectDice;
+    delete window.stitchRollCurrentDice;
+    renderer.dispose();
+  };
+})();
+})();
+</script>
+</div>
+<!-- STITCH_THREEJS_END:ANIMATION_13 -->
+</div>
+<!-- Result Breakdown Panel: Giant Bold Number & Status Breakdown -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-space-sm p-space-sm rounded-xl bg-surface-container-high/80 border border-secondary/40 shadow-lg">
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center justify-center min-w-[70px] h-16 rounded-xl bg-surface-container-lowest border-2 border-secondary shadow-[0_0_20px_rgba(255,185,95,0.4)] px-3">
+<span class="font-stat-display text-[44px] leading-none text-secondary font-black" id="tray-hero-number">20</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-md bg-gradient-to-r from-secondary-container to-secondary text-on-secondary font-headline-sm text-headline-sm font-black shadow-[0_0_12px_rgba(238,152,0,0.5)]" id="tray-main-result">¡Crítico Natural!</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold uppercase tracking-wider" id="tray-dice-label">D20</span>
+</div>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-title-sm text-title-sm text-on-surface font-semibold" id="tray-calc-formula">D20 (20) + 8 Modificador</span>
+<span class="text-tertiary text-xs">·</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant" id="tray-status-detail">Impacto asegurado en objetivo</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3 bg-surface-container-lowest px-space-md py-2 rounded-xl border border-surface-container-highest">
+<div class="flex flex-col text-right">
+<span class="font-label-sm text-label-sm text-tertiary uppercase tracking-widest">Total Tirada</span>
+<span class="font-stat-display text-stat-display text-secondary font-black leading-tight" id="tray-total-stat">28</span>
+</div>
+</div>
+</div>
+<!-- Quick Action Controls & Rolling Modes -->
+<div class="flex flex-col gap-space-sm pt-1">
+<div class="flex flex-wrap items-center gap-space-xs justify-between">
+<!-- Primary Actions -->
+<div class="flex items-center gap-space-xs flex-wrap">
+<button class="px-space-md py-2 rounded-lg bg-primary-container hover:brightness-110 text-on-primary font-label-md text-label-md font-bold transition-all shadow-md flex items-center gap-1.5 active:scale-95" onclick="reroll3D('normal')" type="button">
+<span class="material-symbols-outlined text-[18px]">replay</span>
+<span id="reroll-action-label">Volver a tirar (d20)</span>
+</button>
+<button class="px-space-sm py-2 rounded-lg bg-surface-container hover:bg-surface-bright text-secondary hover:text-on-surface font-label-md text-label-md transition-colors flex items-center gap-1" onclick="reroll3D('advantage')" type="button">
+<span class="material-symbols-outlined text-[16px] text-secondary">trending_up</span>
+<span>Tirar con Ventaja</span>
+</button>
+<button class="px-space-sm py-2 rounded-lg bg-surface-container hover:bg-surface-bright text-tertiary hover:text-error font-label-md text-label-md transition-colors flex items-center gap-1" onclick="reroll3D('disadvantage')" type="button">
+<span class="material-symbols-outlined text-[16px]">trending_down</span>
+<span>Tirar con Desventaja</span>
+</button>
+</div>
+<!-- Quick Damage Add / Smite Trigger -->
+<div class="flex items-center gap-1 bg-surface-container-lowest p-1 rounded-lg border border-surface-container-highest">
+<button class="px-2 py-1 rounded hover:bg-surface-container-high text-tertiary hover:text-secondary font-label-sm text-label-sm font-semibold transition-colors" onclick="selectPolyhedralDie('d4')" type="button">+d4 Daño</button>
+<button class="px-2 py-1 rounded hover:bg-surface-container-high text-tertiary hover:text-secondary font-label-sm text-label-sm font-semibold transition-colors" onclick="selectPolyhedralDie('d6')" type="button">+d6 Jabalina</button>
+<button class="px-2 py-1 rounded hover:bg-surface-container-high text-tertiary hover:text-secondary font-label-sm text-label-sm font-semibold transition-colors" onclick="selectPolyhedralDie('d8')" type="button">+d8 Espada</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Minimized Floating Dice Tray Widget (Lower Right Dock) -->
+<div class="fixed bottom-6 left-6 z-40 hidden flex items-center gap-space-sm p-space-xs pl-space-sm rounded-full bg-surface-container-high/95 backdrop-blur-md border border-secondary/40 shadow-2xl cursor-pointer hover:scale-105 transition-transform" id="minimized-dice-dock" onclick="openDiceTray('Tirada d20', 8, 'Lord Roland')">
+<div class="w-8 h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-stat-display text-sm font-black shadow-[0_0_8px_rgba(255,185,95,0.7)]" id="dock-preview-val">20</div>
+<div class="flex flex-col pr-space-sm">
+<span class="font-label-sm text-label-sm text-secondary uppercase font-bold">Lanzador 3D</span>
+<span class="font-body-sm text-body-sm text-on-surface" id="dock-preview-summary">Total: 28 (¡Crítico!)</span>
+</div>
+<button class="w-7 h-7 rounded-full bg-surface-container-highest hover:bg-surface-bright text-tertiary flex items-center justify-center ml-1" title="Maximizar Bandeja">
+<span class="material-symbols-outlined text-[16px]">open_in_full</span>
+</button>
+</div>
+<!-- Hero Character Summary & Primary Vitality Hub -->
+<section class="relative w-full rounded-2xl bg-surface-container-low shadow-xl p-space-md lg:p-space-lg mb-space-lg overflow-hidden">
+<!-- Ambient Arcane Gradients -->
+<div class="absolute -top-24 -right-24 w-96 h-96 bg-primary-container/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-20 left-1/4 w-80 h-80 bg-secondary/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col xl:flex-row items-stretch xl:items-center justify-between gap-space-lg">
+<!-- Character Identity Pod -->
+<div class="flex items-center gap-space-md">
+<div class="relative group">
+<div class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden bg-surface-container-highest shadow-md p-0.5 relative">
+<img alt="Roland de Valen Avatar" class="w-full h-full object-cover rounded-xl transition-transform duration-300 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPpL067e7GJ1cHvTaeJfCSKG5zSzT8rEH4G08yihZ7y-9YuHoFzF2wAj3n2jpPgnjDy1Z-5W28QCc2VtsARMBHW8M4QXMPl59GA4JboRC-f6oaReQUY_U-lRVKFlSjghLn1LrmsW2IG_FXKrryHKf5xoVt2V7P40qIyJbRFUKuecNNSSQPNeckpdG1hofxYNepx654wslKW074RvNhV3qm4K6LjNE0m3X6QuSCIQwZtW4b94YxEdQUbw"/>
+<div class="absolute inset-0 rounded-xl ring-1 ring-inset ring-surface-tint/20"></div>
+</div>
+<button class="absolute -bottom-2 -right-2 w-8 h-8 rounded-full bg-surface-container-lowest flex items-center justify-center shadow-lg hover:scale-110 transition-transform" title="Inspiración Heroica Activa" type="button">
+<span class="material-symbols-outlined text-secondary text-[20px] drop-shadow-[0_0_8px_rgba(255,185,95,0.8)]" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+</div>
+<div class="flex flex-col">
+<div class="flex flex-wrap items-center gap-space-xs mb-1">
+<h1 class="font-headline-md text-headline-md text-on-surface font-extrabold tracking-tight">Roland de Valen</h1>
+<span class="px-2 py-0.5 rounded-full bg-secondary/15 text-secondary font-label-sm text-label-sm uppercase tracking-wider font-semibold">Niv. 5</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm uppercase tracking-wider font-medium">Inspiración Activa</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-2">
+            Humano (Variante) · Paladín de la Devoción · Soldado · Legal Bueno
+          </p>
+<div class="flex flex-wrap items-center gap-space-md">
+<div class="flex items-center gap-1.5 text-tertiary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary">verified_user</span>
+<span>Bono Competencia: <strong class="text-on-surface font-title-sm">+3</strong></span>
+</div>
+<div class="flex items-center gap-1.5 text-tertiary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">favorite</span>
+<span>Dados de Golpe: <strong class="text-on-surface font-title-sm">5d10</strong> (5/5)</span>
+</div>
+<div class="flex items-center gap-1.5 text-tertiary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary">military_tech</span>
+<span>Salvaciones: <strong class="text-secondary font-title-sm">SAB (+4), CAR (+6)</strong></span>
+</div>
+</div>
+</div>
+</div>
+<!-- Vitality Core Blocks -->
+<div class="grid grid-cols-2 sm:grid-cols-4 xl:flex xl:items-center gap-space-sm">
+<!-- CA (Clase de Armadura) -->
+<div class="flex flex-col items-center justify-center p-space-sm rounded-xl bg-surface-container min-w-[84px] shadow-sm hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-1 text-tertiary font-label-sm text-label-sm uppercase">
+<span class="material-symbols-outlined text-[14px]">shield</span>
+<span>CA</span>
+</div>
+<span class="font-stat-display text-stat-display text-on-surface font-extrabold mt-0.5">18</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate max-w-[80px]">Placas + Escudo</span>
+</div>
+<!-- Iniciativa -->
+<div class="flex flex-col items-center justify-center p-space-sm rounded-xl bg-surface-container min-w-[84px] shadow-sm hover:bg-surface-container-high transition-colors cursor-pointer" onclick="openDiceTray('Tirada de Iniciativa', 1, 'Iniciativa')">
+<div class="flex items-center gap-1 text-secondary font-label-sm text-label-sm uppercase">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+<span>Inic</span>
+</div>
+<span class="font-stat-display text-stat-display text-secondary font-extrabold mt-0.5">+1</span>
+<span class="font-label-sm text-label-sm text-tertiary">DES Mod</span>
+</div>
+<!-- Velocidad -->
+<div class="flex flex-col items-center justify-center p-space-sm rounded-xl bg-surface-container min-w-[84px] shadow-sm hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-1 text-tertiary font-label-sm text-label-sm uppercase">
+<span class="material-symbols-outlined text-[14px]">directions_run</span>
+<span>Velocidad</span>
+</div>
+<span class="font-stat-display text-stat-display text-on-surface font-extrabold mt-0.5">30<span class="text-title-sm font-label-md">ft</span></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">9 metros</span>
+</div>
+<!-- HP Module with Quick Controls -->
+<div class="col-span-2 sm:col-span-1 xl:w-72 flex flex-col justify-between p-space-sm rounded-xl bg-surface-container shadow-sm">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm uppercase text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-primary-container text-[14px]">favorite</span> Puntos de Golpe
+            </span>
+<div class="flex items-center gap-1">
+<span class="font-label-sm text-label-sm text-secondary bg-surface-container-highest px-1.5 py-0.2 rounded font-bold">+5 Temp</span>
+<span class="font-label-md text-label-md text-on-surface font-bold">48 <span class="text-tertiary">/ 48</span></span>
+</div>
+</div>
+<!-- Interactive Bar -->
+<div class="w-full h-2.5 rounded-full bg-surface-container-lowest overflow-hidden my-1 flex">
+<div class="h-full bg-gradient-to-r from-primary-container to-secondary w-full rounded-full transition-all duration-500 shadow-[0_0_8px_rgba(255,84,81,0.5)]"></div>
+</div>
+<!-- Death Saves & HP buttons -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-1 text-label-sm font-label-sm text-on-surface-variant">
+<span>Muerte:</span>
+<div class="flex gap-0.5" title="Éxitos en Tiradas de Muerte">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="w-2 h-2 rounded-full bg-surface-container-highest"></span>
+</div>
+<span class="mx-0.5 text-outline">|</span>
+<div class="flex gap-0.5" title="Fallos en Tiradas de Muerte">
+<span class="w-2 h-2 rounded-full bg-surface-container-highest"></span>
+<span class="w-2 h-2 rounded-full bg-surface-container-highest"></span>
+<span class="w-2 h-2 rounded-full bg-surface-container-highest"></span>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button class="px-1.5 py-0.5 rounded bg-surface-container-high hover:bg-surface-bright text-error font-label-sm text-label-sm" type="button">- Daño</button>
+<button class="px-1.5 py-0.5 rounded bg-surface-container-high hover:bg-surface-bright text-secondary font-label-sm text-label-sm" type="button">+ Curar</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Ability Scores Ribbon (Hex / Modern Pods) -->
+<section class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-space-sm mb-space-lg">
+<!-- FUERZA -->
+<div class="group relative flex flex-col items-center p-space-sm rounded-xl bg-surface-container-low hover:bg-surface-container transition-all shadow-md cursor-pointer" onclick="openDiceTray('Fuerza (Prueba)', 4, 'Lord Roland')">
+<span class="font-label-sm text-label-sm text-tertiary tracking-widest uppercase">Fuerza</span>
+<div class="my-1 text-center">
+<span class="font-stat-display text-stat-display text-on-surface group-hover:text-primary transition-colors">+4</span>
+</div>
+<div class="w-full flex items-center justify-between px-2 py-0.5 rounded bg-surface-container-high font-label-sm text-label-sm text-on-surface-variant">
+<span>Base: <strong>18</strong></span>
+<span class="text-tertiary">Salv: +4</span>
+</div>
+</div>
+<!-- DESTREZA -->
+<div class="group relative flex flex-col items-center p-space-sm rounded-xl bg-surface-container-low hover:bg-surface-container transition-all shadow-md cursor-pointer" onclick="openDiceTray('Destreza (Prueba)', 1, 'Lord Roland')">
+<span class="font-label-sm text-label-sm text-tertiary tracking-widest uppercase">Destreza</span>
+<div class="my-1 text-center">
+<span class="font-stat-display text-stat-display text-on-surface group-hover:text-primary transition-colors">+1</span>
+</div>
+<div class="w-full flex items-center justify-between px-2 py-0.5 rounded bg-surface-container-high font-label-sm text-label-sm text-on-surface-variant">
+<span>Base: <strong>12</strong></span>
+<span class="text-tertiary">Salv: +1</span>
+</div>
+</div>
+<!-- CONSTITUCIÓN -->
+<div class="group relative flex flex-col items-center p-space-sm rounded-xl bg-surface-container-low hover:bg-surface-container transition-all shadow-md cursor-pointer" onclick="openDiceTray('Constitución (Prueba)', 3, 'Lord Roland')">
+<span class="font-label-sm text-label-sm text-tertiary tracking-widest uppercase">Constitución</span>
+<div class="my-1 text-center">
+<span class="font-stat-display text-stat-display text-on-surface group-hover:text-primary transition-colors">+3</span>
+</div>
+<div class="w-full flex items-center justify-between px-2 py-0.5 rounded bg-surface-container-high font-label-sm text-label-sm text-on-surface-variant">
+<span>Base: <strong>16</strong></span>
+<span class="text-tertiary">Salv: +3</span>
+</div>
+</div>
+<!-- INTELIGENCIA -->
+<div class="group relative flex flex-col items-center p-space-sm rounded-xl bg-surface-container-low hover:bg-surface-container transition-all shadow-md cursor-pointer" onclick="openDiceTray('Inteligencia (Prueba)', 0, 'Lord Roland')">
+<span class="font-label-sm text-label-sm text-tertiary tracking-widest uppercase">Inteligencia</span>
+<div class="my-1 text-center">
+<span class="font-stat-display text-stat-display text-on-surface group-hover:text-primary transition-colors">+0</span>
+</div>
+<div class="w-full flex items-center justify-between px-2 py-0.5 rounded bg-surface-container-high font-label-sm text-label-sm text-on-surface-variant">
+<span>Base: <strong>10</strong></span>
+<span class="text-tertiary">Salv: +0</span>
+</div>
+</div>
+<!-- SABIDURÍA (Competente) -->
+<div class="group relative flex flex-col items-center p-space-sm rounded-xl bg-surface-container-low hover:bg-surface-container transition-all shadow-md cursor-pointer" onclick="openDiceTray('Sabiduría (Salvación)', 4, 'Lord Roland')">
+<div class="flex items-center gap-1">
+<span class="font-label-sm text-label-sm text-secondary tracking-widest uppercase">Sabiduría</span>
+<span class="material-symbols-outlined text-[12px] text-secondary">star</span>
+</div>
+<div class="my-1 text-center">
+<span class="font-stat-display text-stat-display text-on-surface group-hover:text-secondary transition-colors">+1</span>
+</div>
+<div class="w-full flex items-center justify-between px-2 py-0.5 rounded bg-surface-container-high font-label-sm text-label-sm text-on-surface-variant">
+<span>Base: <strong>13</strong></span>
+<span class="text-secondary font-bold">Salv: +4 ★</span>
+</div>
+</div>
+<!-- CARISMA (Competente) -->
+<div class="group relative flex flex-col items-center p-space-sm rounded-xl bg-surface-container-low hover:bg-surface-container transition-all shadow-md cursor-pointer" onclick="openDiceTray('Carisma (Salvación)', 6, 'Lord Roland')">
+<div class="flex items-center gap-1">
+<span class="font-label-sm text-label-sm text-secondary tracking-widest uppercase">Carisma</span>
+<span class="material-symbols-outlined text-[12px] text-secondary">star</span>
+</div>
+<div class="my-1 text-center">
+<span class="font-stat-display text-stat-display text-on-surface group-hover:text-secondary transition-colors">+3</span>
+</div>
+<div class="w-full flex items-center justify-between px-2 py-0.5 rounded bg-surface-container-high font-label-sm text-label-sm text-on-surface-variant">
+<span>Base: <strong>16</strong></span>
+<span class="text-secondary font-bold">Salv: +6 ★</span>
+</div>
+</div>
+</section>
+<!-- 3-Column Main Content Tactical Battlefield -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- ==========================================
+         COLUMN 1: SKILLS, SENSES & PROFICIENCIES (3 cols)
+         ========================================== -->
+<div class="lg:col-span-3 flex flex-col gap-space-md">
+<!-- Passive Senses Capsule -->
+<div class="rounded-xl bg-surface-container-low p-space-md shadow-md">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-tertiary">Sentidos Pasivos</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary">visibility</span>
+</div>
+<div class="grid grid-cols-3 gap-space-xs text-center">
+<div class="p-space-xs rounded bg-surface-container flex flex-col">
+<span class="font-stat-display text-stat-display text-secondary leading-tight">14</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">Percepción</span>
+</div>
+<div class="p-space-xs rounded bg-surface-container flex flex-col">
+<span class="font-stat-display text-stat-display text-on-surface leading-tight">10</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">Investigación</span>
+</div>
+<div class="p-space-xs rounded bg-surface-container flex flex-col">
+<span class="font-stat-display text-stat-display text-secondary leading-tight">14</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">Perspicacia</span>
+</div>
+</div>
+</div>
+<!-- Full Skills List -->
+<div class="rounded-xl bg-surface-container-low p-space-md shadow-md flex flex-col">
+<div class="flex items-center justify-between mb-space-sm pb-space-xs border-b border-surface-container-highest">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Habilidades</span>
+<span class="font-label-sm text-label-sm text-tertiary">Total: 18</span>
+</div>
+<div class="flex flex-col gap-1 overflow-hidden">
+<!-- Skill Row Macro -->
+<button class="w-full flex items-center justify-between p-1.5 rounded hover:bg-surface-container transition-colors text-left group" onclick="openDiceTray('Acrobacias (DES)', 1, 'Habilidad')" type="button">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-surface-container-highest"></span>
+<span class="font-body-sm text-body-sm text-on-surface group-hover:text-primary transition-colors">Acrobacias</span>
+<span class="font-label-sm text-label-sm text-tertiary uppercase">DES</span>
+</div>
+<span class="font-label-md text-label-md text-tertiary">+1</span>
+</button>
+<button class="w-full flex items-center justify-between p-1.5 rounded bg-surface-container/40 hover:bg-surface-container transition-colors text-left group" onclick="openDiceTray('Atletismo (FUE)', 7, 'Habilidad')" type="button">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_6px_rgba(255,185,95,0.8)]"></span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface group-hover:text-secondary transition-colors">Atletismo</span>
+<span class="font-label-sm text-label-sm text-secondary uppercase">FUE ★</span>
+</div>
+<span class="font-label-md text-label-md text-secondary font-bold">+7</span>
+</button>
+<button class="w-full flex items-center justify-between p-1.5 rounded hover:bg-surface-container transition-colors text-left group" onclick="openDiceTray('Conocimiento Arcano (INT)', 0, 'Habilidad')" type="button">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-surface-container-highest"></span>
+<span class="font-body-sm text-body-sm text-on-surface">Conocimiento Arcano</span>
+<span class="font-label-sm text-label-sm text-tertiary uppercase">INT</span>
+</div>
+<span class="font-label-md text-label-md text-tertiary">+0</span>
+</button>
+<button class="w-full flex items-center justify-between p-1.5 rounded hover:bg-surface-container transition-colors text-left group" onclick="openDiceTray('Engaño (CAR)', 3, 'Habilidad')" type="button">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-surface-container-highest"></span>
+<span class="font-body-sm text-body-sm text-on-surface">Engaño</span>
+<span class="font-label-sm text-label-sm text-tertiary uppercase">CAR</span>
+</div>
+<span class="font-label-md text-label-md text-tertiary">+3</span>
+</button>
+<button class="w-full flex items-center justify-between p-1.5 rounded hover:bg-surface-container transition-colors text-left group" onclick="openDiceTray('Historia (INT)', 0, 'Habilidad')" type="button">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-surface-container-highest"></span>
+<span class="font-body-sm text-body-sm text-on-surface">Historia</span>
+<span class="font-label-sm text-label-sm text-tertiary uppercase">INT</span>
+</div>
+<span class="font-label-md text-label-md text-tertiary">+0</span>
+</button>
+<button class="w-full flex items-center justify-between p-1.5 rounded hover:bg-surface-container transition-colors text-left group" onclick="openDiceTray('Interpretación (CAR)', 3, 'Habilidad')" type="button">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-surface-container-highest"></span>
+<span class="font-body-sm text-body-sm text-on-surface">Interpretación</span>
+<span class="font-label-sm text-label-sm text-tertiary uppercase">CAR</span>
+</div>
+<span class="font-label-md text-label-md text-tertiary">+3</span>
+</button>
+<button class="w-full flex items-center justify-between p-1.5 rounded bg-surface-container/40 hover:bg-surface-container transition-colors text-left group" onclick="openDiceTray('Intimidación (CAR)', 6, 'Habilidad')" type="button">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_6px_rgba(255,185,95,0.8)]"></span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface group-hover:text-secondary">Intimidación</span>
+<span class="font-label-sm text-label-sm text-secondary uppercase">CAR ★</span>
+</div>
+<span class="font-label-md text-label-md text-secondary font-bold">+6</span>
+</button>
+<button class="w-full flex items-center justify-between p-1.5 rounded hover:bg-surface-container transition-colors text-left group" onclick="openDiceTray('Investigación (INT)', 0, 'Habilidad')" type="button">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-surface-container-highest"></span>
+<span class="font-body-sm text-body-sm text-on-surface">Investigación</span>
+<span class="font-label-sm text-label-sm text-tertiary uppercase">INT</span>
+</div>
+<span class="font-label-md text-label-md text-tertiary">+0</span>
+</button>
+<button class="w-full flex items-center justify-between p-1.5 rounded hover:bg-surface-container transition-colors text-left group" onclick="openDiceTray('Juego de Manos (DES)', 1, 'Habilidad')" type="button">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-surface-container-highest"></span>
+<span class="font-body-sm text-body-sm text-on-surface">Juego de Manos</span>
+<span class="font-label-sm text-label-sm text-tertiary uppercase">DES</span>
+</div>
+<span class="font-label-md text-label-md text-tertiary">+1</span>
+</button>
+<button class="w-full flex items-center justify-between p-1.5 rounded bg-surface-container/40 hover:bg-surface-container transition-colors text-left group" onclick="openDiceTray('Medicina (SAB)', 4, 'Habilidad')" type="button">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_6px_rgba(255,185,95,0.8)]"></span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface group-hover:text-secondary">Medicina</span>
+<span class="font-label-sm text-label-sm text-secondary uppercase">SAB ★</span>
+</div>
+<span class="font-label-md text-label-md text-secondary font-bold">+4</span>
+</button>
+<button class="w-full flex items-center justify-between p-1.5 rounded hover:bg-surface-container transition-colors text-left group" onclick="openDiceTray('Naturaleza (INT)', 0, 'Habilidad')" type="button">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-surface-container-highest"></span>
+<span class="font-body-sm text-body-sm text-on-surface">Naturaleza</span>
+<span class="font-label-sm text-label-sm text-tertiary uppercase">INT</span>
+</div>
+<span class="font-label-md text-label-md text-tertiary">+0</span>
+</button>
+<button class="w-full flex items-center justify-between p-1.5 rounded bg-surface-container/40 hover:bg-surface-container transition-colors text-left group" onclick="openDiceTray('Percepción (SAB)', 4, 'Habilidad')" type="button">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_6px_rgba(255,185,95,0.8)]"></span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface group-hover:text-secondary">Percepción</span>
+<span class="font-label-sm text-label-sm text-secondary uppercase">SAB ★</span>
+</div>
+<span class="font-label-md text-label-md text-secondary font-bold">+4</span>
+</button>
+<button class="w-full flex items-center justify-between p-1.5 rounded bg-surface-container/40 hover:bg-surface-container transition-colors text-left group" onclick="openDiceTray('Perspicacia (SAB)', 4, 'Habilidad')" type="button">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_6px_rgba(255,185,95,0.8)]"></span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface group-hover:text-secondary">Perspicacia</span>
+<span class="font-label-sm text-label-sm text-secondary uppercase">SAB ★</span>
+</div>
+<span class="font-label-md text-label-md text-secondary font-bold">+4</span>
+</button>
+<button class="w-full flex items-center justify-between p-1.5 rounded bg-surface-container/40 hover:bg-surface-container transition-colors text-left group" onclick="openDiceTray('Persuasión (CAR)', 6, 'Habilidad')" type="button">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_6px_rgba(255,185,95,0.8)]"></span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface group-hover:text-secondary">Persuasión</span>
+<span class="font-label-sm text-label-sm text-secondary uppercase">CAR ★</span>
+</div>
+<span class="font-label-md text-label-md text-secondary font-bold">+6</span>
+</button>
+<button class="w-full flex items-center justify-between p-1.5 rounded bg-surface-container/40 hover:bg-surface-container transition-colors text-left group" onclick="openDiceTray('Religión (INT)', 3, 'Habilidad')" type="button">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_6px_rgba(255,185,95,0.8)]"></span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface group-hover:text-secondary">Religión</span>
+<span class="font-label-sm text-label-sm text-secondary uppercase">INT ★</span>
+</div>
+<span class="font-label-md text-label-md text-secondary font-bold">+3</span>
+</button>
+<button class="w-full flex items-center justify-between p-1.5 rounded hover:bg-surface-container transition-colors text-left group" onclick="openDiceTray('Sigilo (DES)', 1, 'Habilidad')" type="button">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-surface-container-highest"></span>
+<span class="font-body-sm text-body-sm text-on-surface">Sigilo</span>
+<span class="font-label-sm text-label-sm text-tertiary uppercase">DES</span>
+</div>
+<span class="font-label-md text-label-md text-tertiary">+1</span>
+</button>
+<button class="w-full flex items-center justify-between p-1.5 rounded hover:bg-surface-container transition-colors text-left group" onclick="openDiceTray('Supervivencia (SAB)', 1, 'Habilidad')" type="button">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-surface-container-highest"></span>
+<span class="font-body-sm text-body-sm text-on-surface">Supervivencia</span>
+<span class="font-label-sm text-label-sm text-tertiary uppercase">SAB</span>
+</div>
+<span class="font-label-md text-label-md text-tertiary">+1</span>
+</button>
+<button class="w-full flex items-center justify-between p-1.5 rounded hover:bg-surface-container transition-colors text-left group" onclick="openDiceTray('Trato con Animales (SAB)', 1, 'Habilidad')" type="button">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-surface-container-highest"></span>
+<span class="font-body-sm text-body-sm text-on-surface">Trato con Animales</span>
+<span class="font-label-sm text-label-sm text-tertiary uppercase">SAB</span>
+</div>
+<span class="font-label-md text-label-md text-tertiary">+1</span>
+</button>
+</div>
+</div>
+<!-- Competencias & Lenguajes -->
+<div class="rounded-xl bg-surface-container-low p-space-md shadow-md flex flex-col gap-space-sm">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Otras Competencias</span>
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-tertiary uppercase">Idiomas</span>
+<span class="font-body-sm text-body-sm text-on-surface">Común, Celestial</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-tertiary uppercase">Armaduras</span>
+<span class="font-body-sm text-body-sm text-on-surface">Ligeras, Medias, Pesadas y Escudos</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-tertiary uppercase">Armas</span>
+<span class="font-body-sm text-body-sm text-on-surface">Armas Simples, Armas Marciales</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-tertiary uppercase">Herramientas</span>
+<span class="font-body-sm text-body-sm text-on-surface">Juego de Dados de Dragón, Vehículos (Tierra)</span>
+</div>
+</div>
+</div>
+<!-- ==========================================
+         COLUMN 2: COMBAT ACTIONS, ATTACKS & FEATURES (6 cols)
+         ========================================== -->
+<div class="lg:col-span-6 flex flex-col gap-space-md">
+<!-- Sub-Action Filter Tabs -->
+<div class="flex items-center gap-space-xs p-1 rounded-xl bg-surface-container-low overflow-x-auto shadow-sm">
+<button class="px-space-md py-1.5 rounded-lg bg-surface-container-high text-primary font-title-sm text-title-sm font-bold shadow-sm whitespace-nowrap" type="button">
+          Acciones de Ataque
+        </button>
+<button class="px-space-md py-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-on-surface font-title-sm text-title-sm whitespace-nowrap transition-colors" type="button">
+          Acción Adicional
+        </button>
+<button class="px-space-md py-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-on-surface font-title-sm text-title-sm whitespace-nowrap transition-colors" type="button">
+          Reacciones
+        </button>
+<button class="px-space-md py-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-on-surface font-title-sm text-title-sm whitespace-nowrap transition-colors" type="button">
+          Rasgos Especiales
+        </button>
+</div>
+<!-- Quick Weapon Card: Espada Larga +1 -->
+<div class="rounded-xl bg-surface-container-low p-space-md shadow-md flex flex-col gap-space-sm hover:shadow-lg transition-all relative overflow-hidden">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-primary-container/20 flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[24px]">swords</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Espada Larga +1</span>
+<span class="px-1.5 py-0.2 rounded bg-secondary/20 text-secondary font-label-sm text-label-sm font-bold uppercase">Mágica</span>
+</div>
+<span class="font-body-sm text-body-sm text-tertiary">Marcial cuerpo a cuerpo · Versátil (1d10)</span>
+</div>
+</div>
+<!-- Quick Rolls -->
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-1.5 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md font-bold shadow-md hover:brightness-110 active:scale-95 transition-all flex items-center gap-1" onclick="openDiceTray('Ataque: Espada Larga +1', 8, 'Espada Larga +1')" type="button">
+<span class="material-symbols-outlined text-[16px]">casino</span>
+<span>+8 Impacto</span>
+</button>
+<button class="px-space-sm py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-bright text-secondary font-label-md text-label-md transition-colors" onclick="rollDamage('Espada Larga +1 (1M)', '1d8+5 cortante')" type="button">
+              1d8+5 Daño
+            </button>
+</div>
+</div>
+<div class="text-on-surface-variant font-body-sm text-body-sm flex items-center justify-between pt-space-xs border-t border-surface-container-highest">
+<span>Ataque a 2 manos: <strong class="text-on-surface font-label-md">1d10+5</strong> cortante</span>
+<span class="text-tertiary font-label-sm">Alcance: 5 pies</span>
+</div>
+</div>
+<!-- Quick Weapon Card: Jabalina -->
+<div class="rounded-xl bg-surface-container-low p-space-md shadow-md flex flex-col gap-space-sm hover:shadow-lg transition-all">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[24px]">straighten</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md text-on-surface font-bold">Jabalina</span>
+<span class="font-label-sm text-label-sm text-tertiary uppercase">Arrojadiza</span>
+</div>
+<span class="font-body-sm text-body-sm text-tertiary">Simple · Alcance 30/120 pies</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-md text-label-md transition-colors flex items-center gap-1" onclick="openDiceTray('Ataque: Jabalina', 7, 'Jabalina')" type="button">
+<span class="material-symbols-outlined text-[16px] text-tertiary">casino</span>
+<span>+7 Impacto</span>
+</button>
+<button class="px-space-sm py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-bright text-secondary font-label-md text-label-md transition-colors" onclick="rollDamage('Jabalina', '1d6+4 perforante')" type="button">
+              1d6+4 Daño
+            </button>
+</div>
+</div>
+</div>
+<!-- Paladin Class Features Hub -->
+<div class="rounded-xl bg-surface-container-low p-space-md shadow-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between border-b border-surface-container-highest pb-space-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">auto_awesome</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Habilidades de Paladín</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary uppercase font-semibold">Devoción Sagrada</span>
+</div>
+<!-- Castigo Divino (Divine Smite) -->
+<div class="p-space-sm rounded-lg bg-surface-container flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm text-primary font-bold">Castigo Divino (Divine Smite)</span>
+<span class="font-label-sm text-label-sm text-tertiary">Al impactar con arma</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Gasta un espacio de conjuro al impactar: añade <strong class="text-on-surface font-label-md">+2d8</strong> de daño radiante por espacio de Nivel 1 (+1d8 por nivel superior). +1d8 extra contra muertos vivientes o infernales.
+          </p>
+<div class="flex items-center justify-end gap-space-xs mt-1">
+<button class="px-space-sm py-1 rounded bg-primary text-on-primary font-label-sm text-label-sm font-bold hover:brightness-110" onclick="rollSmite(1)" type="button">
+              Aplicar Nv.1 (+2d8)
+            </button>
+<button class="px-space-sm py-1 rounded bg-primary text-on-primary font-label-sm text-label-sm font-bold hover:brightness-110" onclick="rollSmite(2)" type="button">
+              Aplicar Nv.2 (+3d8)
+            </button>
+</div>
+</div>
+<!-- Imposición de Manos (Lay on Hands) -->
+<div class="p-space-sm rounded-lg bg-surface-container flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm text-secondary font-bold">Imposición de Manos</span>
+<span class="font-label-md text-label-md text-on-surface font-bold">25 / 25 PG</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-lowest overflow-hidden">
+<div class="h-full bg-secondary w-full rounded-full"></div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Toca a una criatura para restaurar PG o gasta 5 PG para curar 1 enfermedad/veneno.</span>
+<button class="px-space-sm py-1 rounded bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-sm text-label-sm whitespace-nowrap" type="button">
+              Curar Puntos
+            </button>
+</div>
+</div>
+<!-- Canalizar Divinidad -->
+<div class="p-space-sm rounded-lg bg-surface-container flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-title-sm text-title-sm text-on-surface font-bold">Canalizar Divinidad</span>
+<span class="font-label-sm text-label-sm text-secondary px-1.5 py-0.2 rounded bg-surface-container-highest">1 / 1 Descanso</span>
+</div>
+<button class="px-space-sm py-0.5 rounded bg-surface-container-highest text-tertiary hover:text-on-surface font-label-sm text-label-sm" type="button">
+              Gastar Uso
+            </button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-xs mt-1">
+<div class="p-space-xs rounded bg-surface-container-low">
+<span class="font-label-sm text-label-sm text-secondary font-bold uppercase block">Arma Sagrada</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">+3 a tiradas de ataque (CAR Mod) y emite luz brillante 20ft por 1 min.</span>
+</div>
+<div class="p-space-xs rounded bg-surface-container-low">
+<span class="font-label-sm text-label-sm text-secondary font-bold uppercase block">Expulsar a los Impíos</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Muertos vivientes/infernales a 30 pies deben superar salvación de SAB (CD 14) o huir.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ==========================================
+         COLUMN 3: RESOURCES, SPELL SLOTS & LOG (3 cols)
+         ========================================== -->
+<div class="lg:col-span-3 flex flex-col gap-space-md">
+<!-- Spell Slots Visual Tracker -->
+<div class="rounded-xl bg-surface-container-low p-space-md shadow-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between border-b border-surface-container-highest pb-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[18px] text-secondary">auto_mode</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Espacios de Conjuro</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary">CD: 14</span>
+</div>
+<!-- Level 1 Slots -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-tertiary uppercase">Nivel 1 (4 Ranuras)</span>
+<span class="text-secondary font-bold">4 / 4 Libres</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-secondary hover:scale-105 transition-transform" title="Ranura Nivel 1" type="button">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">diamond</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-secondary hover:scale-105 transition-transform" title="Ranura Nivel 1" type="button">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">diamond</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-secondary hover:scale-105 transition-transform" title="Ranura Nivel 1" type="button">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">diamond</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-secondary hover:scale-105 transition-transform" title="Ranura Nivel 1" type="button">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">diamond</span>
+</button>
+</div>
+</div>
+<!-- Level 2 Slots -->
+<div class="flex flex-col gap-1 pt-1">
+<div class="flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-tertiary uppercase">Nivel 2 (2 Ranuras)</span>
+<span class="text-secondary font-bold">2 / 2 Libres</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-secondary hover:scale-105 transition-transform" title="Ranura Nivel 2" type="button">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">diamond</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-secondary hover:scale-105 transition-transform" title="Ranura Nivel 2" type="button">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">diamond</span>
+</button>
+</div>
+</div>
+<div class="pt-space-xs text-center">
+<a class="text-primary hover:text-on-surface font-title-sm text-title-sm inline-flex items-center gap-1 transition-colors" data-path="hechizos-y-magia" href="#">
+<span>Ver Grimoire Completo</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Senses & Divine Sense -->
+<div class="rounded-xl bg-surface-container-low p-space-md shadow-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md text-on-surface font-bold">Sentido Divino</span>
+<span class="font-label-md text-label-md text-secondary">4 / 4 Usos</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          1 + Carisma Modificador por descanso largo. Detecta celestiales, infernales o muertos vivientes a 60 pies.
+        </p>
+<button class="w-full py-1.5 rounded bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-sm text-label-sm font-semibold transition-colors" type="button">
+          Activar Sentido Divino (1 Acción)
+        </button>
+</div>
+<!-- Active Conditions Widget -->
+<div class="rounded-xl bg-surface-container-low p-space-md shadow-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between border-b border-surface-container-highest pb-space-xs">
+<span class="font-title-md text-title-md text-on-surface font-bold">Estados y Condiciones</span>
+<button class="text-secondary font-label-sm text-label-sm hover:underline" type="button">+ Añadir</button>
+</div>
+<div class="flex items-center justify-between p-space-xs rounded bg-surface-container text-on-surface-variant font-body-sm text-body-sm">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[16px]">check_circle</span>
+<span>Sin condiciones negativas</span>
+</span>
+<span class="font-label-sm text-label-sm text-tertiary">Normal</span>
+</div>
+</div>
+<!-- Live Tactical Dice Log Feed -->
+<div class="rounded-xl bg-surface-container-low p-space-md shadow-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between border-b border-surface-container-highest pb-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-tertiary text-[18px]">history</span>
+<span class="font-title-md text-title-md text-on-surface font-bold">Registro de Dados</span>
+</div>
+<button class="text-tertiary hover:text-on-surface font-label-sm text-label-sm" onclick="clearLog()" type="button">Limpiar</button>
+</div>
+<div class="flex flex-col gap-2 max-h-56 overflow-y-auto pr-1" id="dice-feed">
+<!-- Recent Rolls -->
+<div class="p-2 rounded bg-surface-container flex flex-col gap-0.5">
+<div class="flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-on-surface font-bold">Espada Larga +1 (Ataque)</span>
+<span class="text-secondary font-bold">Impacto 28 (¡Crítico!)</span>
+</div>
+<span class="text-body-sm font-label-sm text-tertiary">1d20+8 [20 + 8] vs CA</span>
+</div>
+<div class="p-2 rounded bg-surface-container flex flex-col gap-0.5">
+<div class="flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-on-surface font-bold">Iniciativa de Combate</span>
+<span class="text-tertiary font-bold">Total 16</span>
+</div>
+<span class="text-body-sm font-label-sm text-tertiary">1d20+1 [15 + 1]</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Inline Tactical Mechanics & Web Component Script -->
+<script>
+    // Define Custom Element for Three.js 3D Dice Scene
+    class ThreeJSSceneElement extends HTMLElement {
+      connectedCallback() {
+        if (this._initialized) return;
+        this._initialized = true;
+        const container = this;
+        try {
+          // Polyhedral 3D Dice Roller Scene supporting d4, d6, d8, d12, and d20
+// with high-clarity numbers, bold contrast typography, and instant dice selection
+(function() {
+  const width = container.clientWidth || window.innerWidth;
+  const height = container.clientHeight || window.innerHeight;
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 100);
+  camera.position.set(0, 3.2, 7.8);
+  camera.lookAt(0, 0, 0);
+
+  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+  renderer.setSize(width, height);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  container.appendChild(renderer.domElement);
+
+  // Iluminación táctica y mágica (luz clara sobre la cara superior para máxima legibilidad)
+  const ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
+  scene.add(ambientLight);
+
+  const topDirectLight = new THREE.DirectionalLight(0xffffff, 2.2);
+  topDirectLight.position.set(0, 10, 8);
+  topDirectLight.castShadow = true;
+  scene.add(topDirectLight);
+
+  const goldAccentLight = new THREE.PointLight(0xfbbf24, 3.2, 20);
+  goldAccentLight.position.set(4, 5, 3);
+  scene.add(goldAccentLight);
+
+  const crimsonAccentLight = new THREE.PointLight(0xef4444, 2.8, 16);
+  crimsonAccentLight.position.set(-4, -1, 4);
+  scene.add(crimsonAccentLight);
+
+  // Grupo principal para el dado actual
+  const diceRoot = new THREE.Group();
+  scene.add(diceRoot);
+
+  // Anillo mágico rúnico en la base
+  const ringGeo = new THREE.RingGeometry(2.3, 2.5, 36);
+  const ringMat = new THREE.MeshBasicMaterial({
+    color: 0xf59e0b,
+    side: THREE.DoubleSide,
+    transparent: true,
+    opacity: 0.55
+  });
+  const ringMesh = new THREE.Mesh(ringGeo, ringMat);
+  ringMesh.rotation.x = -Math.PI / 2;
+  ringMesh.position.y = -1.65;
+  scene.add(ringMesh);
+
+  // Partículas mágicas doradas en suspensión
+  const sparkCount = 50;
+  const sparkGeo = new THREE.BufferGeometry();
+  const sparkPositions = new Float32Array(sparkCount * 3);
+  const sparkVel = [];
+  for (let i = 0; i < sparkCount; i++) {
+    sparkPositions[i * 3] = (Math.random() - 0.5) * 8;
+    sparkPositions[i * 3 + 1] = (Math.random() - 0.5) * 6;
+    sparkPositions[i * 3 + 2] = (Math.random() - 0.5) * 6;
+    sparkVel.push({
+      x: (Math.random() - 0.5) * 0.015,
+      y: Math.random() * 0.02 + 0.01,
+      z: (Math.random() - 0.5) * 0.015
+    });
+  }
+  sparkGeo.setAttribute('position', new THREE.BufferAttribute(sparkPositions, 3));
+  const sparkMat = new THREE.PointsMaterial({
+    color: 0xfde047,
+    size: 0.09,
+    transparent: true,
+    opacity: 0.85,
+    blending: THREE.AdditiveBlending
+  });
+  const sparkSystem = new THREE.Points(sparkGeo, sparkMat);
+  scene.add(sparkSystem);
+
+  // Función para crear texturas ultra legibles y nítidas para los números
+  function createNumberTexture(number, isHighlight, shapeType) {
+    const canvas = document.createElement('canvas');
+    canvas.width = 512;
+    canvas.height = 512;
+    const ctx = canvas.getContext('2d');
+
+    ctx.clearRect(0, 0, 512, 512);
+
+    // Fondo según si es la cara ganadora resaltada
+    const grad = ctx.createRadialGradient(256, 256, 40, 256, 256, 250);
+    if (isHighlight) {
+      grad.addColorStop(0, '#991b1b');
+      grad.addColorStop(0.7, '#7f1d1d');
+      grad.addColorStop(1, '#450a0a');
+    } else {
+      grad.addColorStop(0, '#1e1b4b');
+      grad.addColorStop(0.65, '#0f172a');
+      grad.addColorStop(1, '#020617');
+    }
+    ctx.fillStyle = grad;
+    ctx.beginPath();
+    ctx.arc(256, 256, 230, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Marco exterior con bisel dorado brillante
+    ctx.strokeStyle = isHighlight ? '#fef08a' : '#f59e0b';
+    ctx.lineWidth = isHighlight ? 16 : 10;
+    ctx.stroke();
+
+    // Aro interior de precisión
+    ctx.strokeStyle = isHighlight ? '#fbbf24' : '#ef4444';
+    ctx.lineWidth = 4;
+    ctx.beginPath();
+    ctx.arc(256, 256, 210, 0, Math.PI * 2);
+    ctx.stroke();
+
+    // Tipografía de impacto directo muy legible (sin confusiones de triángulos intrusivos)
+    const str = number.toString();
+    const fontSize = str.length > 2 ? 180 : (str.length === 2 ? 220 : 250);
+    ctx.font = '900 ' + fontSize + 'px "Cinzel", "Epilogue", "Georgia", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+
+    // Sombra proyectada del número para contraste óptimo
+    ctx.shadowColor = isHighlight ? 'rgba(254, 240, 138, 0.9)' : 'rgba(0, 0, 0, 0.95)';
+    ctx.shadowBlur = isHighlight ? 35 : 18;
+    ctx.shadowOffsetX = 0;
+    ctx.shadowOffsetY = isHighlight ? 0 : 6;
+
+    // Relleno del número
+    ctx.fillStyle = isHighlight ? '#ffffff' : '#fbbf24';
+    ctx.fillText(str, 256, 256);
+
+    // Contorno dorado para remarcar el dígito
+    ctx.shadowBlur = 0;
+    ctx.shadowOffsetY = 0;
+    ctx.strokeStyle = isHighlight ? '#f59e0b' : '#78350f';
+    ctx.lineWidth = 6;
+    ctx.strokeText(str, 256, 256);
+
+    // Punto inferior de distinción para números reversibles (6 y 9)
+    if (number === 6 || number === 9) {
+      ctx.fillStyle = isHighlight ? '#ffffff' : '#fbbf24';
+      ctx.beginPath();
+      ctx.arc(256, 385, 12, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    const texture = new THREE.CanvasTexture(canvas);
+    texture.needsUpdate = true;
+    return texture;
+  }
+
+  // Material de cuerpo del dado sólido (Obsidiana carmesí brillante con facetas limpias)
+  const baseDieMaterial = new THREE.MeshStandardMaterial({
+    color: 0x6b1124,
+    roughness: 0.18,
+    metalness: 0.42,
+    emissive: 0x220409,
+    emissiveIntensity: 0.35,
+    flatShading: true
+  });
+
+  // Estado del dado actual
+  let currentDiceType = 'd20';
+  let activeMesh = null;
+  let activeWire = null;
+  let faceMeshes = [];
+  let isRolling = true;
+  let rollTimer = 0;
+  let currentRotVel = new THREE.Vector3(16, 24, 14);
+  let rollResult = 20;
+
+  // Constructor de dados según tipo (d4, d6, d8, d12, d20)
+  function buildDice(type) {
+    currentDiceType = type;
+
+    // Limpiar elementos previos
+    while(diceRoot.children.length > 0) {
+      const obj = diceRoot.children[0];
+      if (obj.geometry) obj.geometry.dispose();
+      if (obj.material) {
+        if (Array.isArray(obj.material)) obj.material.forEach(m => m.dispose());
+        else obj.material.dispose();
+      }
+      diceRoot.remove(obj);
+    }
+    faceMeshes = [];
+
+    let geo, radius = 1.75;
+    let numbers = [];
+
+    if (type === 'd4') {
+      geo = new THREE.TetrahedronGeometry(1.9, 0);
+      numbers = [4, 1, 2, 3];
+    } else if (type === 'd6') {
+      geo = new THREE.BoxGeometry(2.3, 2.3, 2.3);
+      numbers = [1, 6, 2, 5, 3, 4];
+    } else if (type === 'd8') {
+      geo = new THREE.OctahedronGeometry(1.95, 0);
+      numbers = [8, 1, 7, 2, 6, 3, 5, 4];
+    } else if (type === 'd12') {
+      geo = new THREE.DodecahedronGeometry(1.85, 0);
+      numbers = [12, 1, 11, 2, 10, 3, 9, 4, 8, 5, 7, 6];
+    } else { // d20
+      geo = new THREE.IcosahedronGeometry(1.8, 0);
+      numbers = [20, 2, 14, 8, 10, 12, 4, 18, 6, 16, 1, 19, 7, 13, 11, 9, 17, 3, 15, 5];
+    }
+
+    activeMesh = new THREE.Mesh(geo, baseDieMaterial);
+    activeMesh.castShadow = true;
+    activeMesh.receiveShadow = true;
+    diceRoot.add(activeMesh);
+
+    // Aristas de oro pulido para definir la silueta geométrica exacta
+    const wireGeo = new THREE.WireframeGeometry(geo);
+    const wireMat = new THREE.LineBasicMaterial({
+      color: 0xfbbf24,
+      linewidth: 2.5,
+      transparent: true,
+      opacity: 0.95
+    });
+    activeWire = new THREE.LineSegments(wireGeo, wireMat);
+    diceRoot.add(activeWire);
+
+    // Calcular las normales y planos de número para cada cara
+    if (type === 'd6') {
+      // Para cubos usamos las 6 caras ortogonales directas
+      const directions = [
+        { normal: new THREE.Vector3(0, 0, 1), pos: new THREE.Vector3(0, 0, 1.16), rot: new THREE.Euler(0, 0, 0) },
+        { normal: new THREE.Vector3(0, 0, -1), pos: new THREE.Vector3(0, 0, -1.16), rot: new THREE.Euler(0, Math.PI, 0) },
+        { normal: new THREE.Vector3(0, 1, 0), pos: new THREE.Vector3(0, 1.16, 0), rot: new THREE.Euler(-Math.PI/2, 0, 0) },
+        { normal: new THREE.Vector3(0, -1, 0), pos: new THREE.Vector3(0, -1.16, 0), rot: new THREE.Euler(Math.PI/2, 0, 0) },
+        { normal: new THREE.Vector3(1, 0, 0), pos: new THREE.Vector3(1.16, 0, 0), rot: new THREE.Euler(0, Math.PI/2, 0) },
+        { normal: new THREE.Vector3(-1, 0, 0), pos: new THREE.Vector3(-1.16, 0, 0), rot: new THREE.Euler(0, -Math.PI/2, 0) }
+      ];
+
+      directions.forEach((dir, i) => {
+        const num = numbers[i];
+        const tex = createNumberTexture(num, false, 'd6');
+        const planeGeo = new THREE.PlaneGeometry(1.6, 1.6);
+        const planeMat = new THREE.MeshBasicMaterial({
+          map: tex,
+          transparent: true,
+          opacity: 0.98,
+          depthWrite: false
+        });
+        const pMesh = new THREE.Mesh(planeGeo, planeMat);
+        pMesh.position.copy(dir.pos);
+        pMesh.rotation.copy(dir.rot);
+        pMesh.userData = { number: num, normal: dir.normal, originalTex: tex, material: planeMat };
+        faceMeshes.push(pMesh);
+        diceRoot.add(pMesh);
+      });
+    } else {
+      // Para poliedros regulares (d4, d8, d12, d20)
+      const posAttr = geo.getAttribute('position');
+      const vertexCount = posAttr.count;
+      const faceCount = vertexCount / 3;
+
+      // Deduplicar normales de caras si la geometría repite triángulos (ej. dodecaedro)
+      const distinctFaces = [];
+      for (let i = 0; i < faceCount; i++) {
+        const pA = new THREE.Vector3().fromBufferAttribute(posAttr, i * 3);
+        const pB = new THREE.Vector3().fromBufferAttribute(posAttr, i * 3 + 1);
+        const pC = new THREE.Vector3().fromBufferAttribute(posAttr, i * 3 + 2);
+        const center = new THREE.Vector3().add(pA).add(pB).add(pC).divideScalar(3);
+        const normal = new THREE.Vector3().crossVectors(
+          new THREE.Vector3().subVectors(pB, pA),
+          new THREE.Vector3().subVectors(pC, pA)
+        ).normalize();
+
+        // Comprobar si ya existe una normal casi idéntica
+        const exists = distinctFaces.some(f => f.normal.dot(normal) > 0.96);
+        if (!exists) {
+          distinctFaces.push({ center, normal, pA, pB, pC });
+        }
+      }
+
+      const planeScale = type === 'd4' ? 1.4 : (type === 'd8' ? 1.25 : (type === 'd12' ? 1.15 : 0.98));
+
+      distinctFaces.forEach((f, i) => {
+        const num = numbers[i % numbers.length];
+        const tex = createNumberTexture(num, false, type);
+        const planeGeo = new THREE.PlaneGeometry(planeScale, planeScale);
+        const planeMat = new THREE.MeshBasicMaterial({
+          map: tex,
+          transparent: true,
+          opacity: 0.98,
+          depthWrite: false,
+          polygonOffset: true,
+          polygonOffsetFactor: -1
+        });
+        const pMesh = new THREE.Mesh(planeGeo, planeMat);
+        pMesh.position.copy(f.center.clone().add(f.normal.clone().multiplyScalar(0.02)));
+
+        // Orientar cara perpendicular a la normal
+        const upVec = new THREE.Vector3().subVectors(f.pA, f.center).normalize();
+        const matrix = new THREE.Matrix4();
+        const zAxis = f.normal.clone();
+        const yAxis = upVec.clone();
+        const xAxis = new THREE.Vector3().crossVectors(yAxis, zAxis).normalize();
+        yAxis.crossVectors(zAxis, xAxis).normalize();
+        matrix.makeBasis(xAxis, yAxis, zAxis);
+        pMesh.rotation.setFromRotationMatrix(matrix);
+
+        pMesh.userData = { number: num, normal: f.normal, originalTex: tex, material: planeMat };
+        faceMeshes.push(pMesh);
+        diceRoot.add(pMesh);
+      });
+    }
+  }
+
+  // Orientar el dado hacia la cámara para mostrar con perfecta claridad la cara ganadora
+  function orientToFace(targetNum) {
+    const targetMesh = faceMeshes.find(m => m.userData.number === targetNum);
+    if (!targetMesh) return;
+
+    const normal = targetMesh.userData.normal.clone();
+    // Apuntar cara directamente hacia el espectador (Z con suave inclinación)
+    const forwardCam = new THREE.Vector3(0, 0.35, 1).normalize();
+    const q = new THREE.Quaternion().setFromUnitVectors(normal, forwardCam);
+    diceRoot.quaternion.copy(q);
+
+    // Resaltar la cara con textura de resplandor dorado / carmesí puro
+    faceMeshes.forEach(m => {
+      if (m.userData.number === targetNum) {
+        m.material.map = createNumberTexture(targetNum, true, currentDiceType);
+        m.material.map.needsUpdate = true;
+        m.scale.set(1.15, 1.15, 1.15);
+      } else {
+        m.material.map = m.userData.originalTex;
+        m.scale.set(1, 1, 1);
+      }
+    });
+
+    // Notificar al DOM exterior si existe listener
+    if (window.onStitchDiceRollComplete) {
+      window.onStitchDiceRollComplete(targetNum, currentDiceType);
+    }
+  }
+
+  // Ejecutar lanzamiento con física de giro y rebote
+  function roll(targetValue) {
+    isRolling = true;
+    rollTimer = 0;
+    
+    // Obtener valor según el dado
+    let max = 20;
+    if (currentDiceType === 'd4') max = 4;
+    else if (currentDiceType === 'd6') max = 6;
+    else if (currentDiceType === 'd8') max = 8;
+    else if (currentDiceType === 'd12') max = 12;
+
+    rollResult = targetValue !== undefined ? targetValue : (Math.floor(Math.random() * max) + 1);
+
+    diceRoot.position.set((Math.random() - 0.5) * 2.8, 5.0 + Math.random() * 1.5, -1);
+    currentRotVel.set(
+      (Math.random() + 0.6) * 26,
+      (Math.random() + 0.6) * 30,
+      (Math.random() + 0.6) * 24
+    );
+    ringMesh.scale.set(0.4, 0.4, 0.4);
+    ringMat.opacity = 0.15;
+  }
+
+  // Construir d20 inicial
+  buildDice('d20');
+  roll(20);
+
+  // Exponer API global para interactuar desde la UI HTML (botones d4, d6, d8, d12, d20)
+  window.stitchSelectDice = function(diceType, forceRollVal) {
+    buildDice(diceType);
+    roll(forceRollVal);
+  };
+
+  window.stitchRollCurrentDice = function(forceVal) {
+    roll(forceVal);
+  };
+
+  // Clic en el área de dados para relanzar
+  container.style.cursor = 'pointer';
+  container.addEventListener('click', () => {
+    roll();
+  });
+
+  // Bucle de renderizado y animación
+  let clock = new THREE.Clock();
+  let animId;
+
+  function animate() {
+    animId = requestAnimationFrame(animate);
+    const delta = clock.getDelta();
+    const time = clock.getElapsedTime();
+
+    if (isRolling) {
+      rollTimer += delta * 1.65;
+
+      const bounceY = Math.max(0, (1 - Math.min(rollTimer, 1)) * 4.4 * Math.abs(Math.cos(rollTimer * 4.8)));
+      diceRoot.position.y = bounceY;
+      diceRoot.position.x = THREE.MathUtils.lerp(diceRoot.position.x, 0, delta * 3.8);
+      diceRoot.position.z = THREE.MathUtils.lerp(diceRoot.position.z, 0, delta * 3.8);
+
+      diceRoot.rotation.x += currentRotVel.x * delta;
+      diceRoot.rotation.y += currentRotVel.y * delta;
+      diceRoot.rotation.z += currentRotVel.z * delta;
+
+      currentRotVel.multiplyScalar(0.95);
+
+      if (rollTimer >= 1.45) {
+        isRolling = false;
+        diceRoot.position.set(0, 0, 0);
+        orientToFace(rollResult);
+        goldAccentLight.intensity = 4.8;
+      }
+    } else {
+      // Reposo flotante sutil
+      diceRoot.position.y = Math.sin(time * 2.2) * 0.08;
+      ringMesh.rotation.z += delta * 0.22;
+      ringMesh.scale.lerp(new THREE.Vector3(1, 1, 1), delta * 4);
+      ringMat.opacity = 0.45 + Math.sin(time * 3) * 0.15;
+      goldAccentLight.intensity = THREE.MathUtils.lerp(goldAccentLight.intensity, 3.2, delta * 2.5);
+    }
+
+    // Partículas
+    const pos = sparkGeo.attributes.position;
+    for (let i = 0; i < sparkCount; i++) {
+      let py = pos.getY(i) + sparkVel[i].y;
+      if (py > 3.8) py = -2.2;
+      pos.setY(i, py);
+      pos.setX(i, pos.getX(i) + Math.sin(time * 2 + i) * 0.006);
+    }
+    sparkGeo.attributes.position.needsUpdate = true;
+
+    renderer.render(scene, camera);
+  }
+
+  animate();
+
+  const onResize = () => {
+    const w = container.clientWidth || window.innerWidth;
+    const h = container.clientHeight || window.innerHeight;
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+    renderer.setSize(w, h);
+  };
+  window.addEventListener('resize', onResize);
+
+  container._cleanup = () => {
+    cancelAnimationFrame(animId);
+    window.removeEventListener('resize', onResize);
+    delete window.stitchSelectDice;
+    delete window.stitchRollCurrentDice;
+    renderer.dispose();
+  };
+})();
+
+        } catch (e) {
+          console.error("ThreeJS scene execution error:", e);
+        }
+      }
+    }
+    customElements.define('threejs-scene', ThreeJSSceneElement);
+
+    // Current Tray state
+    let activeDiceType = 'd20';
+    let currentMod = 8;
+    let currentContext = 'Espada Larga +1';
+    let currentRollValue = 20;
+
+    // Listener para actualizar el panel gigante de desglose cuando concluye el lanzamiento
+    window.onStitchDiceRollComplete = function(number, diceType) {
+      currentRollValue = number;
+      updateResultPanel(number, diceType);
+    };
+
+    function selectPolyhedralDie(type) {
+      activeDiceType = type;
+      // Actualizar clases activas en los botones de selección
+      document.querySelectorAll('.poly-dice-btn').forEach(btn => {
+        if (btn.dataset.dice === type) {
+          btn.className = 'poly-dice-btn active-dice flex items-center gap-1 px-3 py-1.5 rounded-lg bg-primary-container text-on-primary shadow-md border border-primary text-label-sm font-label-sm font-bold transition-all';
+        } else {
+          btn.className = 'poly-dice-btn flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-tertiary hover:text-on-surface transition-all text-label-sm font-label-sm font-bold border border-transparent';
+        }
+      });
+
+      const rerollLabel = document.getElementById('reroll-action-label');
+      if (rerollLabel) rerollLabel.textContent = `Volver a tirar (${type})`;
+
+      if (window.stitchSelectDice) {
+        window.stitchSelectDice(type);
+      }
+    }
+
+    function updateResultPanel(num, diceType) {
+      const heroNum = document.getElementById('tray-hero-number');
+      const badge = document.getElementById('tray-main-result');
+      const diceLabel = document.getElementById('tray-dice-label');
+      const formula = document.getElementById('tray-calc-formula');
+      const detail = document.getElementById('tray-status-detail');
+      const totalStat = document.getElementById('tray-total-stat');
+      const dockVal = document.getElementById('dock-preview-val');
+      const dockSummary = document.getElementById('dock-preview-summary');
+
+      const maxMap = { d4: 4, d6: 6, d8: 8, d12: 12, d20: 20 };
+      const maxVal = maxMap[diceType] || 20;
+
+      if (heroNum) heroNum.textContent = num;
+      if (diceLabel) diceLabel.textContent = diceType.toUpperCase();
+
+      let statusText = 'Tirada Normal';
+      let statusClass = 'px-2.5 py-0.5 rounded-md bg-surface-container-highest text-secondary font-headline-sm text-headline-sm font-bold';
+      let detailDesc = 'Resultado calculado con modificador';
+
+      if (diceType === 'd20') {
+        if (num === 20) {
+          statusText = '¡Crítico Natural!';
+          statusClass = 'px-2.5 py-0.5 rounded-md bg-gradient-to-r from-secondary-container to-secondary text-on-secondary font-headline-sm text-headline-sm font-black shadow-[0_0_12px_rgba(238,152,0,0.5)]';
+          detailDesc = 'Impacto asegurado en objetivo · Éxito crítico';
+        } else if (num === 1) {
+          statusText = '¡Fallo Pifia!';
+          statusClass = 'px-2.5 py-0.5 rounded-md bg-error text-on-error font-headline-sm text-headline-sm font-bold shadow-[0_0_12px_rgba(255,84,81,0.5)]';
+          detailDesc = 'Fallo automático garantizado';
+        } else if (num + currentMod >= 15) {
+          statusText = '¡Éxito!';
+          statusClass = 'px-2.5 py-0.5 rounded-md bg-secondary/20 text-secondary font-headline-sm text-headline-sm font-bold';
+          detailDesc = 'Supera dificultad estándar estimada';
+        }
+      } else {
+        statusText = `Daño ${diceType.toUpperCase()}`;
+        statusClass = 'px-2.5 py-0.5 rounded-md bg-surface-container-highest text-primary font-headline-sm text-headline-sm font-bold';
+        detailDesc = `Tirada de dado poliédrico (${num}/${maxVal})`;
+      }
+
+      if (badge) {
+        badge.textContent = statusText;
+        badge.className = statusClass;
+      }
+      if (detail) detail.textContent = detailDesc;
+
+      const total = diceType === 'd20' ? (num + currentMod) : num;
+      if (formula) {
+        formula.textContent = diceType === 'd20' ? `${diceType.toUpperCase()} (${num}) + ${currentMod} Modificador` : `Fórmula de daño ${diceType.toUpperCase()}: [${num}]`;
+      }
+      if (totalStat) totalStat.textContent = total;
+
+      if (dockVal) dockVal.textContent = num;
+      if (dockSummary) dockSummary.textContent = `Total: ${total} (${statusText})`;
+    }
+
+    function openDiceTray(title, mod = 8, context = 'Espada Larga +1') {
+      currentMod = mod;
+      currentContext = context;
+      const modal = document.getElementById('dice-tray-modal');
+      const card = document.getElementById('dice-tray-card');
+      const subtitle = document.getElementById('tray-context-subtitle');
+      const minDock = document.getElementById('minimized-dice-dock');
+
+      if (subtitle) subtitle.textContent = `${title} (${context}) · Lord Roland`;
+      if (minDock) minDock.classList.add('hidden');
+
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      card.classList.remove('scale-95');
+      card.classList.add('scale-100');
+
+      // Default to d20 when opened from main roll buttons
+      selectPolyhedralDie('d20');
+      if (window.stitchRollCurrentDice) {
+        window.stitchRollCurrentDice(20);
+      }
+    }
+
+    function closeDiceTray() {
+      const modal = document.getElementById('dice-tray-modal');
+      const card = document.getElementById('dice-tray-card');
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      card.classList.remove('scale-100');
+      card.classList.add('scale-95');
+    }
+
+    function minimizeDiceTray() {
+      closeDiceTray();
+      const minDock = document.getElementById('minimized-dice-dock');
+      if (minDock) minDock.classList.remove('hidden');
+    }
+
+    function reroll3D(mode = 'normal') {
+      const maxMap = { d4: 4, d6: 6, d8: 8, d12: 12, d20: 20 };
+      const max = maxMap[activeDiceType] || 20;
+
+      let r1 = Math.floor(Math.random() * max) + 1;
+      let finalNum = r1;
+      let extraText = '';
+
+      if (mode === 'advantage') {
+        const r2 = Math.floor(Math.random() * max) + 1;
+        finalNum = Math.max(r1, r2);
+        extraText = ` (Ventaja: [${r1}, ${r2}])`;
+      } else if (mode === 'disadvantage') {
+        const r2 = Math.floor(Math.random() * max) + 1;
+        finalNum = Math.min(r1, r2);
+        extraText = ` (Desventaja: [${r1}, ${r2}])`;
+      }
+
+      if (window.stitchRollCurrentDice) {
+        window.stitchRollCurrentDice(finalNum);
+      }
+
+      const total = activeDiceType === 'd20' ? (finalNum + currentMod) : finalNum;
+      addLogEntry(`${currentContext} (${activeDiceType.toUpperCase()})`, `Total: ${total} [Dado: ${finalNum}]${extraText}`, finalNum === max ? 'text-primary font-bold' : 'text-secondary font-bold');
+      showToast(`${currentContext}`, `${activeDiceType.toUpperCase()}: [${finalNum}] ${activeDiceType === 'd20' ? `+ ${currentMod} = ${total}` : ''}${extraText}`);
+    }
+
+    function rollPolyhedral(diceName, sides) {
+      selectPolyhedralDie(diceName);
+    }
+
+    function rollDamage(source, diceNotation) {
+      showToast(`Daño: ${source}`, `Fórmula: ${diceNotation}`);
+      addLogEntry(`Daño: ${source}`, diceNotation, 'text-primary font-bold');
+      // Extraer tipo de dado de la notación (ej. 1d8+5 -> d8)
+      if (diceNotation.includes('d8')) selectPolyhedralDie('d8');
+      else if (diceNotation.includes('d6')) selectPolyhedralDie('d6');
+      else if (diceNotation.includes('d4')) selectPolyhedralDie('d4');
+      else if (diceNotation.includes('d10') || diceNotation.includes('d12')) selectPolyhedralDie('d12');
+      const modal = document.getElementById('dice-tray-modal');
+      if (modal && modal.classList.contains('opacity-0')) {
+        openDiceTray(`Tirada de Daño: ${source}`, 0, source);
+      }
+    }
+
+    function rollSmite(level) {
+      const diceCount = 1 + level;
+      showToast(`Castigo Divino (Nv. ${level})`, `Daño Radiante: +${diceCount}d8`);
+      addLogEntry(`Castigo Divino Nv. ${level}`, `+${diceCount}d8 Radiante`, 'text-secondary font-bold');
+      selectPolyhedralDie('d8');
+      const modal = document.getElementById('dice-tray-modal');
+      if (modal && modal.classList.contains('opacity-0')) {
+        openDiceTray(`Castigo Divino (Nv. ${level})`, 0, 'Daño Radiante');
+      }
+    }
+
+    function addLogEntry(title, result, colorClass) {
+      const feed = document.getElementById('dice-feed');
+      if (!feed) return;
+      const entry = document.createElement('div');
+      entry.className = 'p-2 rounded bg-surface-container flex flex-col gap-0.5 animate-fadeIn';
+      entry.innerHTML = `
+        <div class="flex items-center justify-between text-label-sm font-label-sm">
+          <span class="text-on-surface font-bold">${title}</span>
+          <span class="${colorClass}">${result}</span>
+        </div>
+        <span class="text-body-sm font-label-sm text-tertiary">Hace un momento</span>
+      `;
+      feed.insertBefore(entry, feed.firstChild);
+    }
+
+    function clearLog() {
+      const feed = document.getElementById('dice-feed');
+      if (feed) feed.innerHTML = '<span class="text-label-sm text-tertiary text-center py-2">Registro vacío</span>';
+    }
+
+    function showToast(title, msg) {
+      const toast = document.getElementById('dice-toast');
+      const toastTitle = document.getElementById('toast-title');
+      const toastMsg = document.getElementById('toast-msg');
+      if (!toast) return;
+
+      toastTitle.textContent = title;
+      toastMsg.textContent = msg;
+
+      toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+      clearTimeout(window.toastTimer);
+      window.toastTimer = setTimeout(() => {
+        toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+      }, 3500);
+    }
+  </script>
+</div></main></body></html>

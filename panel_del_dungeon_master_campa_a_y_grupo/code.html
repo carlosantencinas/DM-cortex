@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {"darkMode":"class","theme":{"extend":{"colors":{"surface-container":"#171f33","on-secondary-fixed-variant":"#653e00","error":"#ffb4ab","on-primary-fixed-variant":"#930013","on-tertiary-fixed-variant":"#444749","surface":"#0b1326","surface-dim":"#0b1326","on-surface":"#dae2fd","on-surface-variant":"#e4beba","on-background":"#dae2fd","surface-variant":"#2d3449","surface-tint":"#ffb3ad","on-tertiary-container":"#272a2c","on-primary-fixed":"#410004","on-tertiary-fixed":"#191c1e","secondary-fixed":"#ffddb8","on-primary-container":"#5c0008","primary-container":"#ff5451","on-tertiary":"#2d3133","outline":"#ab8986","outline-variant":"#5b403e","surface-bright":"#31394d","surface-container-high":"#222a3d","surface-container-lowest":"#060e20","primary-fixed":"#ffdad7","tertiary-fixed":"#e0e3e5","tertiary":"#c4c7c9","on-error-container":"#ffdad6","secondary-container":"#ee9800","on-primary":"#68000a","background":"#0b1326","primary":"#ffb3ad","tertiary-container":"#8e9193","tertiary-fixed-dim":"#c4c7c9","inverse-on-surface":"#283044","inverse-surface":"#dae2fd","error-container":"#93000a","surface-container-low":"#131b2e","primary-fixed-dim":"#ffb3ad","surface-container-highest":"#2d3449","on-secondary":"#472a00","secondary":"#ffb95f","secondary-fixed-dim":"#ffb95f","inverse-primary":"#b91a24","on-secondary-container":"#5b3800","on-secondary-fixed":"#2a1700","on-error":"#690005"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-md":"1rem","gutter":"1rem","space-sm":"0.5rem","space-lg":"1.5rem","space-xs":"0.25rem","margin-md":"1.5rem","space-xl":"2rem","margin-lg":"2.5rem","margin":"1rem","gutter-lg":"1.5rem"},"fontFamily":{"title-sm":["Inter"],"headline-lg":["Epilogue"],"headline-md":["Epilogue"],"body-sm":["Inter"],"label-md":["JetBrains Mono"],"body-md":["Inter"],"headline-xl-mobile":["Epilogue"],"stat-display":["JetBrains Mono"],"headline-sm":["Epilogue"],"label-lg":["JetBrains Mono"],"headline-xl":["Epilogue"],"title-md":["Inter"],"label-sm":["JetBrains Mono"],"body-lg":["Inter"],"headline-lg-mobile":["Epilogue"]},"fontSize":{"title-sm":["14px",{"lineHeight":"20px","fontWeight":"600"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.01em","fontWeight":"700"}],"headline-md":["22px",{"lineHeight":"28px","fontWeight":"700"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.05em","fontWeight":"500"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"headline-xl-mobile":["30px",{"lineHeight":"38px","letterSpacing":"-0.02em","fontWeight":"800"}],"stat-display":["28px",{"lineHeight":"32px","letterSpacing":"-0.03em","fontWeight":"700"}],"headline-sm":["18px",{"lineHeight":"24px","fontWeight":"600"}],"label-lg":["14px",{"lineHeight":"18px","letterSpacing":"0.04em","fontWeight":"600"}],"headline-xl":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"800"}],"title-md":["16px",{"lineHeight":"22px","fontWeight":"600"}],"label-sm":["10px",{"lineHeight":"14px","letterSpacing":"0.06em","fontWeight":"500"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"headline-lg-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"700"}]}}}}</script></head><body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 inset-x-0 z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_4px_20px_rgba(0,0,0,0.5)]"><div class="h-16 w-full px-gutter-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><img alt="D20 Emblem Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UrsTNb03jsuZBI7G_QbNsgnP88psEO1Yqws1uzKRTfqrYyHW0rXDziHZvz7XVk-tZgVAkHbWYFf2EvxesbAZA5gKlSp67vANg73a7s91ojyFbckeO34Nmx1PynR-TboKLhLi8_ig7x1SK9n4oMAIXRykohuLWRvwOjDy-OfSdcj6YjIoWsJs0QTrEdwgjlUanSi-EVqmlpBjQb6lJjNjvc7Fcdl-50-HyMuQMsh1E6jwT4IQ43giVWmUE"/><span class="font-headline-sm text-headline-sm text-primary tracking-wide hidden sm:inline">D&amp;D 5e Companion</span></div><div class="hidden xl:flex items-center px-space-sm py-space-xs rounded bg-surface-container-high text-secondary font-label-sm text-label-sm uppercase tracking-wider"><span class="material-symbols-outlined text-[14px] mr-1">shield</span>Campaña: Maldición de Strahd</div><nav class="hidden lg:flex items-center gap-space-md ml-space-sm" data-active-classes="text-primary font-bold"><a class="font-title-sm text-title-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="personajes" href="#">Personajes</a><a class="font-title-sm text-title-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="hechizos" href="#">Hechizos</a><a class="font-title-sm text-title-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="monstruos" href="#">Monstruos</a><a class="font-title-sm text-title-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="reglas" href="#">Reglas</a></nav></div><div class="flex items-center gap-space-sm"><div class="hidden md:flex items-center bg-surface-container-low px-space-sm py-space-xs rounded-lg shadow-inner"><span class="material-symbols-outlined text-on-surface-variant text-[18px] mr-2">search</span><span class="font-body-sm text-body-sm text-on-surface-variant mr-space-md">Buscar conjuro, regla o objeto...</span><kbd class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container text-tertiary shadow-sm">Ctrl+K</kbd></div><button class="flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg bg-surface-container-high hover:bg-surface-bright text-secondary hover:text-on-surface transition-colors shadow-[0_0_12px_rgba(238,152,0,0.2)]" type="button"><span class="material-symbols-outlined text-[20px] text-secondary">casino</span><span class="font-label-md text-label-md hidden sm:inline">Tirar Dado (d20)</span></button><div class="flex items-center gap-space-sm pl-space-xs"><div class="hidden md:flex flex-col text-right"><span class="font-title-sm text-title-sm text-on-surface leading-tight">Lord Roland</span><span class="font-label-sm text-label-sm text-secondary leading-none">Nivel 5</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header><div class="fixed top-16 inset-x-0 z-40 bg-surface-container-low/95 backdrop-blur-md shadow-[0_8px_24px_rgba(0,0,0,0.6)]"><div class="w-full px-gutter-lg py-space-sm flex flex-wrap items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><div class="flex flex-col"><div class="flex items-center gap-space-sm"><span class="font-headline-sm text-headline-sm text-on-surface font-bold">Lord Roland</span><span class="px-2 py-0.5 rounded bg-surface-container-highest text-tertiary font-label-sm text-label-sm uppercase tracking-wider">Niv. 5</span></div><span class="font-body-sm text-body-sm text-on-surface-variant">Humano · Paladín (Voto de Devoción)</span></div><div class="hidden sm:flex items-center gap-space-sm pl-space-md"><div class="flex flex-col"><div class="flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant mb-1"><span>PG</span><span class="text-on-surface font-bold">48 / 48</span></div><div class="w-36 h-2 rounded-full bg-surface-container-highest overflow-hidden"><div class="h-full bg-primary-container w-full rounded-full shadow-[0_0_8px_rgba(255,84,81,0.6)]"></div></div></div></div></div><div class="flex items-center gap-space-sm flex-wrap"><div class="flex items-center gap-space-xs"><div class="flex flex-col items-center px-space-sm py-0.5 rounded bg-surface-container-high"><span class="font-label-sm text-label-sm text-tertiary uppercase">CA</span><span class="font-stat-display text-stat-display text-on-surface leading-none">18</span></div><div class="flex flex-col items-center px-space-sm py-0.5 rounded bg-surface-container-high"><span class="font-label-sm text-label-sm text-tertiary uppercase">Inic</span><span class="font-stat-display text-stat-display text-secondary leading-none">+1</span></div><div class="flex flex-col items-center px-space-sm py-0.5 rounded bg-surface-container-high"><span class="font-label-sm text-label-sm text-tertiary uppercase">Vel</span><span class="font-label-lg text-label-lg text-on-surface leading-normal">30ft</span></div></div><div class="flex items-center gap-space-xs pl-space-xs"><button class="px-space-sm py-space-xs rounded bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-sm text-label-sm transition-colors" type="button">Descanso Corto</button><button class="px-space-sm py-space-xs rounded bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-sm text-label-sm transition-colors" type="button">Descanso Largo</button></div></div></div><div class="w-full px-gutter-lg overflow-x-auto"><nav class="flex items-center gap-space-xs pt-1" data-active-classes="text-primary bg-surface-container-high rounded-t-lg shadow-sm font-bold"><a aria-current="page" class="px-space-md py-space-sm whitespace-nowrap transition-colors text-primary bg-surface-container-high rounded-t-lg shadow-sm font-bold" data-path="general-y-combate" href="#">General y Combate</a><a class="px-space-md py-space-sm font-title-sm text-title-sm text-on-surface-variant hover:text-on-surface whitespace-nowrap transition-colors" data-path="hechizos-y-magia" href="#">Hechizos y Magia</a><a class="px-space-md py-space-sm font-title-sm text-title-sm text-on-surface-variant hover:text-on-surface whitespace-nowrap transition-colors" data-path="inventario-y-equipo" href="#">Inventario y Equipo</a><a class="px-space-md py-space-sm font-title-sm text-title-sm text-on-surface-variant hover:text-on-surface whitespace-nowrap transition-colors" data-path="rasgos-y-trasfondo" href="#">Rasgos y Trasfondo</a><a class="px-space-md py-space-sm font-title-sm text-title-sm text-on-surface-variant hover:text-on-surface whitespace-nowrap transition-colors" data-path="bitacora-y-notas" href="#">Bitácora y Notas</a></nav></div></div><main class="w-full pt-44 bg-surface min-h-screen px-gutter-lg pb-space-xl"><div class="flex flex-col w-full">
+<!-- Campaign Atmosphere & Context Header -->
+<div class="relative w-full rounded-xl bg-surface-container-lowest overflow-hidden shadow-2xl mb-space-lg">
+<div class="absolute inset-0 bg-gradient-to-r from-surface-container-lowest via-surface-container-low/80 to-transparent z-10"></div>
+<div class="absolute -right-10 -top-24 w-96 h-96 rounded-full bg-primary/10 blur-3xl pointer-events-none"></div>
+<div class="absolute right-1/4 -bottom-20 w-80 h-80 rounded-full bg-secondary/5 blur-3xl pointer-events-none"></div>
+<div class="relative z-20 p-space-lg flex flex-col xl:flex-row xl:items-center justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs max-w-2xl">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="px-2.5 py-0.5 rounded bg-primary-container/20 text-primary font-label-sm text-label-sm uppercase tracking-wider flex items-center gap-1 shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+            Sesión #14 en Vivo
+          </span>
+<span class="text-tertiary font-label-sm text-label-sm">•</span>
+<span class="text-secondary font-label-sm text-label-sm uppercase tracking-wider">Tier II · Niveles 3 - 10</span>
+<span class="text-tertiary font-label-sm text-label-sm">•</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">Barovia · Tierras de las Sombras</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface font-extrabold tracking-tight">
+          Maldición de Strahd: <span class="text-primary font-headline-md text-headline-md font-semibold">El Castillo Ravenloft</span>
+</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+          La niebla se espesa en los corredores del ala norte. Los aventureros cruzan el umbral de la Capilla Profanada mientras los ecos de órgano resuenan desde las torres superiores.
+        </p>
+</div>
+<!-- Quick Environment & DM Command Bar -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<div class="flex items-center bg-surface-container-high px-space-md py-space-xs rounded-lg shadow-inner gap-space-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">thunderstorm</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-tertiary uppercase">Clima &amp; Tiempo</span>
+<span class="font-title-sm text-title-sm text-on-surface">Tormenta Helada · 23:45</span>
+</div>
+</div>
+<div class="w-px h-7 bg-surface-variant"></div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">warning</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-tertiary uppercase">Alerta del Castillo</span>
+<span class="font-label-md text-label-md text-primary font-bold tracking-wide">Crítica (Nv. 4)</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-space-sm rounded-lg bg-primary-container hover:bg-primary-container/90 text-on-primary font-title-sm text-title-sm flex items-center gap-2 shadow-[0_0_16px_rgba(255,84,81,0.4)] transition-all transform active:scale-95" id="combatToggleBtn" onclick="toggleCombatHighlight()" type="button">
+<span class="material-symbols-outlined text-[18px]">swords</span>
+<span>Tirar Iniciativa Grupal</span>
+</button>
+<button class="p-space-sm rounded-lg bg-surface-container-high hover:bg-surface-bright text-secondary hover:text-on-surface transition-colors shadow-sm" title="Generador de Botín y Encuentros Aleatorios" type="button">
+<span class="material-symbols-outlined text-[20px]">casino</span>
+</button>
+<button class="px-space-md py-space-sm rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-title-sm text-title-sm flex items-center gap-2 transition-colors shadow-sm" id="dmPrivacyBtn" onclick="toggleDmShield()" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary" id="privacyIcon">visibility</span>
+<span class="font-label-md text-label-md" id="privacyText">Pantalla DM: Abierta</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Primary Bento Grid -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT & CENTER: Party Monitor & Tactical Tracker (Cols 1-8) -->
+<div class="xl:col-span-8 flex flex-col gap-space-lg">
+<!-- Section: Party Overview Panel -->
+<div class="bg-surface-container-low rounded-xl p-space-md shadow-xl">
+<div class="flex items-center justify-between pb-space-sm mb-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[22px]">group</span>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Monitor del Grupo (Party Vitals)</h2>
+<span class="font-body-sm text-body-sm text-tertiary">4 Héroes en el grupo · Nivel Medio 5.0</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-sm py-1 rounded bg-surface-container-high hover:bg-surface-bright text-primary font-label-sm text-label-sm uppercase tracking-wider flex items-center gap-1 transition-colors" onclick="batchDamagePrompt()" type="button">
+<span class="material-symbols-outlined text-[14px]">local_fire_department</span>
+              Daño en Área
+            </button>
+<button class="px-space-sm py-1 rounded bg-surface-container-high hover:bg-surface-bright text-secondary font-label-sm text-label-sm uppercase tracking-wider flex items-center gap-1 transition-colors" onclick="batchHealPrompt()" type="button">
+<span class="material-symbols-outlined text-[14px]">favorite</span>
+              Sanación Grupal
+            </button>
+</div>
+</div>
+<!-- Adventurers 4-Card Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm">
+<!-- Character 1: Lord Roland -->
+<div class="bg-surface-container rounded-lg p-space-md flex flex-col justify-between gap-space-sm shadow-md hover:bg-surface-container-high transition-colors">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[24px]">shield_with_heart</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-title-md text-on-surface">Lord Roland</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container-highest text-secondary font-label-sm text-label-sm font-bold">Nv. 5</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Humano · Paladín Devoción</span>
+</div>
+</div>
+<button class="px-2 py-1 rounded-full bg-surface-container-high text-tertiary hover:text-secondary font-label-sm text-label-sm flex items-center gap-1 transition-all" onclick="toggleInspiration(this)" title="Otorgar/Retirar Inspiración DM" type="button">
+<span class="material-symbols-outlined text-[14px]">token</span>
+<span>Insp.</span>
+</button>
+</div>
+<!-- Health Bar -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center text-label-sm font-label-sm">
+<span class="text-tertiary">Puntos de Golpe</span>
+<span class="text-on-surface font-stat-display text-label-md">48 <span class="text-tertiary">/ 48</span></span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-lowest overflow-hidden">
+<div class="h-full bg-primary-container w-full rounded-full shadow-[0_0_6px_rgba(255,84,81,0.5)]"></div>
+</div>
+</div>
+<!-- Combat Attributes Strip -->
+<div class="grid grid-cols-4 gap-1 pt-1 text-center font-label-sm text-label-sm">
+<div class="bg-surface-container-low rounded py-1 px-1">
+<span class="text-tertiary block text-[9px] uppercase">CA</span>
+<span class="text-on-surface font-bold text-[13px]">18</span>
+</div>
+<div class="bg-surface-container-low rounded py-1 px-1">
+<span class="text-tertiary block text-[9px] uppercase">Percep. P</span>
+<span class="text-secondary font-bold text-[13px]">14</span>
+</div>
+<div class="bg-surface-container-low rounded py-1 px-1">
+<span class="text-tertiary block text-[9px] uppercase">Salv. Clave</span>
+<span class="text-on-surface font-bold text-[13px]">+6 SAB</span>
+</div>
+<div class="bg-surface-container-low rounded py-1 px-1">
+<span class="text-tertiary block text-[9px] uppercase">Imposición</span>
+<span class="text-primary font-bold text-[13px]">25 PG</span>
+</div>
+</div>
+<!-- Status & Quick Action Buttons -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-1">
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-secondary font-label-sm text-label-sm flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Aura Protección (10ft)
+                </span>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-7 h-7 rounded bg-surface-container-high hover:bg-primary/20 hover:text-primary text-tertiary flex items-center justify-center transition-colors" title="-5 Daño" type="button">-5</button>
+<button class="w-7 h-7 rounded bg-surface-container-high hover:bg-secondary/20 hover:text-secondary text-tertiary flex items-center justify-center transition-colors" title="+5 Curación" type="button">+5</button>
+</div>
+</div>
+</div>
+<!-- Character 2: Varis Liadon -->
+<div class="bg-surface-container rounded-lg p-space-md flex flex-col justify-between gap-space-sm shadow-md hover:bg-surface-container-high transition-colors">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-secondary shadow-sm">
+<span class="material-symbols-outlined text-[24px]">auto_fix_high</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-title-md text-on-surface">Varis Liadon</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container-highest text-secondary font-label-sm text-label-sm font-bold">Nv. 5</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Elfo Alto · Mago Evocador</span>
+</div>
+</div>
+<button class="px-2 py-1 rounded-full bg-surface-container-high text-tertiary hover:text-secondary font-label-sm text-label-sm flex items-center gap-1 transition-all" onclick="toggleInspiration(this)" title="Otorgar/Retirar Inspiración DM" type="button">
+<span class="material-symbols-outlined text-[14px]">token</span>
+<span>Insp.</span>
+</button>
+</div>
+<!-- Health Bar -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center text-label-sm font-label-sm">
+<span class="text-tertiary">Puntos de Golpe</span>
+<span class="text-on-surface font-stat-display text-label-md">28 <span class="text-tertiary">/ 28</span></span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-lowest overflow-hidden">
+<div class="h-full bg-primary-container w-full rounded-full shadow-[0_0_6px_rgba(255,84,81,0.5)]"></div>
+</div>
+</div>
+<!-- Combat Attributes Strip -->
+<div class="grid grid-cols-4 gap-1 pt-1 text-center font-label-sm text-label-sm">
+<div class="bg-surface-container-low rounded py-1 px-1">
+<span class="text-tertiary block text-[9px] uppercase">CA</span>
+<span class="text-on-surface font-bold text-[13px]">12 <span class="text-secondary text-[10px]">(15)</span></span>
+</div>
+<div class="bg-surface-container-low rounded py-1 px-1">
+<span class="text-tertiary block text-[9px] uppercase">Percep. P</span>
+<span class="text-secondary font-bold text-[13px]">16</span>
+</div>
+<div class="bg-surface-container-low rounded py-1 px-1">
+<span class="text-tertiary block text-[9px] uppercase">CD Conjuro</span>
+<span class="text-on-surface font-bold text-[13px]">15 INT</span>
+</div>
+<div class="bg-surface-container-low rounded py-1 px-1">
+<span class="text-tertiary block text-[9px] uppercase">Ranuras N3</span>
+<span class="text-primary font-bold text-[13px]">1 / 2</span>
+</div>
+</div>
+<!-- Status & Quick Action Buttons -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-1">
+<span class="px-2 py-0.5 rounded bg-primary/20 text-primary font-label-sm text-label-sm flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[13px]">psychology</span> Conc: Telaraña
+                </span>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-7 h-7 rounded bg-surface-container-high hover:bg-primary/20 hover:text-primary text-tertiary flex items-center justify-center transition-colors" title="-5 Daño" type="button">-5</button>
+<button class="w-7 h-7 rounded bg-surface-container-high hover:bg-secondary/20 hover:text-secondary text-tertiary flex items-center justify-center transition-colors" title="+5 Curación" type="button">+5</button>
+</div>
+</div>
+</div>
+<!-- Character 3: Kaela Sombra -->
+<div class="bg-surface-container rounded-lg p-space-md flex flex-col justify-between gap-space-sm shadow-md hover:bg-surface-container-high transition-colors">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary font-bold shadow-sm">
+<span class="material-symbols-outlined text-[24px]">visibility_off</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-title-md text-on-surface">Kaela Sombra</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container-highest text-secondary font-label-sm text-label-sm font-bold">Nv. 5</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Mediana Pielgrís · Pícara Bribón</span>
+</div>
+</div>
+<button class="px-2 py-1 rounded-full bg-secondary-container/30 text-secondary font-label-sm text-label-sm flex items-center gap-1 shadow-[0_0_10px_rgba(245,158,11,0.3)] transition-all" onclick="toggleInspiration(this)" title="Inspiración Activa" type="button">
+<span class="material-symbols-outlined text-[14px]">stars</span>
+<span>Activa</span>
+</button>
+</div>
+<!-- Health Bar -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center text-label-sm font-label-sm">
+<span class="text-tertiary">Puntos de Golpe</span>
+<span class="text-on-surface font-stat-display text-label-md">35 <span class="text-tertiary">/ 35</span></span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-lowest overflow-hidden">
+<div class="h-full bg-primary-container w-full rounded-full shadow-[0_0_6px_rgba(255,84,81,0.5)]"></div>
+</div>
+</div>
+<!-- Combat Attributes Strip -->
+<div class="grid grid-cols-4 gap-1 pt-1 text-center font-label-sm text-label-sm">
+<div class="bg-surface-container-low rounded py-1 px-1">
+<span class="text-tertiary block text-[9px] uppercase">CA</span>
+<span class="text-on-surface font-bold text-[13px]">15</span>
+</div>
+<div class="bg-surface-container-low rounded py-1 px-1">
+<span class="text-tertiary block text-[9px] uppercase">Percep. P</span>
+<span class="text-secondary font-bold text-[13px]">18</span>
+</div>
+<div class="bg-surface-container-low rounded py-1 px-1">
+<span class="text-tertiary block text-[9px] uppercase">Sigilo P</span>
+<span class="text-primary font-bold text-[13px]">19</span>
+</div>
+<div class="bg-surface-container-low rounded py-1 px-1">
+<span class="text-tertiary block text-[9px] uppercase">Furtivo</span>
+<span class="text-on-surface font-bold text-[13px]">3d6</span>
+</div>
+</div>
+<!-- Status & Quick Action Buttons -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-1">
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-tertiary font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">footprint</span> Oculta en penumbras
+                </span>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-7 h-7 rounded bg-surface-container-high hover:bg-primary/20 hover:text-primary text-tertiary flex items-center justify-center transition-colors" title="-5 Daño" type="button">-5</button>
+<button class="w-7 h-7 rounded bg-surface-container-high hover:bg-secondary/20 hover:text-secondary text-tertiary flex items-center justify-center transition-colors" title="+5 Curación" type="button">+5</button>
+</div>
+</div>
+</div>
+<!-- Character 4: Torga Barbabronce -->
+<div class="bg-surface-container rounded-lg p-space-md flex flex-col justify-between gap-space-sm shadow-md hover:bg-surface-container-high transition-colors">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-secondary shadow-sm">
+<span class="material-symbols-outlined text-[24px]">gavel</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-title-md text-on-surface">Torga Barbabronce</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container-highest text-secondary font-label-sm text-label-sm font-bold">Nv. 5</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Enana de las Colinas · Clériga Vida</span>
+</div>
+</div>
+<button class="px-2 py-1 rounded-full bg-surface-container-high text-tertiary hover:text-secondary font-label-sm text-label-sm flex items-center gap-1 transition-all" onclick="toggleInspiration(this)" title="Otorgar/Retirar Inspiración DM" type="button">
+<span class="material-symbols-outlined text-[14px]">token</span>
+<span>Insp.</span>
+</button>
+</div>
+<!-- Health Bar -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center text-label-sm font-label-sm">
+<span class="text-tertiary">Puntos de Golpe</span>
+<span class="text-on-surface font-stat-display text-label-md">42 <span class="text-tertiary">/ 42</span></span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-lowest overflow-hidden">
+<div class="h-full bg-primary-container w-full rounded-full shadow-[0_0_6px_rgba(255,84,81,0.5)]"></div>
+</div>
+</div>
+<!-- Spell Slots Pip Matrix -->
+<div class="bg-surface-container-low rounded p-1.5 flex items-center justify-between font-label-sm text-label-sm">
+<div class="flex items-center gap-2">
+<span class="text-tertiary text-[10px] uppercase">Ranuras:</span>
+<div class="flex items-center gap-1" title="Nivel 1: 3/4 restantes">
+<span class="text-[10px] text-on-surface">N1</span>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="w-2 h-2 rounded-full bg-surface-variant"></span>
+</div>
+<div class="flex items-center gap-1" title="Nivel 2: 2/3 restantes">
+<span class="text-[10px] text-on-surface">N2</span>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="w-2 h-2 rounded-full bg-surface-variant"></span>
+</div>
+<div class="flex items-center gap-1" title="Nivel 3: 1/2 restantes">
+<span class="text-[10px] text-on-surface">N3</span>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="w-2 h-2 rounded-full bg-surface-variant"></span>
+</div>
+</div>
+<span class="text-secondary font-bold text-[12px]">CA 19</span>
+</div>
+<!-- Status & Quick Action Buttons -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-1">
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-secondary font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">wb_sunny</span> Canalizar Divinidad: 1
+                </span>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-7 h-7 rounded bg-surface-container-high hover:bg-primary/20 hover:text-primary text-tertiary flex items-center justify-center transition-colors" title="-5 Daño" type="button">-5</button>
+<button class="w-7 h-7 rounded bg-surface-container-high hover:bg-secondary/20 hover:text-secondary text-tertiary flex items-center justify-center transition-colors" title="+5 Curación" type="button">+5</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section: Active Combat Encounter & Initiative Tracker -->
+<div class="bg-surface-container-low rounded-xl p-space-md shadow-xl flex flex-col gap-space-md" id="combatEncounterPanel">
+<div class="flex flex-wrap items-center justify-between gap-space-sm pb-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="w-3 h-3 rounded-full bg-primary-container animate-ping"></span>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Rastreador de Iniciativa &amp; Combate</h2>
+<span class="px-2 py-0.2 rounded bg-surface-container-highest text-secondary font-label-sm text-label-sm font-bold">Ronda 2</span>
+</div>
+<span class="font-body-sm text-body-sm text-tertiary">Encuentro Activo: Emboscada en la Cripta Sur (Dificultad: Mortal)</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-sm py-1 rounded bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-sm text-label-sm flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">skip_next</span>
+              Siguiente Turno
+            </button>
+<button class="px-space-sm py-1 rounded bg-surface-container-high hover:bg-surface-bright text-secondary font-label-sm text-label-sm flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">person_add</span>
+              Añadir Monstruo
+            </button>
+</div>
+</div>
+<!-- Initiative Flow List -->
+<div class="flex flex-col gap-space-xs">
+<!-- Turn 1: Strahd von Zarovich (Acechando) -->
+<div class="p-space-sm rounded-lg bg-surface-container-high flex flex-col md:flex-row md:items-center justify-between gap-space-sm shadow-md">
+<div class="flex items-center gap-space-md">
+<div class="flex flex-col items-center justify-center w-12 h-12 rounded bg-surface-container-lowest text-primary">
+<span class="font-label-sm text-label-sm text-tertiary">INIC</span>
+<span class="font-stat-display text-stat-display leading-none text-primary">22</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md text-on-surface font-bold">Strahd von Zarovich</span>
+<span class="px-1.5 py-0.5 rounded bg-primary-container text-on-primary font-label-sm text-label-sm font-extrabold uppercase tracking-wider">Jefe (CR 15)</span>
+<span class="material-symbols-outlined text-secondary text-[16px]" title="Acciones Legendarias Disponibles (3/3)">military_tech</span>
+</div>
+<div class="flex items-center gap-space-sm text-body-sm text-on-surface-variant">
+<span>CA: <strong class="text-on-surface">16</strong></span>
+<span>•</span>
+<span>Vel: <strong class="text-on-surface">30ft, Vuelo 40ft</strong></span>
+<span>•</span>
+<span class="text-secondary font-label-sm text-label-sm">Regeneración: 20 PG/turno</span>
+</div>
+</div>
+</div>
+<!-- Health & DM Quick Dice Action -->
+<div class="flex items-center gap-space-md">
+<div class="flex flex-col items-end min-w-[140px]">
+<div class="flex justify-between w-full text-label-sm font-label-sm mb-1">
+<span class="text-tertiary uppercase text-[10px]">PG DM Secreto</span>
+<span class="text-primary font-bold">124 / 144</span>
+</div>
+<div class="w-36 h-2 rounded-full bg-surface-container-lowest overflow-hidden">
+<div class="h-full bg-primary-container w-[86%] rounded-full shadow-[0_0_8px_rgba(255,84,81,0.7)]"></div>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button class="px-space-sm py-1 rounded bg-surface-container-lowest hover:bg-surface-bright text-primary font-label-sm text-label-sm flex items-center gap-1 shadow-sm" title="Tirar Golpe Desarmado (+9 a impactar, 2d8+4 daño)" type="button">
+<span class="material-symbols-outlined text-[14px]">sports_martial_arts</span>
+<span>+9 Golpe</span>
+</button>
+<button class="px-space-sm py-1 rounded bg-surface-container-lowest hover:bg-surface-bright text-secondary font-label-sm text-label-sm flex items-center gap-1 shadow-sm" title="Mordisco (+9, 1d6+4 perforante + 3d6 necrótico)" type="button">
+<span class="material-symbols-outlined text-[14px]">colorize</span>
+<span>Mordisco</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Turn 2: Kaela Sombra (Héroe) -->
+<div class="p-space-sm rounded-lg bg-surface-container flex flex-col md:flex-row md:items-center justify-between gap-space-sm shadow-sm">
+<div class="flex items-center gap-space-md">
+<div class="flex flex-col items-center justify-center w-12 h-12 rounded bg-surface-container-lowest text-secondary">
+<span class="font-label-sm text-label-sm text-tertiary">INIC</span>
+<span class="font-stat-display text-stat-display leading-none text-secondary">19</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md text-on-surface">Kaela Sombra</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-tertiary font-label-sm text-label-sm uppercase">PJ Jugador</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Posicionada tras el sarcófago de mármol · Ventaja en ataque</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-2 text-label-md font-label-md">
+<span class="text-tertiary">PG:</span>
+<span class="text-on-surface font-bold">35 / 35</span>
+<span class="text-secondary font-bold ml-2">CA 15</span>
+</div>
+</div>
+</div>
+<!-- Turn 3: Engendro Vampírico Alpha (Monstruo) -->
+<div class="p-space-sm rounded-lg bg-surface-container-high flex flex-col md:flex-row md:items-center justify-between gap-space-sm shadow-sm">
+<div class="flex items-center gap-space-md">
+<div class="flex flex-col items-center justify-center w-12 h-12 rounded bg-surface-container-lowest text-on-surface">
+<span class="font-label-sm text-label-sm text-tertiary">INIC</span>
+<span class="font-stat-display text-stat-display leading-none text-on-surface">15</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md text-on-surface">Engendro Vampírico α</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-lowest text-primary font-label-sm text-label-sm uppercase">CR 5</span>
+</div>
+<div class="flex items-center gap-space-sm text-body-sm text-on-surface-variant">
+<span>CA: <strong class="text-on-surface">15</strong></span>
+<span>•</span>
+<span>Resistencias: <strong class="text-tertiary">Necrótico, No Mágico</strong></span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="flex flex-col items-end min-w-[130px]">
+<div class="flex justify-between w-full text-label-sm font-label-sm mb-1">
+<span class="text-tertiary">PG</span>
+<span class="text-on-surface font-bold">52 / 82</span>
+</div>
+<div class="w-32 h-2 rounded-full bg-surface-container-lowest overflow-hidden">
+<div class="h-full bg-primary-container w-[63%] rounded-full"></div>
+</div>
+</div>
+<button class="px-space-sm py-1 rounded bg-surface-container-lowest hover:bg-surface-bright text-primary font-label-sm text-label-sm flex items-center gap-1 shadow-sm" type="button">
+<span class="material-symbols-outlined text-[14px]">front_hand</span>
+<span>Garras +6</span>
+</button>
+</div>
+</div>
+<!-- Turn 4: Lord Roland (PJ) -->
+<div class="p-space-sm rounded-lg bg-surface-container flex flex-col md:flex-row md:items-center justify-between gap-space-sm shadow-sm">
+<div class="flex items-center gap-space-md">
+<div class="flex flex-col items-center justify-center w-12 h-12 rounded bg-surface-container-lowest text-on-surface">
+<span class="font-label-sm text-label-sm text-tertiary">INIC</span>
+<span class="font-stat-display text-stat-display leading-none text-on-surface">12</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md text-on-surface">Lord Roland</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-tertiary font-label-sm text-label-sm uppercase">PJ Jugador</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Protegiendo la retaguardia de Torga y Varis</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-2 text-label-md font-label-md">
+<span class="text-tertiary">PG:</span>
+<span class="text-on-surface font-bold">48 / 48</span>
+<span class="text-secondary font-bold ml-2">CA 18</span>
+</div>
+</div>
+</div>
+<!-- Turn 5: Lobo Temible Sombrío (Monstruo) -->
+<div class="p-space-sm rounded-lg bg-surface-container-high flex flex-col md:flex-row md:items-center justify-between gap-space-sm shadow-sm">
+<div class="flex items-center gap-space-md">
+<div class="flex flex-col items-center justify-center w-12 h-12 rounded bg-surface-container-lowest text-on-surface">
+<span class="font-label-sm text-label-sm text-tertiary">INIC</span>
+<span class="font-stat-display text-stat-display leading-none text-on-surface">10</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md text-on-surface">Lobo Temible Sombrío</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-lowest text-primary font-label-sm text-label-sm uppercase">CR 1</span>
+<span class="px-1.5 py-0.2 rounded bg-error-container/30 text-error font-label-sm text-label-sm">Derribado</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Táctica de Manada activa si un aliado está a 5ft</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="flex flex-col items-end min-w-[130px]">
+<div class="flex justify-between w-full text-label-sm font-label-sm mb-1">
+<span class="text-tertiary">PG</span>
+<span class="text-primary font-bold">14 / 37</span>
+</div>
+<div class="w-32 h-2 rounded-full bg-surface-container-lowest overflow-hidden">
+<div class="h-full bg-primary-container w-[37%] rounded-full"></div>
+</div>
+</div>
+<button class="px-space-sm py-1 rounded bg-surface-container-lowest hover:bg-surface-bright text-primary font-label-sm text-label-sm flex items-center gap-1 shadow-sm" type="button">
+<span class="material-symbols-outlined text-[14px]">pets</span>
+<span>Mordisco +5</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT: DM Codex, Secret Notes, Scene NPCs & DC Compendium (Cols 9-12) -->
+<div class="xl:col-span-4 flex flex-col gap-space-lg">
+<!-- DM Session Log & Secret Notes -->
+<div class="bg-surface-container-low rounded-xl p-space-md shadow-xl flex flex-col gap-space-sm">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[22px]">lock</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Bitácora &amp; Secretos DM</h2>
+</div>
+<span class="font-label-sm text-label-sm text-primary uppercase bg-primary-container/20 px-2 py-0.5 rounded">Solo Ojos DM</span>
+</div>
+<!-- Note 1: Strahd's Intent -->
+<div class="bg-surface-container rounded-lg p-space-sm flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm text-secondary font-semibold">Táctica de Strahd</span>
+<span class="text-tertiary font-label-sm text-label-sm">Objetivo: Varis</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Strahd no busca aniquilar aún al grupo. Desea quebrar la concentración del mago para recuperar el control de sus sirvientes y observar si Lord Roland usa el amuleto sagrado.
+          </p>
+</div>
+<!-- Note 2: Hidden Trap / Secret Passage with Toggle -->
+<div class="bg-surface-container rounded-lg p-space-sm flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm text-primary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">warning</span> Trampa de la Lápida K-84
+            </span>
+<button class="text-tertiary hover:text-on-surface text-label-sm font-label-sm flex items-center gap-0.5" onclick="toggleSecret(this)" type="button">
+<span class="material-symbols-outlined text-[14px]">visibility</span>
+<span class="toggle-label">Mostrar</span>
+</button>
+</div>
+<div class="secret-content hidden p-2 rounded bg-surface-container-lowest font-body-sm text-body-sm text-on-surface">
+            CD 17 Investigación para detectar el glifo de asfixia en el suelo. Detona 4d10 daño de fuerza y sella las puertas con rejas de hierro durante 3 rondas.
+          </div>
+</div>
+<!-- Quick Note Input for DM -->
+<div class="mt-1">
+<textarea class="w-full rounded-lg bg-surface-container-lowest p-space-sm font-body-sm text-body-sm text-on-surface placeholder:text-outline-variant focus:outline-none focus:ring-1 focus:ring-secondary resize-none" placeholder="Añadir nota rápida de la sesión (ej. botín prometido, reacción de PNJ)..." rows="2"></textarea>
+<div class="flex justify-end mt-1">
+<button class="px-3 py-1 rounded bg-surface-container-high hover:bg-surface-bright text-secondary font-label-sm text-label-sm" type="button">
+              Guardar Nota
+            </button>
+</div>
+</div>
+</div>
+<!-- Scene NPCs & Disposition -->
+<div class="bg-surface-container-low rounded-xl p-space-md shadow-xl flex flex-col gap-space-sm">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[22px]">record_voice_over</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">PNJs en Escena</h2>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary">3 Presentes</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<!-- NPC 1: Ireena Kolyana -->
+<div class="bg-surface-container rounded-lg p-space-sm flex items-center justify-between">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-title-sm text-title-sm text-on-surface">Ireena Kolyana</span>
+<span class="px-1.5 py-0.2 rounded bg-secondary/20 text-secondary font-label-sm text-label-sm">Aliada</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Protegida por Torga · Trauma latente</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary">PG: 14/14</span>
+</div>
+<!-- NPC 2: Rahadin -->
+<div class="bg-surface-container rounded-lg p-space-sm flex items-center justify-between">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-title-sm text-title-sm text-on-surface">Chamberlain Rahadin</span>
+<span class="px-1.5 py-0.2 rounded bg-primary-container/30 text-primary font-label-sm text-label-sm">Hostil</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Esperando órdenes en la antesala</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-bold">CR 10</span>
+</div>
+<!-- NPC 3: Escher -->
+<div class="bg-surface-container rounded-lg p-space-sm flex items-center justify-between">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-title-sm text-title-sm text-on-surface">Escher el Consorte</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container-highest text-tertiary font-label-sm text-label-sm">Neutral / Ansioso</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Oculto tras las cortinas de terciopelo</span>
+</div>
+<button class="px-2 py-0.5 rounded bg-surface-container-high text-tertiary hover:text-on-surface font-label-sm text-label-sm" title="Consultar diálogos y secretos de Escher" type="button">Info</button>
+</div>
+</div>
+</div>
+<!-- DM Quick Rules Compendium & DCs -->
+<div class="bg-surface-container-low rounded-xl p-space-md shadow-xl flex flex-col gap-space-sm">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[22px]">menu_book</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Reglas Rápidas &amp; CDs</h2>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-label-md">D&amp;D 5e</span>
+</div>
+<!-- Standard DCs Matrix -->
+<div class="grid grid-cols-4 gap-1 text-center font-label-sm text-label-sm">
+<div class="bg-surface-container rounded p-1">
+<span class="text-tertiary block text-[9px] uppercase">Fácil</span>
+<span class="text-on-surface font-bold">CD 10</span>
+</div>
+<div class="bg-surface-container rounded p-1">
+<span class="text-tertiary block text-[9px] uppercase">Media</span>
+<span class="text-secondary font-bold">CD 15</span>
+</div>
+<div class="bg-surface-container rounded p-1">
+<span class="text-tertiary block text-[9px] uppercase">Difícil</span>
+<span class="text-primary font-bold">CD 20</span>
+</div>
+<div class="bg-surface-container rounded p-1">
+<span class="text-tertiary block text-[9px] uppercase">Muy Difícil</span>
+<span class="text-error font-bold">CD 25</span>
+</div>
+</div>
+<!-- Quick Condition Chips -->
+<div class="flex flex-col gap-1.5 pt-1">
+<span class="font-label-sm text-label-sm text-tertiary uppercase">Condiciones Rápidas:</span>
+<div class="flex flex-wrap gap-1">
+<button class="px-2 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors" onclick="showConditionDetail('Asustado')" type="button">
+              Asustado
+            </button>
+<button class="px-2 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors" onclick="showConditionDetail('Paralizado')" type="button">
+              Paralizado
+            </button>
+<button class="px-2 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors" onclick="showConditionDetail('Envenenado')" type="button">
+              Envenenado
+            </button>
+<button class="px-2 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors" onclick="showConditionDetail('Cegado')" type="button">
+              Cegado
+            </button>
+<button class="px-2 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors" onclick="showConditionDetail('Incapacitado')" type="button">
+              Incapacitado
+            </button>
+</div>
+<div class="text-[11px] font-body-sm text-secondary bg-surface-container-lowest p-2 rounded hidden" id="conditionOutput">
+<!-- Dynamic Rule Explanations -->
+</div>
+</div>
+<!-- Illumination & Cover Reference -->
+<div class="bg-surface-container rounded p-space-sm flex flex-col gap-1 font-body-sm text-body-sm text-on-surface-variant text-[12px]">
+<div class="flex justify-between">
+<span class="text-tertiary">Cobertura Media (+2 CA / Destreza)</span>
+<span class="text-on-surface">Media criatura u objeto</span>
+</div>
+<div class="flex justify-between">
+<span class="text-tertiary">Cobertura Tres Cuartos (+5 CA)</span>
+<span class="text-on-surface">Reja, hendidura de flecha</span>
+</div>
+<div class="flex justify-between">
+<span class="text-tertiary">Luz Tenue (Penumbra)</span>
+<span class="text-secondary">Desventaja en Percepción</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Micro-interactions Script -->
+<script>
+    function toggleSecret(button) {
+      const parent = button.closest('.flex-col');
+      const content = parent.querySelector('.secret-content');
+      const label = button.querySelector('.toggle-label');
+      if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+        label.textContent = 'Ocultar';
+      } else {
+        content.classList.add('hidden');
+        label.textContent = 'Mostrar';
+      }
+    }
+
+    function toggleInspiration(btn) {
+      const isHeroActive = btn.classList.contains('bg-secondary-container/30');
+      if (isHeroActive) {
+        btn.className = 'px-2 py-1 rounded-full bg-surface-container-high text-tertiary hover:text-secondary font-label-sm text-label-sm flex items-center gap-1 transition-all';
+        btn.innerHTML = '<span class="material-symbols-outlined text-[14px]">token</span><span>Insp.</span>';
+      } else {
+        btn.className = 'px-2 py-1 rounded-full bg-secondary-container/30 text-secondary font-label-sm text-label-sm flex items-center gap-1 shadow-[0_0_10px_rgba(245,158,11,0.3)] transition-all';
+        btn.innerHTML = '<span class="material-symbols-outlined text-[14px]">stars</span><span>Activa</span>';
+      }
+    }
+
+    function toggleDmShield() {
+      const text = document.getElementById('privacyText');
+      const icon = document.getElementById('privacyIcon');
+      if (text.textContent.includes('Abierta')) {
+        text.textContent = 'Pantalla DM: Privada';
+        icon.textContent = 'visibility_off';
+        icon.className = 'material-symbols-outlined text-[18px] text-primary';
+      } else {
+        text.textContent = 'Pantalla DM: Abierta';
+        icon.textContent = 'visibility';
+        icon.className = 'material-symbols-outlined text-[18px] text-secondary';
+      }
+    }
+
+    function toggleCombatHighlight() {
+      const tracker = document.getElementById('combatEncounterPanel');
+      tracker.classList.add('shadow-[0_0_30px_rgba(255,84,81,0.3)]');
+      setTimeout(() => {
+        tracker.classList.remove('shadow-[0_0_30px_rgba(255,84,81,0.3)]');
+      }, 1200);
+    }
+
+    const conditionsData = {
+      'Asustado': 'Desventaja en pruebas de característica y tiradas de ataque mientras la fuente de su miedo esté a la vista. No puede acercarse voluntariamente a la fuente.',
+      'Paralizado': 'Incapacitado, no puede moverse ni hablar. Falla salvaciones de FUE y DES automáticamente. Ataques a 5ft son impactos críticos automáticos.',
+      'Envenenado': 'Desventaja en tiradas de ataque y pruebas de característica.',
+      'Cegado': 'Falla automáticamente cualquier prueba que requiera vista. Ataques contra la criatura tienen ventaja, sus ataques tienen desventaja.',
+      'Incapacitado': 'No puede realizar acciones ni reacciones.'
+    };
+
+    function showConditionDetail(name) {
+      const output = document.getElementById('conditionOutput');
+      if (conditionsData[name]) {
+        output.textContent = name + ': ' + conditionsData[name];
+        output.classList.remove('hidden');
+      }
+    }
+
+    function batchDamagePrompt() {
+      const amount = prompt("Cantidad de daño en área para todo el grupo:", "10");
+      if (amount) {
+        alert("Se registraron " + amount + " puntos de daño aplicables al grupo en combate.");
+      }
+    }
+
+    function batchHealPrompt() {
+      const amount = prompt("Cantidad de curación grupal (ej. Plegaria de Curación):", "8");
+      if (amount) {
+        alert("Se registraron " + amount + " puntos de sanación para los miembros seleccionados.");
+      }
+    }
+  </script>
+</div></main></body></html>
