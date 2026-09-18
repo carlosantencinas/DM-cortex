@@ -2,14 +2,26 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 import { initializeFirestore } from 'firebase/firestore';
 
+const projectId = import.meta.env.VITE_FIREBASE_PROJECT_ID;
+
+// Firebase's standard Auth helper domain is <projectId>.firebaseapp.com.
+// We derive it from the project ID instead of trusting a separately supplied
+// authDomain secret, which prevents a stale/mistyped domain from sending Google
+// sign-in to an unrelated/non-existent host.
+const authDomain = projectId ? `${projectId}.firebaseapp.com` : '';
+
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  authDomain,
+  projectId,
   storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
+
+if (!projectId || !firebaseConfig.apiKey || !firebaseConfig.appId) {
+  console.error('DM Cortex: faltan variables de configuración de Firebase. Revisa los secrets VITE_FIREBASE_* de GitHub Actions.');
+}
 
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
@@ -18,12 +30,16 @@ export const auth = getAuth(app);
 // corporate networks and proxies close that connection (ERR_CONNECTION_CLOSED),
 // after which Firestore reports "the client is offline" even though the browser
 // itself still has internet access. Auto-detecting long polling makes the client
-// fall back to a more compatible HTTP transport when WebChannel is unavailable.
+// fall back to a more compatible HTTP transport.
 export const db = initializeFirestore(app, {
   experimentalAutoDetectLongPolling: true,
 });
 
 export const googleProvider = new GoogleAuthProvider();
+
+googleProvider.setCustomParameters({
+  prompt: 'select_account',
+});
 
 /*
   MODELO DE DATOS EN FIRESTORE
