@@ -1,12 +1,10 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import {
-  browserPopupRedirectResolver,
-  getRedirectResult,
   onAuthStateChanged,
-  signInWithRedirect,
+  signInWithEmailAndPassword,
   signOut,
 } from 'firebase/auth';
-import { auth, googleProvider } from '../firebase';
+import { auth } from '../firebase';
 
 const AuthContext = createContext(null);
 
@@ -16,32 +14,39 @@ export function AuthProvider({ children }) {
   const [authError, setAuthError] = useState('');
 
   useEffect(() => {
-    let mounted = true;
-
-    // Resolve a possible Google redirect when the user returns from Firebase.
-    getRedirectResult(auth, browserPopupRedirectResolver).catch((err) => {
-      console.error('Error al completar el inicio de sesión con Google:', err);
-      if (mounted) setAuthError(err?.message || 'No se pudo completar el inicio de sesión.');
-    });
-
     const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
-      if (!mounted) return;
       setUser(firebaseUser);
       setLoading(false);
     });
 
-    return () => {
-      mounted = false;
-      unsubscribe();
-    };
+    return unsubscribe;
   }, []);
 
-  // GitHub Pages + popup was showing a blank Google/Firebase helper window in
-  // some browsers. A full-page redirect avoids that popup DOM lifecycle and
-  // returns to the SPA through public/404.html.
-  const login = () => {
+  const login = async (email, password) => {
     setAuthError('');
-    return signInWithRedirect(auth, googleProvider, browserPopupRedirectResolver);
+    if (!email || !password) {
+      const error = new Error('Ingresa tu correo y contraseña.');
+      error.code = 'auth/missing-fields';
+      setAuthError(error.message);
+      throw error;
+    }
+
+    try {
+      const credential = await signInWithEmailAndPassword(auth, email.trim(), password);
+      return credential.user;
+    } catch (err) {
+      console.error('Error de inicio de sesión:', err);
+      const message =
+        err?.code === 'auth/invalid-credential' || err?.code === 'auth/wrong-password' || err?.code === 'auth/user-not-found'
+          ? 'El correo o la contraseña no son correctos.'
+          : err?.code === 'auth/too-many-requests'
+            ? 'Demasiados intentos. Espera unos minutos y vuelve a intentarlo.'
+            : err?.code === 'auth/user-disabled'
+              ? 'Esta cuenta está deshabilitada. Contacta al administrador de DM Cortex.'
+              : err?.message || 'No se pudo iniciar sesión.';
+      setAuthError(message);
+      throw err;
+    }
   };
 
   const logout = () => signOut(auth);
