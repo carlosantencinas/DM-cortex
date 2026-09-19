@@ -1,16 +1,25 @@
-import { useEffect, useState } from 'react';
-import { collection, onSnapshot } from 'firebase/firestore';
+import { useEffect,useMemo,useState } from 'react';
+import { collection,onSnapshot } from 'firebase/firestore';
 import { db } from '../firebase';
 import { useCampaign } from '../context/useCampaign';
-
+const conditions=['Asustado','Paralizado','Envenenado','Cegado','Incapacitado'];
+const conditionText={Asustado:'Desventaja en pruebas y ataques mientras la fuente del miedo esté a la vista.',Paralizado:'Incapacitado; falla salvaciones de FUE y DES automáticamente.',Envenenado:'Desventaja en tiradas de ataque y pruebas de característica.',Cegado:'No puede ver; ataques contra él tienen ventaja y sus ataques desventaja.',Incapacitado:'No puede realizar acciones ni reacciones.'};
 export default function DmDashboard(){
-  const {campaignId,campaign,isDm}=useCampaign(); const [characters,setCharacters]=useState([]);
-  useEffect(()=>{if(!campaignId)return;return onSnapshot(collection(db,'campaigns',campaignId,'characters'),snap=>setCharacters(snap.docs.map(d=>({id:d.id,...d.data()}))))},[campaignId]);
-  if(!campaignId||!campaign)return <div className="dm-dashboard"><h2>Mesa del DM</h2><p className="muted">Crea una campaña desde Mi hoja para comenzar.</p></div>;
-  if(!isDm)return <div className="dm-dashboard"><h2>Acceso de DM</h2><p>Este panel pertenece al DM de <strong>{campaign.name}</strong>.</p></div>;
-  return <div className="dm-dashboard">
-    <div className="page-title"><div><div className="eyebrow">Mesa de juego</div><h2>{campaign.name}</h2><p className="muted">{characters.length} personaje(s) conectados en tiempo real</p></div></div>
-    <div className="invite-card"><div className="mini-label">Código de invitación</div><div className="invite-code">{campaign.inviteCode}</div><span className="muted">Comparte este código con tus jugadores.</span></div>
-    <div className="party-grid">{characters.map(c=>{const hp=Math.max(0,Math.min(100,(c.hp?.actual/Math.max(1,c.hp?.max||1))*100));return <article key={c.id} className="party-card"><div className="eyebrow">Nivel {c.level||1}</div><h3>{c.name||'Personaje sin nombre'}</h3><p className="muted">{c.race||'—'} · {c.class||'—'}</p><strong>PV {c.hp?.actual??0} / {c.hp?.max??0}</strong><div className="hp-bar"><div className="hp-fill" style={{width:`${hp}%`}}/></div><div className="grid grid-2"><span><span className="mini-label">CA</span>{c.ac??'—'}</span><span><span className="mini-label">Iniciativa</span>{c.initiative??'—'}</span><span><span className="mini-label">Hechizos</span>{c.spells?.length||0}</span><span><span className="mini-label">Jugador</span>{c.player||'—'}</span></div></article>})}{characters.length===0&&<p className="muted">Ningún jugador se ha unido todavía.</p>}</div>
-  </div>;
+ const {campaignId,campaign,isDm}=useCampaign(); const [characters,setCharacters]=useState([]); const [condition,setCondition]=useState(''); const [note,setNote]=useState('');
+ useEffect(()=>{if(!campaignId)return;return onSnapshot(collection(db,'campaigns',campaignId,'characters'),s=>setCharacters(s.docs.map(d=>({id:d.id,...d.data()}))))},[campaignId]);
+ const hp=useMemo(()=>characters.reduce((a,c)=>a+(c.hp?.actual||0),0),[characters]);
+ if(!campaignId||!campaign)return <div className="dm-console stitch-card"><span className="stitch-kicker">DUNGEON MASTER</span><h1>Tu mesa aún no está activa</h1><p>Crea una campaña desde el Lobby para abrir el panel táctico.</p></div>;
+ if(!isDm)return <div className="dm-console stitch-card"><span className="stitch-kicker">ACCESO RESTRINGIDO</span><h1>Panel del DM</h1><p>El panel de <b>{campaign.name}</b> pertenece al Dungeon Master.</p></div>;
+ return <section className="dm-console">
+  <header className="dm-console-head"><div><span className="stitch-kicker">PANEL DEL DUNGEON MASTER</span><h1>{campaign.name}</h1><p>{characters.length} personaje(s) conectados · estado de mesa en tiempo real</p></div><div className="dm-head-actions"><span className="privacy-pill">◉ Pantalla DM: Privada</span><span className="invite-code">{campaign.inviteCode}</span></div></header>
+  <div className="dm-statbar"><div><small>GRUPO</small><strong>{characters.length}</strong></div><div><small>PV ACTUALES</small><strong>{hp}</strong></div><div><small>CAMPAÑA</small><strong>ACTIVA</strong></div><div><small>CÓDIGO</small><strong>{campaign.inviteCode}</strong></div></div>
+  <div className="dm-layout"><main className="dm-main">
+   <section className="stitch-card combat-panel"><div className="dm-section-head"><div><span className="stitch-kicker">ENCUENTRO</span><h2>Rastreador de Iniciativa</h2></div><button className="stitch-secondary">＋ Añadir criatura</button></div><div className="turn-list">{characters.map((c,i)=>{const p=Math.max(0,Math.min(100,(c.hp?.actual||0)/Math.max(1,c.hp?.max||1)*100)));return <article className={'turn-row '+(i===0?'turn-active':'')} key={c.id}><div className="initiative">{c.initiative??0}</div><div className="turn-info"><strong>{c.name||'Personaje'}</strong><span>{c.race||'—'} · {c.class||'—'} · Jugador</span></div><div className="turn-hp"><span>PG {c.hp?.actual??0}/{c.hp?.max??0} · CA {c.ac??10}</span><i><b style={{width:p+'%'}}/></i></div><button className="combat-action">⚔ Atacar</button></article>})}{characters.length===0&&<p className="muted">Ningún personaje de la campaña está disponible todavía.</p>}</div></section>
+   <section className="dm-quick-grid"><div className="stitch-card"><span className="stitch-kicker">TIRADAS RÁPIDAS</span><h2>Dado del DM</h2><div className="dm-dice">{[20,12,10,8,6,4].map(d=><button key={d} onClick={()=>window.alert('d'+d+': '+(Math.floor(Math.random()*d)+1))}>d{d}</button>)}</div></div><div className="stitch-card"><span className="stitch-kicker">CD</span><h2>Dificultades</h2><div className="dc-grid"><b>Fácil <em>10</em></b><b>Media <em>15</em></b><b>Difícil <em>20</em></b><b>Muy difícil <em>25</em></b></div></div></section>
+  </main><aside className="dm-side">
+   <section className="stitch-card"><div className="dm-side-title"><span>▣</span><h2>Bitácora & Secretos DM</h2></div><div className="secret-note"><b>Táctica de sesión</b><p>Notas privadas del Dungeon Master para mantener el estado narrativo y táctico.</p></div><textarea rows="4" value={note} onChange={e=>setNote(e.target.value)} placeholder="Añadir nota rápida de la sesión…"/><button className="stitch-secondary full-width">Guardar nota</button></section>
+   <section className="stitch-card"><div className="dm-side-title"><span>♙</span><h2>PNJs en escena</h2></div><div className="npc-empty">Añade PNJs desde tus notas de sesión.</div></section>
+   <section className="stitch-card"><div className="dm-side-title"><span>☷</span><h2>Condiciones rápidas</h2></div><div className="condition-list">{conditions.map(c=><button key={c} className={condition===c?'selected':''} onClick={()=>setCondition(c)}>{c}</button>)}</div>{condition&&<p className="condition-detail"><b>{condition}:</b> {conditionText[condition]}</p>}</section>
+  </aside></div>
+ </section>
 }
