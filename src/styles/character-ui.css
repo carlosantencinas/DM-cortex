@@ -17,3 +17,14 @@
 @media(max-width:1100px){.sheet-globalnav{display:none}.sheet-search{display:block}.sheet-identitybar{flex-wrap:wrap}.sheet-quickstats{order:3;flex-basis:100%;overflow:auto}.sheet-rests{margin-left:auto}}
 @media(max-width:760px){.sheet-globalbar{padding:8px 12px;gap:10px;flex-wrap:wrap}.sheet-campaign-badge,.sheet-search,.sheet-globalnav{display:none}.sheet-global-actions{margin-left:auto}.sheet-identitybar{position:relative;top:auto;padding:12px}.sheet-identity{min-width:0;flex:1}.sheet-rests{display:none}.sheet-tabs-wrap{padding:0 12px}.sheet-content{padding:12px}.sheet-stat-grid{grid-template-columns:repeat(3,1fr)}.sheet-main-grid{grid-template-columns:1fr}.sheet-skill-grid{columns:1}.sheet-fields-grid{grid-template-columns:1fr 1fr}.sheet-dice-strip{align-items:flex-start;flex-direction:column}.dice-stage{min-height:250px}}
 @media(max-width:480px){.sheet-brand span:last-child{display:none}.sheet-identity h1{font-size:18px}.sheet-stat-grid{grid-template-columns:repeat(2,1fr)}.sheet-fields-grid{grid-template-columns:1fr}.sheet-panel{padding:14px}.dice-selector{flex-wrap:wrap}.dice-tray-head{padding:14px}}
+
+
+.sheet-equipment-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}
+.sheet-equipment-meta>div{padding:11px;background:#0e1627;border:1px solid #2d3449;border-radius:7px}
+.sheet-equipment-meta span{display:block;color:#ffb95f;font:600 9px 'JetBrains Mono';letter-spacing:.07em}
+.sheet-equipment-meta b{display:block;margin-top:4px;color:#dae2fd;font-size:12px;line-height:1.4}
+.sheet-mastery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
+.sheet-mastery-item{display:flex;align-items:center;gap:8px;padding:10px;background:#0e1627;border:1px solid #2d3449;border-radius:7px;color:#dae2fd;font-size:12px}
+.sheet-mastery-item input{accent-color:#ff5451}
+@media(max-width:800px){.sheet-equipment-meta{grid-template-columns:repeat(2,1fr)}.sheet-mastery-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.sheet-equipment-meta,.sheet-mastery-grid{grid-template-columns:1fr}}
