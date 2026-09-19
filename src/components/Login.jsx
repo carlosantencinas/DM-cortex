@@ -36,33 +36,19 @@ export default function Login() {
 
         <form onSubmit={handleLogin} className="login-form">
           <label htmlFor="login-email">Correo electrónico</label>
-          <input
-            id="login-email"
-            type="email"
-            autoComplete="username"
-            value={email}
+          <input id="login-email" type="email" autoComplete="username" value={email}
             onChange={(event) => setEmail(event.target.value)}
-            placeholder="tu-correo@ejemplo.com"
-            required
-          />
+            placeholder="tu-correo@ejemplo.com" required />
 
           <label htmlFor="login-password">Contraseña</label>
           <div className="password-field">
-            <input
-              id="login-password"
-              type={showPassword ? 'text' : 'password'}
-              autoComplete="current-password"
-              value={password}
+            <input id="login-password" type={showPassword ? 'text' : 'password'}
+              autoComplete="current-password" value={password}
               onChange={(event) => setPassword(event.target.value)}
-              placeholder="Tu contraseña"
-              required
-            />
-            <button
-              type="button"
-              className="password-toggle"
+              placeholder="Tu contraseña" required />
+            <button type="button" className="password-toggle"
               onClick={() => setShowPassword((value) => !value)}
-              aria-label={showPassword ? 'Ocultar contraseña' : 'Mostrar contraseña'}
-            >
+              aria-label={showPassword ? 'Ocultar contraseña' : 'Mostrar contraseña'}>
               {showPassword ? 'Ocultar' : 'Ver'}
             </button>
           </div>
