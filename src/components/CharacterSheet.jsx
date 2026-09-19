@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { CLASS_OPTIONS, SPECIES_OPTIONS, BACKGROUND_OPTIONS, SIZE_OPTIONS } from '../data/characterOptions.js';
 import SpellPicker from './SpellPicker.jsx';
 import { useCharacters } from '../context/useCharacters';
+import { getClassData, getMasteryCount } from '../data/classData.js';
 
 const STATS = [['for','Fuerza','FUE'],['des','Destreza','DES'],['con','Constitución','CON'],['int','Inteligencia','INT'],['sab','Sabiduría','SAB'],['car','Carisma','CAR']];
 const SKILLS = ['Acrobacias','Arcanos','Atletismo','Engaño','Historia','Interpretación','Intimidación','Investigación','Juego de Manos','Medicina','Naturaleza','Percepción','Perspicacia','Persuasión','Religión','Supervivencia','Trato con Animales','Sigilo'];
@@ -33,6 +34,8 @@ export default function CharacterSheet() {
   if (!character) return <section className="character-sheet sheet-shell"><div className="sheet-empty"><span className="sheet-kicker">DM CORTEX</span><h2>Personaje no encontrado</h2><p className="muted">Este personaje todavía no está disponible o fue eliminado.</p><Link className="sheet-button sheet-button-primary" to="/personajes">Volver a mis personajes</Link></div></section>;
 
   const hp = character.hp || { actual: 10, max: 10, temp: 0 };
+  const classInfo = getClassData(character.class);
+  const masteryLimit = getMasteryCount(character.class, character.level);
   const hpPct = Math.max(0, Math.min(100, (hp.actual / Math.max(1, hp.max)) * 100));
   const save = data => updateCharacter(character.id, data);
   const roll = () => {
@@ -68,7 +71,7 @@ export default function CharacterSheet() {
         <section className="sheet-panel sheet-dice-strip"><div><span className="sheet-kicker">VTT</span><h2>Lanzador de dados poliédricos</h2><p>Elige un dado para abrir la bandeja de tirada.</p></div><div className="sheet-dice-buttons">{DICE.map(d => <button key={d} className={dice === d ? 'active' : ''} onClick={() => {setDice(d);setDiceOpen(true)}}>d{d}</button>)}</div></section>
       </>}
       {tab === 'spells' && <section className="sheet-panel"><div className="sheet-panel-head"><div><span className="sheet-kicker">MAGIA</span><h2>Libro de hechizos</h2></div></div><SpellPicker selected={character.spells || []} onChange={spells => save({spells})}/></section>}
-      {tab === 'equipment' && <section className="sheet-panel"><div className="sheet-panel-head"><div><span className="sheet-kicker">EQUIPO</span><h2>Inventario y tesoros</h2></div></div><textarea rows={18} value={character.inventory || ''} onChange={e => save({inventory:e.target.value})} placeholder="Armas, armaduras, objetos, herramientas y tesoros…"/></section>}
+      {tab === 'equipment' && <><section className="sheet-panel"><div className="sheet-panel-head"><div><span className="sheet-kicker">EQUIPO</span><h2>Inventario y tesoros</h2></div></div>{classInfo && <div className="sheet-equipment-meta"><div><span>ARMAS</span><b>{classInfo.weapons}</b></div><div><span>ARMADURAS</span><b>{classInfo.armor}</b></div><div><span>HERRAMIENTAS</span><b>{classInfo.tools}</b></div><div><span>DADO</span><b>{classInfo.hitDie}</b></div></div>}<textarea rows={12} value={character.inventory || ''} onChange={e => save({inventory:e.target.value})} placeholder="Armas, armaduras, objetos, herramientas y tesoros…"/></section>{classInfo && <section className="sheet-panel"><div className="sheet-panel-head"><div><span className="sheet-kicker">MAESTRÍA 2024</span><h2>Dominio de armas</h2></div><span className="sheet-hint">{masteryLimit} arma(s) disponibles</span></div>{masteryLimit > 0 ? <div className="sheet-mastery-grid">{classInfo.masteryPool.map(weapon => <label key={weapon} className="sheet-mastery-item"><input type="checkbox" checked={(character.masteryWeapons || []).includes(weapon)} onChange={e => { const current=character.masteryWeapons || []; const next=e.target.checked ? (current.length < masteryLimit ? [...current,weapon] : current) : current.filter(x=>x!==weapon); save({masteryWeapons:next,weaponMastery:{enabled:true,weapons:next,limit:masteryLimit}}); }} /><span>{weapon}</span></label>)}</div> : <p className="muted">Esta clase no obtiene Maestría de armas mediante su rasgo de clase a este nivel.</p>}</section>}</>}
       {tab === 'features' && <section className="sheet-panel"><div className="sheet-panel-head"><div><span className="sheet-kicker">RASGOS</span><h2>Rasgos y trasfondo</h2></div></div><textarea rows={18} value={character.features || ''} onChange={e => save({features:e.target.value})} placeholder="Rasgos de especie, clase, trasfondo, dotes y otros…"/></section>}
       {tab === 'notes' && <section className="sheet-panel"><div className="sheet-panel-head"><div><span className="sheet-kicker">BITÁCORA</span><h2>Notas de aventura</h2></div></div><textarea rows={18} value={character.notes || ''} onChange={e => save({notes:e.target.value})} placeholder="Objetivos, pistas, personajes, lugares, tesoros…"/></section>}
     </main>
