@@ -35,7 +35,8 @@ export function useCharacters() {
   const createCharacter = useCallback(async (seed = {}) => {
     if (!user) throw new Error('Debes iniciar sesión para crear un personaje.');
     const ref = doc(collection(db, 'users', user.uid, 'characters'));
-    await setDoc(ref, blankCharacter(user, seed));
+    const write = setDoc(ref, blankCharacter(user, seed));
+    await Promise.race([write, new Promise((_, reject) => setTimeout(() => { const error = new Error('La creación está tardando demasiado. Comprueba tu conexión con Firebase e inténtalo de nuevo.'); error.code = 'dm-cortex/write-timeout'; reject(error); }, 15000))]);
     localStorage.setItem(ACTIVE_KEY, ref.id);
     setActiveCharacterId(ref.id);
     return ref.id;
