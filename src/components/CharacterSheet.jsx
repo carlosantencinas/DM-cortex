@@ -29,6 +29,11 @@ export default function CharacterSheet() {
   const [rolling, setRolling] = useState(false);
 
   useEffect(() => { if (characterId) selectCharacter(characterId); }, [characterId, selectCharacter]);
+  useEffect(() => {
+    const openDice = event => { setDice(event.detail?.dice || 20); setDiceOpen(true); };
+    window.addEventListener('dm-cortex-roll', openDice);
+    return () => window.removeEventListener('dm-cortex-roll', openDice);
+  }, []);
 
   const stats = useMemo(() => character ? STATS.map(([k, l, abbr]) => ({ k, l, abbr, v: character.stats?.[k] ?? 10, m: mod(character.stats?.[k]) })) : [], [character]);
   if (!character) return <section className="character-sheet sheet-shell"><div className="sheet-empty"><span className="sheet-kicker">DM CORTEX</span><h2>Personaje no encontrado</h2><p className="muted">Este personaje todavía no está disponible o fue eliminado.</p><Link className="sheet-button sheet-button-primary" to="/personajes">Volver a mis personajes</Link></div></section>;
@@ -48,7 +53,7 @@ export default function CharacterSheet() {
     <header className="sheet-globalbar">
       <div className="sheet-brand"><span className="sheet-d20-mark">◇</span><span>D&D 5e Companion</span></div>
       <span className="sheet-campaign-badge">◈ {character.campaignId ? 'Campaña activa' : 'Sin campaña'}</span>
-      <nav className="sheet-globalnav"><Link to="/personajes">Personajes</Link><Link to="/campana">Campaña</Link><Link to="/dm">Monstruos</Link></nav>
+      <nav className="sheet-globalnav"><Link to="/personajes">Personajes</Link><Link to="/campana">Campaña</Link><Link to="/dm">Panel DM</Link></nav>
       <div className="sheet-global-actions"><button className="sheet-search">⌕ Buscar conjuro, regla u objeto...</button><button className="sheet-dice-trigger" onClick={() => setDiceOpen(true)}>◈ Tirar Dado (d20)</button><span className="sheet-user">LVL {character.level || 1}</span></div>
     </header>
     <div className="sheet-identitybar">
