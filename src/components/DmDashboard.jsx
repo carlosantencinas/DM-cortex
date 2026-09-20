@@ -122,6 +122,11 @@ export default function DmDashboard() {
   };
 
   const updateCombatant = (id, patch) => saveEncounter({combatants:combatants.map(c => c.id === id ? {...c,...patch} : c)});
+  const addCharacterToCombat = character => {
+    const existing = combatants.some(c => c.id === character.id);
+    if (existing) return;
+    saveEncounter({combatants:[...combatants, combatantFromCharacter(character)].sort((a,b) => b.initiative - a.initiative)});
+  };
 
   const groupChange = async amount => {
     const value = Number(window.prompt(amount > 0 ? 'Sanación para el grupo:' : 'Daño para el grupo:', String(Math.abs(amount))));
@@ -182,7 +187,7 @@ export default function DmDashboard() {
       <main className="dm-main">
         <section className="stitch-card party-monitor">
           <div className="dm-section-head"><div><span className="stitch-kicker">PARTY VITALS</span><h2>Monitor del Grupo</h2><span className="dm-muted">{characters.length} héroes en el grupo · Nivel medio {avgLevel}</span></div><div className="dm-batch-actions"><button className="stitch-secondary" onClick={()=>groupChange(-1)}>🔥 Daño en Área</button><button className="stitch-secondary" onClick={()=>groupChange(1)}>♥ Sanación Grupal</button></div></div>
-          <div className="party-grid">{characters.map(c=>{const current=Number(c.hp?.actual||0),max=Math.max(1,Number(c.hp?.max||1)),pct=Math.max(0,Math.min(100,current/max*100));return <article className="party-card" key={c.id}><div className="party-card-head"><div><b>{c.name||'Personaje'}</b><span>Nv. {c.level||1} · {c.race||'—'} · {c.class||'—'}</span></div><button className="inspiration-btn" onClick={()=>setDoc(doc(db,'campaigns',campaignId,'characters',c.id),{inspiration:!c.inspiration,updatedAt:serverTimestamp()},{merge:true})}>{c.inspiration?'★ Activa':'☆ Insp.'}</button></div><div className="party-hp"><span>PG <b>{current}</b> / {max}</span><i><b style={{width:pct+'%'}}/></i></div><div className="party-meta"><span>CA <b>{c.ac||10}</b></span><span>INIC <b>{c.initiative??0}</b></span><button onClick={()=>updateCombatant(c.id,{hp:current,maxHp:max,ac:c.ac||10})}>Añadir al combate</button></div></article>})}</div>
+          <div className="party-grid">{characters.map(c=>{const current=Number(c.hp?.actual||0),max=Math.max(1,Number(c.hp?.max||1)),pct=Math.max(0,Math.min(100,current/max*100));return <article className="party-card" key={c.id}><div className="party-card-head"><div><b>{c.name||'Personaje'}</b><span>Nv. {c.level||1} · {c.race||'—'} · {c.class||'—'}</span></div><button className="inspiration-btn" onClick={()=>setDoc(doc(db,'campaigns',campaignId,'characters',c.id),{inspiration:!c.inspiration,updatedAt:serverTimestamp()},{merge:true})}>{c.inspiration?'★ Activa':'☆ Insp.'}</button></div><div className="party-hp"><span>PG <b>{current}</b> / {max}</span><i><b style={{width:pct+'%'}}/></i></div><div className="party-meta"><span>CA <b>{c.ac||10}</b></span><span>INIC <b>{c.initiative??0}</b></span><button onClick={()=>addCharacterToCombat(c)}>Añadir al combate</button></div></article>})}</div>
           {characters.length===0&&<p className="muted">Aún no hay personajes vinculados a esta campaña.</p>}
         </section>
 
