@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { collection, deleteDoc, doc, onSnapshot, serverTimestamp, setDoc } from 'firebase/firestore';
+import { collection, deleteDoc, doc, getDoc, onSnapshot, serverTimestamp, setDoc, writeBatch } from 'firebase/firestore';
 import { db } from '../firebase';
 import { useAuth } from './AuthContext';
 
@@ -32,24 +32,41 @@ export function useCharacters() {
     }, () => setCharacters([]));
   }, [user]);
 
+  const syncCampaignCharacter = useCallback(async (characterId, data) => {
+    if (!user || !characterId || !data?.campaignId) return;
+    await setDoc(doc(db, 'campaigns', data.campaignId, 'characters', characterId), {
+      ...data, ownerUid: user.uid, campaignId: data.campaignId, characterId, updatedAt: serverTimestamp(),
+    }, { merge: true });
+  }, [user]);
+
   const createCharacter = useCallback(async (seed = {}) => {
     if (!user) throw new Error('Debes iniciar sesión para crear un personaje.');
     const ref = doc(collection(db, 'users', user.uid, 'characters'));
     const write = setDoc(ref, blankCharacter(user, seed));
     await Promise.race([write, new Promise((_, reject) => setTimeout(() => { const error = new Error('La creación está tardando demasiado. Comprueba tu conexión con Firebase e inténtalo de nuevo.'); error.code = 'dm-cortex/write-timeout'; reject(error); }, 15000))]);
+    if (character.campaignId) await syncCampaignCharacter(ref.id, character);
     localStorage.setItem(ACTIVE_KEY, ref.id);
     setActiveCharacterId(ref.id);
     return ref.id;
-  }, [user]);
+  }, [user, syncCampaignCharacter]);
 
   const updateCharacter = useCallback(async (characterId, data) => {
     if (!user || !characterId) return;
+    const current = await getDoc(doc(db, 'users', user.uid, 'characters', characterId));
+    const merged = { ...(current.exists() ? current.data() : {}), ...data };
     await setDoc(doc(db, 'users', user.uid, 'characters', characterId), { ...data, ownerUid: user.uid, updatedAt: serverTimestamp() }, { merge: true });
+    if (merged.campaignId) await syncCampaignCharacter(characterId, merged);
   }, [user]);
 
   const deleteCharacter = useCallback(async characterId => {
     if (!user || !characterId) return;
-    await deleteDoc(doc(db, 'users', user.uid, 'characters', characterId));
+    const userRef = doc(db, 'users', user.uid, 'characters', characterId);
+    const current = await getDoc(userRef);
+    const campaignId = current.exists() ? current.data().campaignId : null;
+    const batch = writeBatch(db);
+    batch.delete(userRef);
+    if (campaignId) batch.delete(doc(db, 'campaigns', campaignId, 'characters', characterId));
+    await batch.commit();
     if (activeCharacterId === characterId) { localStorage.removeItem(ACTIVE_KEY); setActiveCharacterId(null); }
   }, [user, activeCharacterId]);
 
