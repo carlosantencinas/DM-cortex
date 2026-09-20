@@ -42,7 +42,8 @@ export function useCharacters() {
   const createCharacter = useCallback(async (seed = {}) => {
     if (!user) throw new Error('Debes iniciar sesión para crear un personaje.');
     const ref = doc(collection(db, 'users', user.uid, 'characters'));
-    const write = setDoc(ref, blankCharacter(user, seed));
+    const character = blankCharacter(user, seed);
+    const write = setDoc(ref, character);
     await Promise.race([write, new Promise((_, reject) => setTimeout(() => { const error = new Error('La creación está tardando demasiado. Comprueba tu conexión con Firebase e inténtalo de nuevo.'); error.code = 'dm-cortex/write-timeout'; reject(error); }, 15000))]);
     if (character.campaignId) await syncCampaignCharacter(ref.id, character);
     localStorage.setItem(ACTIVE_KEY, ref.id);
@@ -56,7 +57,7 @@ export function useCharacters() {
     const merged = { ...(current.exists() ? current.data() : {}), ...data };
     await setDoc(doc(db, 'users', user.uid, 'characters', characterId), { ...data, ownerUid: user.uid, updatedAt: serverTimestamp() }, { merge: true });
     if (merged.campaignId) await syncCampaignCharacter(characterId, merged);
-  }, [user]);
+  }, [user, syncCampaignCharacter]);
 
   const deleteCharacter = useCallback(async characterId => {
     if (!user || !characterId) return;
