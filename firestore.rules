@@ -52,11 +52,25 @@ service cloud.firestore {
         allow create: if isMember(campaignId)
           && request.resource.data.ownerUid == request.auth.uid
           && request.resource.data.campaignId == campaignId;
-        allow update: if isMember(campaignId)
-          && resource.data.ownerUid == request.auth.uid
-          && request.resource.data.ownerUid == request.auth.uid
-          && request.resource.data.campaignId == campaignId;
+        allow update: if isDm(campaignId)
+          || (isMember(campaignId)
+            && resource.data.ownerUid == request.auth.uid
+            && request.resource.data.ownerUid == request.auth.uid
+            && request.resource.data.campaignId == campaignId);
         allow delete: if isDm(campaignId) || (isMember(campaignId) && resource.data.ownerUid == request.auth.uid);
+      }
+
+      match /encounters/{encounterId} {
+        allow read, create, update, delete: if isDm(campaignId);
+      }
+
+      match /npcs/{npcId} {
+        allow read: if isDm(campaignId) || isMember(campaignId);
+        allow create, update, delete: if isDm(campaignId);
+      }
+
+      match /dmNotes/{noteId} {
+        allow read, create, update, delete: if isDm(campaignId);
       }
     }
   }
